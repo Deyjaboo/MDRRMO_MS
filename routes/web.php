@@ -18,6 +18,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 Route::get('/', function () {
     return Redirect::to('login');
 });
+
 // Route::get('/', function () {
 //     return view('auth.login');
 // })->name('auth.login');
@@ -27,6 +28,18 @@ Route::get('/', function () {
 //         return view('dashboard');
 //     });
 // });
+
+Route::middleware('auth','isAdmin')->group(function () {
+    Route::get('/sampledash', function () {
+        return view('sampledash');
+    });
+    Route::get('/Adduser', function () {
+        return view('Adduser');
+    });
+    Route::get('/Transaction', function () {
+        return view('Transaction');
+    });
+});
  Route::get('/dashboard', function () {
      return view('dashboard');
  })->middleware(['auth','isAdmin'])->name('dashboard');
