@@ -17,6 +17,82 @@
     color: var(--text-color);
     padding: 12px 60px;
 }
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: sans-serif;
+}
+
+body{
+  height: 100vh;
+  background: #e1edf9;
+}
+
+.wrapper{
+  max-width: 650px;
+  width: 100%;
+  margin: 30px auto 0;
+  padding: 10px;
+}
+
+.wrapper .form_container{
+  background: #fff;
+  padding: 30px;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
+.wrapper .form_container .form_item{
+  margin-bottom: 25px;
+}
+
+.form_wrap.fullname,
+.form_wrap.select_box{
+  display: flex;
+}
+
+.form_wrap.fullname .form_item,
+.form_wrap.select_box .form_item{
+  width: 50%;
+}
+
+.form_wrap.fullname .form_item:first-child,
+.form_wrap.select_box .form_item:first-child{
+  margin-right: 4%;
+}
+
+.wrapper .form_container .form_item label{
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form_item input[type="text"],
+.form_item select{
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #dadce0;
+  border-radius: 3px;
+}
+
+.form_item input[type="text"]:focus{
+  border-color: #6271f0;
+}
+
+
+.btn input[type="submit"]{
+  background: #b30000;
+  border: 1px solid #1598d4;
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  cursor: pointer;
+  color: #fff;
+}
 </style>
 <body>
     <nav class="sidebar close">
@@ -89,63 +165,84 @@
         <div class="text">Online Document Request System</div>
         <div class="add">Add User</div>
 
-        <x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            
-        </x-slot>
+        <div class="wrapper">
+ <div class="form_container">
+   <form name="form">
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
+   <div class="form_wrap fullname">
 
-            <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
+<div class="form_item">
+<label>Student ID<span class="text-danger">*</span></label>
+ <input type="text"  class="form-control" placeholder="Student ID">
+</div>
 
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
-            </div>
 
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
+<div class="form_item">
+<label>First Name<span class="text-danger">*</span></label>
+<input type="text"  class="form-control" placeholder="Enter First Name">
+</div>
+</div>
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
-            </div>
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
 
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
-            </div>
+<div class="form_wrap fullname">
 
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
+<div class="form_item">
+<label>Last Name<span class="text-danger">*</span></label>
+  <input type="text"  class="form-control" placeholder="Enter Last Name">
+</div>
 
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
-            </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
+<div class="form_item">
+<label>Middle Name<span class="text-danger">*</span></label>
+<input type="text"  class="form-control" placeholder="Enter Middle Name">
+</div>
+</div>
 
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+
+
+<div class="form_wrap fullname">
+
+<div class="form_item">
+<label>Suffix<span class="text-danger">*</span></label>
+<input type="text"  class="form-control" placeholder="Suffix">
+</div>
+
+
+<div class="form_item">
+<label>Course<span class="text-danger">*</span></label>
+                        <select class="form-control col-12">
+                            <option value="" selected="selected" disabled="disabled">Course</option>
+                            <option value="ACTIVE">BSIT</option>
+                            <option value="INACTIVE">BSEED</option>
+                        </select>      
+</div>
+</div>
+
+
+<div class="form_wrap fullname">
+
+<div class="form_item">
+<label>User Name<span class="text-danger">*</span></label>
+<input type="text"  class="form-control" placeholder="User Name">
+</div>
+
+
+<div class="form_item">
+<label>Password<span class="text-danger">*</span></label>
+<input type="text"  class="form-control" placeholder="Password">
+</div>
+</div>
+
+
+<div class="btn">
+    <input type="submit" value="Submit">
+ </div>
+
+  </form>
+ </div>
+</div>
 
 
     </section>
