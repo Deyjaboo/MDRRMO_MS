@@ -44,10 +44,14 @@ Route::middleware('auth','isAdmin')->group(function () {
      return view('dashboard');
  })->middleware(['auth','isAdmin'])->name('dashboard');
 
-  Route::middleware(['auth'])->group(function(){
+//   Route::middleware(['auth'])->group(function(){
      Route::get('/UserDash', function () {
        return view('UserDash');
     });
- });
+//  });
+
+Route::get('/RequestForm', function () {
+    return view('RequestForm');
+});
 
 require __DIR__.'/auth.php';
