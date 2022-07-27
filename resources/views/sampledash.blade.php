@@ -62,14 +62,21 @@
                             <span class="text nav-text">Feedback</span>
                         </a>
                     </li> -->
+                    <form method="POST" action="{{ route('logout') }}">
+                            @csrf
 
+                      
                     <li class="nav-link">
                    
-                    <a href="#">
+                    <a href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
                         <i class='bx bx-log-out icon' ></i>
                         <span class="text nav-text">Logout</span>
                     </a>
+                     
                 </li>
+                </form>
                </ul>
             </div>
 

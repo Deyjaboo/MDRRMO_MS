@@ -38,9 +38,13 @@ class DatabaseSeeder extends Seeder
             'updated_at' => now()
         ]);
         DB::table('users')->insert([
-            'name' => 'Admin Admin',
+            'stud_id'=> '1',
+            'Fname'=> 'Admin',
+            'Mname'=> 'Admin',
+            'Lname'=> 'Admin',
+            'suffix'=> " ",
+            'course'=> "BSED - Math",
             'email' => 'admin@gmail.com',
-            'email_verified_at' => now(),
             'password' => Hash::make('secret'),
             'role' => 'admin',
             'created_at' => now(),

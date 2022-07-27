@@ -68,7 +68,7 @@ body{
   margin-bottom: 5px;
 }
 
-.form_item input[type="text"],
+.form_item input[type="text"],input[type="password"],
 .form_item select{
   width: 100%;
   padding: 10px;
@@ -77,8 +77,11 @@ body{
   border-radius: 3px;
 }
 
-.form_item input[type="text"]:focus{
+.form_item input[type="text"],[type="password"]:focus{
   border-color: #6271f0;
+}
+.text-danger{
+  color: #FF0000;
 }
 
 
@@ -164,82 +167,86 @@ body{
     <section class="home">
         <div class="text">Online Document Request System</div>
         <div class="add">Add User</div>
-
-        <div class="wrapper">
- <div class="form_container">
-   <form name="form">
-
-
-   <div class="form_wrap fullname">
-
-<div class="form_item">
-<label>Student ID<span class="text-danger">*</span></label>
- <input type="text"  class="form-control" placeholder="Student ID">
-</div>
+             
+        
+        @if(session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+        @endif
 
 
-<div class="form_item">
-<label>First Name<span class="text-danger">*</span></label>
-<input type="text"  class="form-control" placeholder="Enter First Name">
-</div>
-</div>
-
-
+  <div class="wrapper">
+  <div class="form_container">
+  <h3><label>Required<span class="text-danger">*</span></label></h3>
+  <br><br>
+  <!-- <form action="user_reg" method="post" enctype="multipart/form-data"> -->
+  <form method="POST" action="{{ route('register') }}"> 
+            @csrf
 
 <div class="form_wrap fullname">
+  <div class="form_item">
+    <label>Student ID<span class="text-danger">*</span></label>
+    <input type="text" name="stud_id" id="stud_id" class="form-control" placeholder="Student ID">
+  </div>
 
-<div class="form_item">
-<label>Last Name<span class="text-danger">*</span></label>
-  <input type="text"  class="form-control" placeholder="Enter Last Name">
-</div>
-
-
-<div class="form_item">
-<label>Middle Name<span class="text-danger">*</span></label>
-<input type="text"  class="form-control" placeholder="Enter Middle Name">
-</div>
-</div>
-
-
-
-<div class="form_wrap fullname">
-
-<div class="form_item">
-<label>Suffix<span class="text-danger">*</span></label>
-<input type="text"  class="form-control" placeholder="Suffix">
-</div>
-
-
-<div class="form_item">
-<label>Course<span class="text-danger">*</span></label>
-                        <select class="form-control col-12">
-                            <option value="" selected="selected" disabled="disabled">Course</option>
-                            <option value="ACTIVE">BSIT</option>
-                            <option value="INACTIVE">BSEED</option>
-                        </select>      
-</div>
+  <div class="form_item">
+    <label>First Name<span class="text-danger">*</span></label>
+    <input type="text" name="Fname" id="Fname"  class="form-control" placeholder="Enter First Name" required>
+  </div>
 </div>
 
 
 <div class="form_wrap fullname">
+  <div class="form_item">
+    <label>Last Name<span class="text-danger">*</span></label>
+    <input type="text" name="Lname" id="Lname" class="form-control" placeholder="Enter Last Name" required>
+  </div>
+  <div class="form_item">
+    <label>Middle Name<span class="text-danger"></span></label>
+    <input type="text" name="Mname" id="Mname" class="form-control" placeholder="Enter Middle Name">
+  </div>
 
-<div class="form_item">
-<label>User Name<span class="text-danger">*</span></label>
-<input type="text"  class="form-control" placeholder="User Name">
 </div>
 
-
-<div class="form_item">
-<label>Password<span class="text-danger">*</span></label>
-<input type="text"  class="form-control" placeholder="Password">
+<div class="form_wrap fullname">
+    <div class="form_item">
+      <label>Suffix<span class="text-danger"></span></label>
+      <input type="text"  name="suffix" id="suffix" class="form-control" placeholder="Suffix">
+    </div>
+    <div class="form_item">
+      <label>Course<span class="text-danger">*</span></label>
+      <select class="form-control col-12" name="course" id="course" required>
+          <option value="" selected="selected" disabled="disabled">Course</option>
+          <option value="BSIT">BSIT</option>
+          <option value="BSEED">BSEED</option>
+      </select>      
+    </div>
 </div>
-</div>
 
+<!-- <div class="form_wrap fullname">
+  <div class="form_item">
+    <label>User Name<span class="text-danger">*</span></label>
+    <input type="text" name="email" id="email" class="form-control" placeholder="Enter User Name" required>
+  </div>
+  <div class="form_item">
+    <label>Password<span class="text-danger"></span></label>
+    <input type="password" name="password" id="password" class="form-control" placeholder="Enter Password" required>
+  </div>
+</div> -->
 
-<div class="btn">
+  <div class="btn">
     <input type="submit" value="Submit">
- </div>
-
+     <!-- <button type="submit">Submit</button> -->
+  </div>
+  <!-- <script>
+  if(document.getElementById("Mname").value.length == 0){
+    document.getElementById("Mname").value = " ";
+  }
+  if(document.getElementById("suffix").value.length == 0){
+    document.getElementById("suffix").value = " ";
+  }
+</script> -->
   </form>
  </div>
 </div>
