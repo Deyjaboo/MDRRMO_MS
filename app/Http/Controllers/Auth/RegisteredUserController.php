@@ -68,6 +68,6 @@ class RegisteredUserController extends Controller
 
         // Auth::login($user);
 
-        return redirect(RouteServiceProvider::AddU)->with('message','Data updated successfully!');
+        return redirect(RouteServiceProvider::AddU)->with('message','Data added successfully!');
     }
 }
