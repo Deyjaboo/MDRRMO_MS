@@ -211,6 +211,9 @@ header .image-text .profession{
     display: none;
 }
 
+.menu .menu-bar{
+    margin-left: 0px;
+}
 
 .menu-bar .bottom-content .toggle-switch{
     position: absolute;
@@ -284,3 +287,6 @@ header .image-text .profession{
       font-size: 20px;
     }
   }
+
+  
+
