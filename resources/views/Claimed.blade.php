@@ -99,7 +99,7 @@
 
 </section>
     <section class="home">
-        <div class="text">Online Document Request System</div>
+        <div class="text">Claimed Documents</div>
         <!-- <h5 class="add">Dashboard</h5> -->
         <div class="row">
        
@@ -143,8 +143,6 @@
 	</div>
         </div>
       <br>
-  <h5 class="add">Enrolled Student</h5>
-
     <div class="wrapper">
     <div class="form_container">
                         <div class="card-body">

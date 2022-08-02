@@ -12,12 +12,14 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+    
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 Route::get('/', function () {
     return Redirect::to('login');
 });
+
 // Route::get('/', function () {
 //     return view('auth.login');
 // })->name('auth.login');
@@ -27,14 +29,39 @@ Route::get('/', function () {
 //         return view('dashboard');
 //     });
 // });
+
+Route::middleware('auth','isAdmin')->group(function () {
+    Route::get('/sampledash', function () {
+        return view('sampledash');
+    });
+    Route::get('/Adduser', function () {
+        return view('Adduser');
+    });
+    Route::get('/Transaction', function () {
+        return view('Transaction');
+    });
+ 
+});
  Route::get('/dashboard', function () {
      return view('dashboard');
  })->middleware(['auth','isAdmin'])->name('dashboard');
 
-  Route::middleware(['auth'])->group(function(){
+//   Route::middleware(['auth'])->group(function(){
      Route::get('/UserDash', function () {
        return view('UserDash');
     });
- });
+//  });
+
+Route::get('/NewRequest', function () {
+    return view('NewRequest');
+});
+
+Route::get('/Unclaimed', function () {
+    return view('Unclaimed');
+});
+
+Route::get('/Claimed', function () {
+    return view('Claimed');
+});
 
 require __DIR__.'/auth.php';

@@ -33,23 +33,41 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+     
 
+        $request->validate([
+            'Fname' => ['required', 'string', 'max:255'],
+            // 'Mname' => ['string', 'max:255'],
+            'Lname' => ['required', 'string', 'max:255'],
+            // 'email' => ['required', 'string', 'max:255', 'unique:users'],
+            // 'password' => ['required'],
+        ]);
+        if(is_null($request->suffix)){
+            $EXTname = " ";
+        }else{
+            $EXTname = $request->suffix;
+        }
+        if(is_null($request->Mname)){
+            $Mname = " ";
+        }else{
+            $Mname = $request->Mname;
+        }
         $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'role' => 'user',
-            'password' => Hash::make($request->password),
+            'stud_id'=> $request->stud_id,
+            'Fname'=> $request->Fname,
+            'Mname'=> $Mname,
+            'Lname'=> $request->Lname,
+            'suffix'=> $EXTname,
+            'course'=> $request->course,
+            'email'=> $request->stud_id,
+            'password'=> Hash::make($request->stud_id),
+            'role'=> "user",
         ]);
 
         event(new Registered($user));
 
-        Auth::login($user);
+        // Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME1);
+        return redirect(RouteServiceProvider::AddU)->with('message','Data added successfully!');
     }
 }

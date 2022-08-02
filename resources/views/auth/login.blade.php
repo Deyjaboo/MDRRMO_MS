@@ -15,12 +15,16 @@
     <body>
 
 
+
    <center> <img class="logo" src="images/logo.png"></center>
 	<div class="container" id="container">
 		<div class="form-container log-in-container">
+
 		<form method="POST" action="{{ route('login') }}">
         @csrf
-            <p>Already have an account?</p>
+       <p class="well"><b><i>Welcome to Online Document Request system</i></b></p>
+			<x-auth-session-status class="mb-4" :status="session('status')" />
+			<x-auth-validation-errors class="mb-4" :errors="$errors" id="error" />
 				<input id="email" name="email"  type="text" placeholder="Username" required autofocus/>
 				<input id="password" name="password" type="password" placeholder="Password" required/>
 				<button type="submit">Log In</button>
@@ -37,4 +41,34 @@
 		</div>
 	</div>
     </body>
+
+	<style>
+		#error{
+			color: red;
+		}
+
+		.logo{
+    width:190px;
+    height:220px;
+}
+
+@media screen and (max-width: 600px) {
+
+    .logo{
+		width:150px;
+		height:180px;
+	}
+
+	.button{
+		font-size: 8px;
+		padding: 8px 5px;
+	}
+
+	.well{
+		font-size: 12px;
+}
+	}
+
+
+	</style>
 </html>
