@@ -52,8 +52,16 @@ Route::middleware('auth','isAdmin')->group(function () {
     });
 //  });
 
-Route::get('/RequestForm', function () {
-    return view('RequestForm');
+Route::get('/NewRequest', function () {
+    return view('NewRequest');
+});
+
+Route::get('/Unclaimed', function () {
+    return view('Unclaimed');
+});
+
+Route::get('/Claimed', function () {
+    return view('Claimed');
 });
 
 require __DIR__.'/auth.php';

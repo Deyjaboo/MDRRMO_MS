@@ -22,7 +22,7 @@
 
 		<form method="POST" action="{{ route('login') }}">
         @csrf
-       <p><b><i>Welcome To Online Document Request system</i></b></p>
+       <p class="well"><b><i>Welcome to Online Document Request system</i></b></p>
 			<x-auth-session-status class="mb-4" :status="session('status')" />
 			<x-auth-validation-errors class="mb-4" :errors="$errors" id="error" />
 				<input id="email" name="email"  type="text" placeholder="Username" required autofocus/>
@@ -46,5 +46,29 @@
 		#error{
 			color: red;
 		}
+
+		.logo{
+    width:190px;
+    height:220px;
+}
+
+@media screen and (max-width: 600px) {
+
+    .logo{
+		width:150px;
+		height:180px;
+	}
+
+	.button{
+		font-size: 8px;
+		padding: 8px 5px;
+	}
+
+	.well{
+		font-size: 12px;
+}
+	}
+
+
 	</style>
 </html>

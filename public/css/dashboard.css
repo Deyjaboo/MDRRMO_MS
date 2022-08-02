@@ -289,4 +289,49 @@ header .image-text .profession{
   }
 
   
+  /* Float four columns side by side */
+.columns {
+    float: left;
+    width: 28%;
+    margin-left: 50px;
+    /* padding: 0 10px; */
+  }
+  
+  /* Remove extra left and right margins, due to padding */
+  .row {margin: 0 5px;
+  margin-left: 0;
+}
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    
+  }
+  
+  /* Responsive columns */
+  @media screen and (max-width: 600px) {
 
+    .columns {
+      width: 95%;
+      display: block;
+      float: left;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    .dashbord{
+        width:50%;
+        display: inline-block;
+        margin-top: 50px; 
+        margin-left: 5px;
+    }
+
+    .wrapper .form_container{
+        margin-left: 10px;
+    
+      }
+
+  }
+  
+  

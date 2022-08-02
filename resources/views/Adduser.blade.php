@@ -209,7 +209,7 @@ body{
     <input type="text" name="Lname" id="Lname" class="form-control" placeholder="Enter Last Name" required>
   </div>
   <div class="form_item">
-    <label>Middle Name<span class="text-danger"></span></label>
+    <label>MiddleName<span class="text-danger"></span></label>
     <input type="text" name="Mname" id="Mname" class="form-control" placeholder="Enter Middle Name">
   </div>
 

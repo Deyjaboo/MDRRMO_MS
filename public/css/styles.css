@@ -10993,17 +10993,20 @@ body {
 
 .main-section{
 	width:100%;
-	margin:0 auto;
+  max-width: 130%;
+	margin:0 0;
 	text-align: center;
 	padding: 0px 5px;
 }
 .dashbord{
-	width:32%;
+	width:100%;
 	display: inline-block;
 	background-color:#34495E;
 	color:#fff;
 	margin-top: 50px; 
 }
+
+
 .icon-section i{
 	font-size: 30px;
 	padding:10px;
@@ -11042,4 +11045,5 @@ body {
 }
 .dashbord-red .detail-section{
 	background-color:#CF4436;
-}
+} 
+
