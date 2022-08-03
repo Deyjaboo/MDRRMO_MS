@@ -26,8 +26,8 @@
                 </span>
 
                 <div class="text logo-text">
-                    <span class="name">RGCC</span>
-                    <span class="profession">Request System</span>
+                    <span class="name">MDRRMO</span>
+                    <span class="profession">Bulan,Sorsogon</span>
                 </div>
             </div>
 
@@ -51,17 +51,12 @@
                         <a href="Adduser"method="GET">
 
                             <i class='bx bx-user-plus icon'></i>
-                            <span class="text nav-text">Add User</span>
+                            <span class="text nav-text">Add Employee</span>
                         </a>
                     
                     </li>
 
-                    <!-- <li class="nav-link">
-                        <a href="Transaction"method="GET">
-                        <i class='bx bx-transfer-alt icon'></i>
-                            <span class="text nav-text">Transaction</span>
-                        </a>
-                    </li> -->
+                
 
                     <!-- <li class="nav-link">
                         <a href="#">
@@ -83,6 +78,8 @@
                     </a>
                      </li>
                      
+
+                    
                 </form>
                </ul>
             </div>
@@ -99,16 +96,17 @@
 
 </section>
     <section class="home">
-        <div class="text">Online Document Request System</div>
+        <div class="text">MDRRMO Bulan Sorsogon</div>
         <!-- <h5 class="add">Dashboard</h5> -->
+    
         <div class="row">
        
         <div class="main-section">
         <div class="columns">
 		<div class="dashbord">
 			<div class="icon-section">
-				<i class="bx bx-task" aria-hidden="true"></i><br>
-				<small>Claimed Documents</small>
+				<i class="bx bx-group" aria-hidden="true"></i><br>
+				<small>Employee</small>
 				<p>11</p>
 			</div>
 			<div class="detail-section">
@@ -120,7 +118,7 @@
 		<div class="dashbord dashbord-red">
 			<div class="icon-section">
 				<i class="fa fa-file" aria-hidden="true"></i><br>
-				<small>New Request</small>
+				<small>New Reports</small>
 				<p> 26</p>
 			</div>
 			<div class="detail-section">
@@ -131,8 +129,8 @@
         <div class="columns">
 		<div class="dashbord dashbord-orange">
 			<div class="icon-section">
-				<i class="fa fa-bell" aria-hidden="true"></i><br>
-				<small>Unclaimed Process Document</small>
+				<i class="bx bxs-file" aria-hidden="true"></i><br>
+				<small>Unreviewed Reports</small>
 				<p>19 New</p>
 			</div>
 			<div class="detail-section">
@@ -143,7 +141,7 @@
 	</div>
         </div>
       <br>
-  <h5 class="add">Enrolled Student</h5>
+  <!-- <h5 class="add">Enrolled Student</h5> -->
 
     <div class="wrapper">
     <div class="form_container">

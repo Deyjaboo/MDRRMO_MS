@@ -13,32 +13,19 @@
        
     </head>
     <body>
-
-
-
-   <center> <img class="logo" src="images/logo.png"></center>
+	
 	<div class="container" id="container">
-		<div class="form-container log-in-container">
+	<center> <img class="logo" src="images/logo.png"></center>
 
-		<form method="POST" action="{{ route('login') }}">
+	<form method="POST" action="{{ route('login') }}">
         @csrf
-       <p class="well"><b><i>Welcome to Online Document Request system</i></b></p>
+       <p class="well"><b><i>Welcome to MDRRMO</i></b></p>
 			<x-auth-session-status class="mb-4" :status="session('status')" />
 			<x-auth-validation-errors class="mb-4" :errors="$errors" id="error" />
 				<input id="email" name="email"  type="text" placeholder="Username" required autofocus/>
 				<input id="password" name="password" type="password" placeholder="Password" required/>
 				<button type="submit">Log In</button>
 		</form>
-		</div>
-		<div class="overlay-container">
-			<div class="overlay">
-				<div class="overlay-panel overlay-right">
-					<center><h1>R.G. de Castro Colleges</h1></center>
-                    <p>_____________________________</p>
-					<h3>Online Document Request System</h3>
-				</div>
-			</div>
-		</div>
 	</div>
     </body>
 
@@ -48,24 +35,33 @@
 		}
 
 		.logo{
-    width:190px;
-    height:220px;
+			margin-top:20px;
+    width:180px;
+    height:180px;
 }
 
 @media screen and (max-width: 600px) {
 
     .logo{
 		width:150px;
-		height:180px;
+		height:160px;
 	}
 
 	.button{
 		font-size: 8px;
 		padding: 8px 5px;
+		
+
 	}
 
 	.well{
 		font-size: 12px;
+}
+
+.container {
+	
+	min-height: 260px;
+
 }
 	}
 

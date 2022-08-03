@@ -10962,7 +10962,7 @@ body {
 }
 
 .wrapper .form_container{
-  background: #fff;
+  background: #b3d9ff;
   padding: 30px;
   box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.15);
   border-radius: 3px;
@@ -11001,7 +11001,7 @@ body {
 .dashbord{
 	width:100%;
 	display: inline-block;
-	background-color:#34495E;
+	background-color:#0000b3;
 	color:#fff;
 	margin-top: 50px; 
 }
@@ -11014,7 +11014,7 @@ body {
 	border-radius:50%;
 	margin-top:-25px;
 	margin-bottom: 10px;
-	background-color:#34495E;
+	background-color:#0000b3;
 }
 .icon-section p{
 	margin:0px;
@@ -11022,7 +11022,7 @@ body {
 	padding-bottom: 10px;
 }
 .detail-section{
-	background-color: #2F4254;
+	background-color: #0000ff;
 	padding: 5px 0px;
 }
 .dashbord .detail-section:hover{
@@ -11035,15 +11035,15 @@ body {
 	text-decoration: none;
 }
 .dashbord-orange .icon-section,.dashbord-orange .icon-section i{
-	background-color: #F39C12;
+	background-color: #ff3333;
 }
 .dashbord-orange .detail-section{
-	background-color: #DA8C10;
+	background-color:#ff6666;
 }
 .dashbord-red .icon-section,.dashbord-red .icon-section i{
-	background-color:#E74C3C;
+	background-color: #ff944d;
 }
 .dashbord-red .detail-section{
-	background-color:#CF4436;
+	background-color:#ffb380;
 } 
 

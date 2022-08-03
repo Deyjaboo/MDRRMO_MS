@@ -99,7 +99,7 @@
 
 </section>
     <section class="home">
-        <div class="text">Unclaimed Process Document</div>
+        <div class="text">Unreviewed Reports</div>
         <!-- <h5 class="add">Dashboard</h5> -->
         <div class="row">
        
@@ -109,7 +109,7 @@
 			<div class="icon-section">
             
 				<i class="bx bx-task" aria-hidden="true"></i><br>
-				<small>Claimed Documents</small>
+				<small>Employee</small>
 				<p>11</p>
 			</div>
 			<div class="detail-section">
@@ -121,7 +121,7 @@
 		<div class="dashbord dashbord-red">
 			<div class="icon-section">
 				<i class="fa fa-file" aria-hidden="true"></i><br>
-				<small>New Request</small>
+				<small>New Reports</small>
 				<p> 26</p>
 			</div>
 			<div class="detail-section">
@@ -133,7 +133,7 @@
 		<div class="dashbord dashbord-orange">
 			<div class="icon-section">
 				<i class="fa fa-bell" aria-hidden="true"></i><br>
-				<small>Unclaimed Process Document</small>
+				<small>Unreviewed Reports</small>
 				<p>19 New</p>
 			</div>
 			<div class="detail-section">
