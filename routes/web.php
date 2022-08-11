@@ -60,8 +60,8 @@ Route::get('/Unclaimed', function () {
     return view('Unclaimed');
 });
 
-Route::get('/Claimed', function () {
-    return view('Claimed');
+Route::get('/Report', function () {
+    return view('Report');
 });
 
 require __DIR__.'/auth.php';

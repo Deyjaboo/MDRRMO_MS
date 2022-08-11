@@ -12,7 +12,7 @@
     <title> Dashboard</title>
 
     <!-- Custom fonts for this template-->
-
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
    
     <link href="{{('css/styles.css') }}" rel="stylesheet" type="text/css" >
@@ -87,8 +87,17 @@ ul li {
     width: 100%;
     margin-left: 5px;
 }
+.d-none{
+    width: 100%;
+
 }
 
+}
+.d-none{
+    width: 20%;
+height: 40px;
+font-size: 18px;
+}
 </style>
 
 <body id="page-top">
@@ -114,7 +123,7 @@ ul li {
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" >
+                <a class="nav-link collapsed" href="dashboard" >
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
@@ -230,25 +239,17 @@ ul li {
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
-                    <!-- Page Heading
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                    </div> -->
+                        <h1 class="h3 mb-0 text-gray-800">Add Reports / Edit Reports</h1>
+                      
 
-                    <!-- Content Row -->
-                    <div class="row">
-
-                        <!--  Employee -->
                         <div class="col-xl-4 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card  w3-amber shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            Employee</div>
+                                            <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
+                                            Newest Reports</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">12</div>
                                         </div>
                                         <div class="col-auto">
@@ -260,14 +261,14 @@ ul li {
                             </div>
                         </div>
 
-                        <!-- New Reports -->
+
                         <div class="col-xl-4 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card w3-deep-orange shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                            New Reports</div>
+                                            <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
+                                            Previous Reports</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">30</div>
                                         </div>
                                         <div class="col-auto">
@@ -278,33 +279,18 @@ ul li {
                             </div>
                         </div>
 
-                        <!-- Unreviewed Reports -->
-                        <div class="col-xl-4 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Unreviewed Reports
-                                            </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50</div>
-                                                </div>
-                                               
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
+                        <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Add Report</a> -->
+                    </div> 
 
-                       
+
+                    <div class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" a href="">
+                    <i class="fas fa-download fa-sm text-white-50"></i> Add Report</a>
                     </div>
-
-                    <h2>MDRRMO - Bulan</h2>
+                   
+                       
+                              
 
                     <div class="wrapper">
     <div class="form_container">

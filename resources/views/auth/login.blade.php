@@ -12,7 +12,8 @@
 	    <title>Login Form Using HTML And CSS Only</title>
        
     </head>
-    <body>
+
+    <body style="background-image: url('images/cover.jpg');">
 	
 	<div class="container" id="container">
 	<center> <img class="logo" src="images/logo.png"></center>
