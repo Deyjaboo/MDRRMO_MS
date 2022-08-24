@@ -84,12 +84,14 @@ input {
 	max-width: 100%;
 	min-height: 250px;
 	
+	
 }
 
 .form-container {
 	position: absolute;
 	top: 0;
 	height: 100%;
+	opacity: 0.5;
 }
 
 .log-in-container {

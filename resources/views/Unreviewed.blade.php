@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> Dashboard</title>
+    <title>Unreviewed Reports</title>
 
     <!-- Custom fonts for this template-->
 
@@ -294,13 +294,13 @@ ul li {
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
                                                     <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50</div>
+                                                    </a>
                                                 </div>
                                                
                                             </div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                             </a>
                                         </div>
                                     </div>
                                 </div>
@@ -310,7 +310,7 @@ ul li {
                        
                     </div>
 
-                    <h2>MDRRMO - Bulan</h2>
+                    <h2>MDRRMO - Unreviewed Reports</h2>
 
                     <div class="wrapper">
     <div class="form_container">
