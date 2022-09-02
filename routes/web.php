@@ -37,8 +37,8 @@ Route::middleware('auth','isAdmin')->group(function () {
     Route::get('/Adduser', function () {
         return view('Adduser');
     });
-    Route::get('/Transaction', function () {
-        return view('Transaction');
+    Route::get('/Unreviewed', function () {
+        return view('Unreviewed');
     });
  
 });
@@ -52,12 +52,12 @@ Route::middleware('auth','isAdmin')->group(function () {
     });
 //  });
 
-Route::get('/NewRequest', function () {
-    return view('NewRequest');
+Route::get('/Employee', function () {
+    return view('Employee');
 });
 
-Route::get('/Unclaimed', function () {
-    return view('Unclaimed');
+Route::get('/NewReport', function () {
+    return view('NewReport');
 });
 
 Route::get('/Report', function () {

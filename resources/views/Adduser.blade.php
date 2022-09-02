@@ -44,19 +44,19 @@ body{
 }
 
 .wrapper{
-  max-width: 650px;
+  max-width: 550px;
   width: 100%;
   margin: 30px auto 0;
   padding: 10px;
-  border-radius: 50px;
+  /* border-radius: 50px; */
 }
 
 .wrapper .form_container{
   background:  #f2f2f2;
   padding: 30px;
-  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.15);
   border-radius: 3px;
-  border-radius: 50px;
+  /* border-radius: 50px; */
 }
 .wrapper .form_container .form_item{
   margin-bottom: 25px;
@@ -108,7 +108,7 @@ body{
   background-color:  #4d4dff;;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 10px 15px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -116,6 +116,7 @@ body{
   margin: 4px 2px;
   cursor: pointer;
   width: 100%;
+  height: 40px;
   border-radius: 10px;
   }
   .btn input[type="submit"]:hover{
@@ -227,7 +228,7 @@ ul li {
   font-size: 19px;
   margin-bottom: 35px;
   padding: 10px;
-  border-radius: 50px;
+  /* border-radius: 50px; */
   
 }
 

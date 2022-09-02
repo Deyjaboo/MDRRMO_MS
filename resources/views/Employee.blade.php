@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> Dashboard</title>
+    <title> Employee</title>
 
     <!-- Custom fonts for this template-->
 
@@ -114,7 +114,7 @@ ul li {
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" >
+                <a class="nav-link collapsed" href="dashboard" >
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
@@ -266,25 +266,28 @@ ul li {
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
+                                        <a href="NewReport">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                            Active Employee</div>
+                                            New Reports</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">30</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-file fa-2x text-gray-300"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Reviewed Reports -->
+                        <!-- Unreviewed Reports -->
                         <div class="col-xl-4 col-md-6 mb-4">
                             <div class="card border-left-info shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Inactive Employee
+                                        <a href="Unreviewed">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Unreviewed Reports
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
@@ -295,6 +298,7 @@ ul li {
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -304,7 +308,7 @@ ul li {
                        
                     </div>
 
-                    <h2>MDRRMO - Bulan</h2>
+                    <h2>MDRRMO - Employee</h2>
 
                     <div class="wrapper">
     <div class="form_container">
@@ -313,33 +317,67 @@ ul li {
                                     <thead>
                                         <tr>
                                             <th>Name</th>
-                                            <th>Address</th>
-                                            <th>Contact No.</th>
-                                            <th>User Name</th>
-                                            <th>Password</th>
-                                            <th>Status</th>
+                                            <th>Position</th>
+                                            <th>Office</th>
+                                            <th>Age</th>
+                                            <th>Start date</th>
+                                            <th>Salary</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>Name</th>
-                                            <th>Address</th>
-                                            <th>Contact No.</th>
-                                            <th>User Name</th>
-                                            <th>Password</th>
-                                            <th>Status</th>
+                                            <th>Position</th>
+                                            <th>Office</th>
+                                            <th>Age</th>
+                                            <th>Start date</th>
+                                            <th>Salary</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <tr>
-                                            <td>Sakura Yamamoto</td>
-                                            <td>Zone 8, Bulan Sorsogon</td>
-                                            <td>09123456789</td>
-                                            <td>sample@gmail.com</td>
-                                            <td>sample123</td>
-                                            <td>Active</td>
+                                            <td>Tiger Nixon</td>
+                                            <td>System Architect</td>
+                                            <td>Edinburgh</td>
+                                            <td>61</td>
+                                            <td>2011/04/25</td>
+                                            <td>$320,800</td>
                                         </tr>
+                                        <tr>
+                                            <td>Garrett Winters</td>
+                                            <td>Accountant</td>
+                                            <td>Tokyo</td>
+                                            <td>63</td>
+                                            <td>2011/07/25</td>
+                                            <td>$170,750</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ashton Cox</td>
+                                            <td>Junior Technical Author</td>
+                                            <td>San Francisco</td>
+                                            <td>66</td>
+                                            <td>2009/01/12</td>
+                                            <td>$86,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cedric Kelly</td>
+                                            <td>Senior Javascript Developer</td>
+                                            <td>Edinburgh</td>
+                                            <td>22</td>
+                                            <td>2012/03/29</td>
+                                            <td>$433,060</td>
+                                        </tr>
+                                       
 
+                                        <tr>
+                                            <td>Timothy Mooney</td>
+                                            <td>Office Manager</td>
+                                            <td>London</td>
+                                            <td>37</td>
+                                            <td>2008/12/11</td>
+                                            <td>$136,200</td>
+                                        </tr>
+                                       
                                     </tbody>
                                 </table>
 
