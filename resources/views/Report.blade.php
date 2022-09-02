@@ -249,7 +249,7 @@ font-size: 18px;
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
-                                            Newest Reports</div>
+                                            New Reports</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">12</div>
                                         </div>
                                         <div class="col-auto">
@@ -268,7 +268,7 @@ font-size: 18px;
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
-                                            Previous Reports</div>
+                                            Reviewed Reports</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">30</div>
                                         </div>
                                         <div class="col-auto">

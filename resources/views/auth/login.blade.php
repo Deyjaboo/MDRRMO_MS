@@ -20,7 +20,7 @@
 
 	<form method="POST" action="{{ route('login') }}">
         @csrf
-       <p class="well"><b><i>Welcome to MDRRMO</i></b></p>
+       <!-- <p class="well"><b><i>Welcome to MDRRMO</i></b></p> -->
 			<x-auth-session-status class="mb-4" :status="session('status')" />
 			<x-auth-validation-errors class="mb-4" :errors="$errors" id="error" />
 				<input id="email" name="email"  type="text" placeholder="Username" required autofocus/>
