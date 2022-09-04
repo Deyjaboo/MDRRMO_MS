@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Unreviewed Reports</title>
+    <title>Active Employee</title>
 
     <!-- Custom fonts for this template-->
 
@@ -134,7 +134,7 @@ ul li {
             <li class="nav-item">
                 <a class="nav-link collapsed" href="Adduser" >
                     <i class=" fas fa-solid fa-users"></i>
-                    <span>Add Employee</span>
+                    <span>Manage Employee</span>
                     
                 </a>
             </li>
@@ -143,7 +143,7 @@ ul li {
             <li class="nav-item">
                 <a class="nav-link collapsed" href="Report" >
                 <i class="fas fa-clipboard-list"></i>
-                <span>Reports</span>
+                <span>Add Reports</span>
                     
                 </a>
             </li>
@@ -192,7 +192,7 @@ ul li {
                         
                         <div class="topbar-divider d-none d-sm-block"></div>
 
-                        <h4>Report and Monitoring Information System</h4>
+                        <!-- <h4>Report and Monitoring Information System</h4> -->
                         <!-- Nav Item - User Information -->
                         <!-- <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
@@ -250,7 +250,7 @@ ul li {
                                         <div class="col mr-2">
                                         <a href="Employee">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            Employee</div>
+                                            All Reports</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">12</div>
                                         </div>
                                         <div class="col-auto">
@@ -268,7 +268,7 @@ ul li {
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                        <a href="NewReport">
+                                        <a href="ActiveEmployee">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                             New Reports</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">30</div>
@@ -288,19 +288,20 @@ ul li {
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                        <a href="Unreviewed">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Unreviewed Reports
+                                        <a href="InactiveEmployee">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Reviewed Reports
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
                                                     <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50</div>
-                                                    </a>
+                                                  
                                                 </div>
                                                
                                             </div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -310,7 +311,7 @@ ul li {
                        
                     </div>
 
-                    <h2>MDRRMO - Unreviewed Reports</h2>
+                    <h2>MDRRMO -  New Reports</h2>
 
                     <div class="wrapper">
     <div class="form_container">

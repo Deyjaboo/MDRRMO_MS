@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{{('css/styles.css') }}" rel="stylesheet" type="text/css" >
   <title>Report</title>
 </head>
 
@@ -14,16 +15,16 @@
 
 
 .wrapper{
-  max-width: 650px;
-  width: 100%;
-  /* margin-left: 20px; */
-  margin-right: 20px;
-  padding-top: 180px;
+  max-width: 100%;
+  width: 80%;
+  padding-top: 100px;
+  /* padding-top: 180px; */
+  height: 100%;
 }
 
 .wrapper .form_containers{
  height: 400px;
-  background: #fff;
+  background: white;
   padding: 30px;
   box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
@@ -194,18 +195,10 @@ body {
     width: 100%;
     height: 100%;
   }
+  
 }  
 
-.heading{
-  /* background: #015a80; */
-  margin: -20px;
-  text-align: center;
-  color: white;
-  font-size: 19px;
-  margin-bottom: 25px;
-  padding: 10px;
 
-}
 
 .wrapper .form_container .form_item{
   margin-bottom: 25px;
@@ -243,6 +236,27 @@ body {
 .form_item input[type="text"]:focus{
   border-color: #6271f0;
 }
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+
+
+}
+
+/* .heading{
+  background-image: url("images/logo1.jpg");s
+  margin: -30px;
+  text-align: center;
+  color: white;
+  margin-bottom: 35px;
+  padding: 10px;
+height: 150px;
+} */
+
+.nav-link{
+  color:white;
+}
+
 </style>
 <body>
   
@@ -264,33 +278,80 @@ body {
     <div id="navbar-menu" aria-labelledby="navbar-toggle">
       <ul class="navbar-links">
         
-        <li class="navbar-item"><a class="navbar-link" href="/contact">Logout</a></li>
+        <li class="navbar-item"><a class="navbar-link" href="/contact">Request</a></li>
+  
+                    <li class="navbar-item">
+                    <form class="navbar-link" action="{{ route('logout') }}" method="POST">
+                                @csrf
+                    <a  class="nav-link collapsed"  href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">   
+                    <span>Logout</span> 
+                    </a>
+                    </form>
+                    </li>
+      
+
       </ul>
     </div>
   </nav>
   
 </header> 
-
 <center>
+
+
+
 <div class="wrapper">
- <div class="form_containers">
+
+ <div class="form_container">
    <form name="form">
-   <div class="heading">
-    <img src="images/logo1.jpg" style="width:408px;height:150px;">
-  </div>
+    <div class="heading">
+    <!-- <img src="images/logo1.jpg" style="width:908px;height:200px;"> -->
+    <!-- <img src="images/logo1.jpg"> -->
+  </div> 
+  <br>
+  <div  class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="float: right;"  id="button-modal"> 
+                          <i class="fas fa-download fa-sm text-white-50"></i> Add Reports
+                    </div>
 
-  <div class="form_wrap fullname">
+  <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <h5>MDRRMO-Employee</h5>
+                                        <br>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Address</th>
+                                            <th>Contact No.</th>
+                                            <th>User Name</th>
+                                            <th>Password</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Address</th>
+                                            <th>Contact No.</th>
+                                            <th>User Name</th>
+                                            <th>Password</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <td>Sakura Yamamoto</td>
+                                            <td>Zone 8, Bulan Sorsogon</td>
+                                            <td>09123456789</td>
+                                            <td>sample@gmail.com</td>
+                                            <td>sample123</td>
+                                            <td>Active</td>
+                                        </tr>
 
-<div class="form_item">
-    <label>First Name</label>
-    <input type="text"> 
-</div>
+                                    </tbody>
+                                </table>
 
 
-<div class="form_item">
-    <label>Last Name</label>
-    <input type="text">
-</div>
 
 </div>
 
@@ -320,6 +381,12 @@ navbarLinksContainer.addEventListener("click", (e) => e.stopPropagation());
 navbarMenu.addEventListener("click", toggleNavbarVisibility);
 </script>
 
+
+
+<script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>  <!-- gride line table-->
+        <script src="js/datatables-simple-demo.js"></script>
 </body>
 
 </html>

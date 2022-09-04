@@ -21,83 +21,84 @@
     <!-- <link href="css/styles.css" rel="stylesheet"> -->
 </head>
 <style>
-    .new{
-  margin-left: 30px;
+.wrapper{
+  max-width: 950px;
+  width: 100%;
+  margin: 30px auto 0;
+  padding: 10px;
 }
 
-ul li {
-      list-style: none;
-      border-left: 2px solid #3ca0e7;
-      display: inline-block;
-      position: relative;
-      text-decoration: none;
-      text-align: center;
-   
-    }
+.wrapper .form_container{
+  background: #fff;
+  padding: 30px;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
 
-    li a {
-      color: black;
+.wrapper .form_container .form_item{
+  margin-bottom: 25px;
+}
 
-    }
+.form_wrap.fullname,
+.form_wrap.select_box{
+  display: flex;
+}
 
-    li a:hover {
-      color: #3ca0e7;
-    }
+.form_wrap.fullname .form_item,
+.form_wrap.select_box .form_item{
+  width: 50%;
+}
 
-    li:hover {
-      cursor: pointer;
-    }
-   
+.form_wrap.fullname .form_item:first-child,
+.form_wrap.select_box .form_item:first-child{
+  margin-right: 4%;
+}
 
-    ul li ul {
-      visibility: hidden;
-      opacity: 0;
-      position: absolute;
-      padding-left: 0;
-      left: 0;
-      display: none;
-      background: white;
-      margin-left: 30px;
-    }
+.wrapper .form_container .form_item label{
+  display: block;
+  margin-bottom: 5px;
+}
 
-    ul li:hover > ul,
-    ul li ul:hover {
-      visibility: visible;
-      opacity: 1;
-      display: block;
-      min-width: 100px;
-      text-align: left;
-      padding-top: 20px;
-      box-shadow: 0px 3px 5px -1px #ccc;
-    }
+.form_item input[type="text"],input[type="date"],input[type="time"],
+.form_item select{
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #dadce0;
+  border-radius: 3px;
+}
 
-    ul li ul li {
-      clear: both;
-      width: 100%;
-      text-align: left;
-      margin-bottom: 20px;
-      border-style: none;
-    }
+.form_item input[type="text"]:focus{
+  border-color: #6271f0;
+}
+.select_box{
+    width: 90%;
+    padding-left:20px
+}
+.btn button[type="submit"]{
+  background: #1598d4;
+  border: 1px solid #1598d4;
+  padding: 10px;
+  max-width: 100%;
 
-    @media only screen and (max-width: 768px) {
+  width:500px ;
+  font-size: 16px;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  cursor: pointer;
+  color: #fff;
+
+}
+
+@media only screen and (max-width: 768px) {
   /* For mobile phones: */
 
-  .new{
-    font-size: 12px;
-    width: 100%;
-    margin-left: 5px;
+  .btn button[type="submit"]{
+    width: 500px;
 }
-.d-none{
-    width: 100%;
-
 }
 
-}
-.d-none{
-    width: 20%;
-height: 40px;
-font-size: 18px;
-}
+
 </style>
 
 <body id="page-top">
@@ -110,14 +111,6 @@ font-size: 18px;
         <img src="images/logo.png">  
         <br><br>
            
-
-               <!-- Sidebar - Brand -->
-               <!-- <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon">
-                <img src="images/logo.png" width="160px" height="160px">  
-                </div>
-               
-            </a> -->
 
         
 
@@ -143,7 +136,7 @@ font-size: 18px;
             <li class="nav-item">
                 <a class="nav-link collapsed" href="Adduser" >
                     <i class=" fas fa-solid fa-users"></i>
-                    <span>Add Employee</span>
+                    <span>Manage Employee</span>
                     
                 </a>
             </li>
@@ -152,7 +145,7 @@ font-size: 18px;
             <li class="nav-item">
                 <a class="nav-link collapsed" href="Report" >
                 <i class="fas fa-clipboard-list"></i>
-                <span>Reports</span>
+                <span>Add Reports</span>
                     
                 </a>
             </li>
@@ -197,300 +190,194 @@ font-size: 18px;
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-
-                        
                         <div class="topbar-divider d-none d-sm-block"></div>
-
-                        <h4>Report and Monitoring Information System</h4>
-                        <!-- Nav Item - User Information -->
-                        <!-- <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <i class='bx bxs-user-circle'></i>
-                            </a>
-                           
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div>
-                        </li> -->
-
                     </ul>
 
                 </nav>
-                <!-- End of Topbar -->
-
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Add Reports / Edit Reports</h1>
-                      
-
-                        <div class="col-xl-4 col-md-6 mb-4">
-                            <div class="card  w3-amber shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
-                                            New Reports</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">12</div>
-                                        </div>
-                                        <div class="col-auto">
-                                        <i class=" fas fa-solid fa-users fa-2x text-gray-300"></i>
-                                    
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    
 
 
-                        <div class="col-xl-4 col-md-6 mb-4">
-                            <div class="card w3-deep-orange shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
-                                            Reviewed Reports</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">30</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-file fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        
-                        <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Add Report</a> -->
-                    </div> 
+        <div class="wrapper">
+        <h2>MDRRMO - Add Reports</h2>
+        <br>
+        <div class="form_container">
+        <form name="form">
 
 
-                    <div class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" a href="">
-                    <i class="fas fa-download fa-sm text-white-50"></i> Add Report</a>
-                    </div>
-                   
-                       
-                              
 
-                    <div class="wrapper">
-    <div class="form_container">
-                        <div class="card-body">
-                                <table id="datatablesSimple">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ashton Cox</td>
-                                            <td>Junior Technical Author</td>
-                                            <td>San Francisco</td>
-                                            <td>66</td>
-                                            <td>2009/01/12</td>
-                                            <td>$86,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cedric Kelly</td>
-                                            <td>Senior Javascript Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>22</td>
-                                            <td>2012/03/29</td>
-                                            <td>$433,060</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>2008/11/28</td>
-                                            <td>$162,700</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Brielle Williamson</td>
-                                            <td>Integration Specialist</td>
-                                            <td>New York</td>
-                                            <td>61</td>
-                                            <td>2012/12/02</td>
-                                            <td>$372,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Herrod Chandler</td>
-                                            <td>Sales Assistant</td>
-                                            <td>San Francisco</td>
-                                            <td>59</td>
-                                            <td>2012/08/06</td>
-                                            <td>$137,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rhona Davidson</td>
-                                            <td>Integration Specialist</td>
-                                            <td>Tokyo</td>
-                                            <td>55</td>
-                                            <td>2010/10/14</td>
-                                            <td>$327,900</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Colleen Hurst</td>
-                                            <td>Javascript Developer</td>
-                                            <td>San Francisco</td>
-                                            <td>39</td>
-                                            <td>2009/09/15</td>
-                                            <td>$205,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sonya Frost</td>
-                                            <td>Software Engineer</td>
-                                            <td>Edinburgh</td>
-                                            <td>23</td>
-                                            <td>2008/12/13</td>
-                                            <td>$103,600</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jena Gaines</td>
-                                            <td>Office Manager</td>
-                                            <td>London</td>
-                                            <td>30</td>
-                                            <td>2008/12/19</td>
-                                            <td>$90,560</td>
-                                        </tr>
+<div class="form_wrap fullname">
 
-                                        <tr>
-                                            <td>Michael Silva</td>
-                                            <td>Marketing Designer</td>
-                                            <td>London</td>
-                                            <td>66</td>
-                                            <td>2012/11/27</td>
-                                            <td>$198,500</td>
-                                        </tr>
+<div class="form_item">
+    <label>Date</label>
+    <input type="date"> 
+</div>
+
+<div class="form_item">
+    <label>Incident Tracking Number</label>
+    <input type="text">
+</div>
 
 
-                                        <tr>
-                                            <td>Timothy Mooney</td>
-                                            <td>Office Manager</td>
-                                            <td>London</td>
-                                            <td>37</td>
-                                            <td>2008/12/11</td>
-                                            <td>$136,200</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jackson Bradshaw</td>
-                                            <td>Director</td>
-                                            <td>New York</td>
-                                            <td>65</td>
-                                            <td>2008/09/26</td>
-                                            <td>$645,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Olivia Liang</td>
-                                            <td>Support Engineer</td>
-                                            <td>Singapore</td>
-                                            <td>64</td>
-                                            <td>2011/02/03</td>
-                                            <td>$234,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bruno Nash</td>
-                                            <td>Software Engineer</td>
-                                            <td>London</td>
-                                            <td>38</td>
-                                            <td>2011/05/03</td>
-                                            <td>$163,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sakura Yamamoto</td>
-                                            <td>Support Engineer</td>
-                                            <td>Tokyo</td>
-                                            <td>37</td>
-                                            <td>2009/08/19</td>
-                                            <td>$139,575</td>
-                                        </tr>
+</div>
 
-                                    </tbody>
-                                </table>
+        <div class="form_wrap fullname">
 
-    </section>
+<div class="form_item">
+    <label>Person/s amd Victim/s Involved</label>
+    <input type="text"> 
+</div>
+
+<div class="form_item">
+    <label>Address</label>
+    <input type="text">
+</div>
 
 
-       
+</div>
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
+<div class="form_wrap">
+ 
+<div class="form_wrap fullname">
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
+<div class="form_item">
+    <label>Age</label>
+    <input type="text"> 
+</div>
+
+
+<div class="form_item">
+    <label>Sex</label>
+    <input type="text">
+</div>
+
+<div class="form_wrap select_box">
+
+  <div class="form_item">
+    <label>Covid Related</label>
+       <select name="Covid">
+       <option></option>
+	  <option>Yes</option>
+	  <option>No</option>
+	 
+       </select>
+  </div>
+
+<div class="form_item">
+    <label>Persons Involved</label>
+    <input type="text">
+</div>
+
+</div>
+</div>
+</div>
+
+
+        <div class="form_wrap fullname">
+
+        <div class="form_item">
+            <label>Vehicle Driver</label>
+            <input type="text"> 
         </div>
-    </div>
+
+        <div class="form_item">
+            <label>Vehicle Used</label>
+            <input type="text">
+        </div>
+
+
+        </div>
+
+        <div class="form_wrap fullname">
+
+        <div class="form_item">
+            <label>Devices Used</label>
+            <input type="text"> 
+        </div>
+
+        <div class="form_item">
+            <label>Responder Team</label>
+            <input type="text">
+        </div>
+        </div>
+
+
+        <div class="form_wrap">
+        <div class="form_item">
+            <label>Name of Responders</label>
+            <input type="text">
+        </div>
+        </div>
+
+        <div class="form_wrap fullname">
+
+        <div class="form_item">
+            <label>Photo Taken By:</label>
+            <input type="text"> 
+        </div>
+
+        <div class="form_item">
+            <label>Date Recorded</label>
+            <input type="date">
+        </div>
+        </div>
+
+            <h1>Incident Details</h1>
+<br>
+            <div class="form_wrap fullname">
+
+            <div class="form_item">
+                <label>Type of Incident</label>
+                <input type="text"> 
+            </div>
+
+            <div class="form_item">
+                <label>Informant Contact Details</label>
+                <input type="text">
+            </div>
+            </div>
+
+            <div class="form_wrap fullname">
+
+            <div class="form_item">
+                <label>Incident Location</label>
+                <input type="text"> 
+            </div>
+
+            <div class="form_item">
+                <label>Time Incident Occured</label>
+                <input type="time">
+            </div>
+            </div>
+
+            <div class="form_wrap fullname">
+
+            <div class="form_item">
+                <label>Time Incident Reported</label>
+                <input type="time"> 
+            </div>
+
+            <div class="form_item">
+                <label>Time Response Terminated</label>
+                <input type="time">
+            </div>
+            </div>
+
+
+            <div class="form_wrap ">
+            <div class="form_item">
+                <label>Incident Description/ Action Taken</label>
+                <input type="text" style=" height: 100px;" >
+            </div>
+            </div>
 
     
+            <div class="btn">
+          <button type="submit" onclick="alert('Data Successfull Submit!')">Submit!</button>
+        </div>
+
+        </form>
+        </div>
+        </div>
 
 
 

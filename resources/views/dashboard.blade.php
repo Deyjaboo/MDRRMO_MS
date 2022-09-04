@@ -14,7 +14,7 @@
     <!-- Custom fonts for this template-->
 
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <link href="{{('css/styles.css') }}" rel="stylesheet" type="text/css" >
     <!-- Custom styles for this template-->
     <link href="css/style.css" rel="stylesheet">
@@ -134,7 +134,7 @@ ul li {
             <li class="nav-item">
                 <a class="nav-link collapsed" href="Adduser" >
                     <i class=" fas fa-solid fa-users"></i>
-                    <span>Add Employee</span>
+                    <span>Manage Employee</span>
                     
                 </a>
             </li>
@@ -143,7 +143,7 @@ ul li {
             <li class="nav-item">
                 <a class="nav-link collapsed" href="Report" >
                 <i class="fas fa-clipboard-list"></i>
-                <span>Reports</span>
+                <span>Add Reports</span>
                     
                 </a>
             </li>
@@ -192,7 +192,7 @@ ul li {
                         
                         <div class="topbar-divider d-none d-sm-block"></div>
 
-                        <h4>Report and Monitoring Information System</h4>
+                        <!-- <h4>Report and Monitoring Information System</h4> -->
                         <!-- Nav Item - User Information -->
                         <!-- <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
@@ -247,13 +247,14 @@ ul li {
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
+                                            <a href="Employee">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            Employee</div>
+                                            All Reports</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">12</div>
                                         </div>
                                         <div class="col-auto">
                                         <i class=" fas fa-solid fa-users fa-2x text-gray-300"></i>
-                                    
+                                        </a>
                                         </div>
                                     </div>
                                 </div>
@@ -266,12 +267,14 @@ ul li {
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
+                                            <a href="ActiveEmployee">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                            Active Employee</div>
+                                            New Reports</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">30</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-file fa-2x text-gray-300"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -284,7 +287,8 @@ ul li {
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Inactive Employee
+                                            <a href="InactiveEmployee">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Reviewed Reports
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
@@ -295,22 +299,31 @@ ul li {
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                           </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                       
                     </div>
+                    <!-- <div  class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="float: right;"  id="button-modal"> 
+                          <i class="fas fa-download fa-sm text-white-50"></i> Add Employee
+                    </div> -->
 
+        
+                    
                     <h2>MDRRMO - Bulan</h2>
+
+                    <canvas id="myChart" style="width:100%;max-width:825px"></canvas>
 
                     <div class="wrapper">
     <div class="form_container">
                         <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
+                                        <h5>MDRRMO-Employee</h5>
+                                        <br>
                                         <tr>
                                             <th>Name</th>
                                             <th>Address</th>
@@ -372,7 +385,24 @@ ul li {
             </div>
         </div>
     </div>
-
+<script>
+    var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ["Medical Emergency", "Covid-19", "Dengue", "Civil Disturbance", "Vehicular/Pedestrian Accident",],
+    datasets: [{
+      label: 'Number of Occurence',
+      data: [7, 2, 1, 1, 18],
+      backgroundColor: "rgb(0, 0, 153)"
+    }, {
+      label: 'Persons Involved',
+      data: [8, 4, 2, 1, 34],
+      backgroundColor: "rgb(77, 77, 255)"
+    }]
+  }
+});
+</script>
     
 
 

@@ -31,24 +31,30 @@ Route::get('/', function () {
 // });
 
 Route::middleware('auth','isAdmin')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    });
     Route::get('/sampledash', function () {
         return view('sampledash');
     });
     Route::get('/Adduser', function () {
         return view('Adduser');
     });
-    Route::get('/Unreviewed', function () {
-        return view('Unreviewed');
+    Route::get('/InactiveEmployee', function () {
+        return view('InactiveEmployee');
     });
  
 });
- Route::get('/dashboard', function () {
-     return view('dashboard');
- })->middleware(['auth','isAdmin'])->name('dashboard');
+//  Route::get('/dashboard', function () {
+//      return view('dashboard');
+//  })->middleware(['auth','isAdmin'])->name('dashboard');
 
 //   Route::middleware(['auth'])->group(function(){
-     Route::get('/UserDash', function () {
-       return view('UserDash');
+     
+    Route::middleware('auth')->group(function () {
+        Route::get('/UserDash', function () {
+            return view('UserDash');
+         });
     });
 //  });
 
@@ -56,8 +62,8 @@ Route::get('/Employee', function () {
     return view('Employee');
 });
 
-Route::get('/NewReport', function () {
-    return view('NewReport');
+Route::get('/ActiveEmployee', function () {
+    return view('ActiveEmployee');
 });
 
 Route::get('/Report', function () {
