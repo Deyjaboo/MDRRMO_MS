@@ -80,14 +80,12 @@
   border: 1px solid #1598d4;
   padding: 10px;
   max-width: 100%;
-
   width:500px ;
   font-size: 16px;
   letter-spacing: 1px;
   border-radius: 3px;
   cursor: pointer;
   color: #fff;
-
 }
 
 @media only screen and (max-width: 768px) {
@@ -371,11 +369,12 @@
             </div>
 
     
-            <div class="btn">
+            <!-- <div class="btn">
           <button type="submit" onclick="alert('Data Successfull Submit!')">Submit!</button>
-        </div>
-
+        </div> -->
+       <button type="button" class="btn btn-primary">Submit</button>
         </form>
+        
         </div>
         </div>
 

@@ -33,37 +33,20 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-     
-
-        $request->validate([
-            'Fname' => ['required', 'string', 'max:255'],
+        // $request->validate([
+        //     'Fname' => ['required', 'string', 'max:255'],
             // 'Mname' => ['string', 'max:255'],
-            'Lname' => ['required', 'string', 'max:255'],
-            // 'email' => ['required', 'string', 'max:255', 'unique:users'],
-            // 'password' => ['required'],
-        ]);
-        if(is_null($request->suffix)){
-            $EXTname = " ";
-        }else{
-            $EXTname = $request->suffix;
-        }
-        if(is_null($request->Mname)){
-            $Mname = " ";
-        }else{
-            $Mname = $request->Mname;
-        }
+        //     'Lname' => ['required', 'string', 'max:255'],
+        // ]);
         $user = User::create([
-            'stud_id'=> $request->stud_id,
-            'Fname'=> $request->Fname,
-            'Mname'=> $Mname,
-            'Lname'=> $request->Lname,
-            'suffix'=> $EXTname,
-            'course'=> $request->course,
-            'email'=> $request->stud_id,
-            'password'=> Hash::make($request->stud_id),
+            'name'=> $request->name,
+            'address'=> $request->address,
+            'contact_num'=> $request->contact_num,
+            'email'=> $request->email,
+            'password'=> Hash::make($request->password),
+            'Status'=> "Active",
             'role'=> "user",
         ]);
-
         event(new Registered($user));
 
         // Auth::login($user);

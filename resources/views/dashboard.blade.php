@@ -12,7 +12,13 @@
     <title> Dashboard</title>
 
     <!-- Custom fonts for this template-->
-
+ <!-- Button-->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,400,500,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+ <!-- Button-->
+   
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <link href="{{('css/styles.css') }}" rel="stylesheet" type="text/css" >
@@ -247,7 +253,7 @@ ul li {
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <a href="Employee">
+                                            <a href="dashboard">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                             All Reports</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">12</div>
@@ -267,7 +273,7 @@ ul li {
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <a href="ActiveEmployee">
+                                            <a href="#">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                             New Reports</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">30</div>
@@ -287,7 +293,7 @@ ul li {
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <a href="InactiveEmployee">
+                                            <a href="#">
                                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Reviewed Reports
                                             </div>
                                             <div class="row no-gutters align-items-center">
@@ -322,35 +328,95 @@ ul li {
                         <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
-                                        <h5>MDRRMO-Employee</h5>
+                                        <h5>MDRRMO-Reports</h5>
                                         <br>
                                         <tr>
-                                            <th>Name</th>
+                                            <th>Incident Track No.</th>
+                                            <th>Date</th>
+                                            <th>Covid Related</th>
+                                            <th>Type of Incident</th>
+                                            <th>Informant/Contact</th>
+                                            <th>Incident Location</th>
+                                            <th>Time Incident Occured</th>
+                                            <th>Time Incident Reported</th>
+                                            <th>Time Response initiated</th>
+                                            <th>Time Response Terminated</th>
+                                            <th>Incident Description</th>
+                                            <th>No. Persons Involved</th>
+                                            <th>Name of Person/s Involved</th>
+                                            <th>Age</th>
+                                            <th>Sex</th>
                                             <th>Address</th>
-                                            <th>Contact No.</th>
-                                            <th>User Name</th>
-                                            <th>Password</th>
-                                            <th>Status</th>
+                                            <th>Vehicle Used</th>
+                                            <th>Name of Driver</th>
+                                            <th>Team Responder</th>
+                                            <th>Name of Responders</th>
+                                            <th>Devices Used</th>
+                                            <th>Photos Taken By</th>
+                                            <th>Report Prepared by</th>
+                                            <th>Date Recorded</th>
+                                            <th>Edit/Delete</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Name</th>
+                                            <th>Incident Track No.</th>
+                                            <th>Date</th>
+                                            <th>Covid Related</th>
+                                            <th>Type of Incident</th>
+                                            <th>Informant/Contact</th>
+                                            <th>Incident Location</th>
+                                            <th>Time Incident Occured</th>
+                                            <th>Time Incident Reported</th>
+                                            <th>Time Response initiated</th>
+                                            <th>Time Response Terminated</th>
+                                            <th>Incident Description</th>
+                                            <th>No. Persons Involved</th>
+                                            <th>Name of Person/s Involved</th>
+                                            <th>Age</th>
+                                            <th>Sex</th>
                                             <th>Address</th>
-                                            <th>Contact No.</th>
-                                            <th>User Name</th>
-                                            <th>Password</th>
-                                            <th>Status</th>
+                                            <th>Vehicle Used</th>
+                                            <th>Name of Driver</th>
+                                            <th>Team Responder</th>
+                                            <th>Name of Responders</th>
+                                            <th>Devices Used</th>
+                                            <th>Photos Taken By</th>
+                                            <th>Report Prepared by</th>
+                                            <th>Date Recorded</th>
+                                            <th>Edit/Delete</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <tr>
-                                            <td>Sakura Yamamoto</td>
-                                            <td>Zone 8, Bulan Sorsogon</td>
-                                            <td>09123456789</td>
-                                            <td>sample@gmail.com</td>
-                                            <td>sample123</td>
-                                            <td>Active</td>
+                                            <td>R-2022-001</td>
+                                            <td>January 2, 2022</td>
+                                            <td>No</td>
+                                            <td>Medical Emergency</td>
+                                            <td>427 Base (BFP)</td>
+                                            <td>Calomagon P.A. Base</td>
+                                            <td>3:55</td>
+                                            <td>4:00</td>
+                                            <td>4:30</td>
+                                            <td>4:39</td>
+                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, fugiat, accusamus tempora veritatis quas provident nam sint quasi eos aut dolorum. Sunt molestiae sed asperiores aut reprehenderit porro vitae? Sapiente?</td>
+                                            <td>1</td>
+                                            <td>Ligaya Gajo</td>
+                                            <td>29</td>
+                                            <td>Female</td>
+                                            <td>Calomagon, P.A. Base</td>
+                                            <td>Commuter Ambulance</td>
+                                            <td>Harry Gliponeo</td>
+                                            <td>Team Charlie</td>
+                                            <td>Micco Gimena, Harry Gliponeo, Rey Bernales</td>
+                                            <td>Stretcher, Gloves-6,Facemask-4, Go bag</td>
+                                            <td></td>
+                                            <td>Micco M. Gimena</td>
+                                            <td>January 22, 2022</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary"><i class='bx bx-edit-alt'></i></button>
+                                                <button type="button" class="btn btn-danger"><i class='bx bx-trash'></i></button>
+                                            </td>
                                         </tr>
 
                                     </tbody>

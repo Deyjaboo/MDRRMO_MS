@@ -10,6 +10,12 @@
     <meta name="author" content="">
 
     <title>Manage Employee</title>
+<!-- Modal-->
+   
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <!-- Custom fonts for this template-->
 
@@ -129,7 +135,7 @@
                         <a href="Employee">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                         All Employee</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">12</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$num}}</div>
                     </div>
                     <div class="col-auto">
                     <i class=" fas fa-solid fa-users fa-2x text-gray-300"></i>
@@ -149,7 +155,7 @@
                         <a href="ActiveEmployee">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                         Active Employee</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">30</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$active}}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-file fa-2x text-gray-300"></i>
@@ -171,7 +177,7 @@
                         </div>
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50</div>
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$inactive}}</div>
                             </div>
                            
                         </div>
@@ -187,13 +193,17 @@
 
 </div>
 
-<div  class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="float: right;"  id="button-modal"> 
-                          <i class="fas fa-download fa-sm text-white-50"></i> Add Employee
-                    </div>
+<div  class="d-none d-sm-inline-block  shadow-sm" style="float: right;"  id="button-modal"> 
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fas fa-download fa-sm text-white-50"></i> Add Employee</button>       
+</div>
 
 
 <h2>Manage Employee</h2>
-
+@if(session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+        @endif
 <div class="wrapper">
 <div class="form_container">
     <div class="card-body">
@@ -206,7 +216,6 @@
                         <th>Address</th>
                         <th>Contact No.</th>
                         <th>User Name</th>
-                        <th>Password</th>
                         <th>Status</th>
                     </tr>
                 </thead>
@@ -216,27 +225,71 @@
                         <th>Address</th>
                         <th>Contact No.</th>
                         <th>User Name</th>
-                        <th>Password</th>
                         <th>Status</th>
                     </tr>
                 </tfoot>
                 <tbody>
+                @foreach($data as $data)
                     <tr>
-                        <td>Sakura Yamamoto</td>
-                        <td>Zone 8, Bulan Sorsogon</td>
-                        <td>09123456789</td>
-                        <td>sample@gmail.com</td>
-                        <td>sample123</td>
-                        <td>Active</td>
+                        <td>{{$data->name}}</td>
+                        <td>{{$data->address}}</td>
+                        <td>{{$data->contact_num}}</td>
+                        <td>{{$data->email}}</td>
+                        <td>{{$data->Status}}</td>
                     </tr>
-
+                @endforeach
                 </tbody>
             </table>
 
 </section>
-      
 
-    
+<!-- Large modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Employee</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <form method="POST" action="{{ route('register') }}"> 
+        @csrf
+  <div class="modal-body">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Name</label>
+      <input type="text" class="form-control" name="name" id="name" placeholder="" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Contact Number</label>
+      <input type="text" class="form-control"  name="contact_num" id="contact_num" placeholder="" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">Address</label>
+    <input type="text" class="form-control" name="address" id="address" placeholder="" required>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Email</label>
+      <input type="text" class="form-control" name="email" id="email" placeholder="" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Password</label>
+      <input type="password" class="form-control" name="password" id="password" placeholder="" required>
+    </div>
+  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </form>  
+    </div>
+  </div>
+</div>
+<!-- Large modal -->
 
 
 

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,9 +38,9 @@ Route::middleware('auth','isAdmin')->group(function () {
     Route::get('/sampledash', function () {
         return view('sampledash');
     });
-    Route::get('/Adduser', function () {
-        return view('Adduser');
-    });
+
+    Route::get('Adduser',[UserController::class ,'user_show']);
+   
     Route::get('/InactiveEmployee', function () {
         return view('InactiveEmployee');
     });
