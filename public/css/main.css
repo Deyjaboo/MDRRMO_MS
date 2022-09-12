@@ -53,6 +53,7 @@ button {
 	transition: transform 80ms ease-in;
 	margin-bottom: 50px;
 	margin-top:20px;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 form {

@@ -273,7 +273,7 @@ ul li {
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <a href="#">
+                                            <a href="ActiveEmployee">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                             New Reports</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">30</div>
@@ -293,7 +293,7 @@ ul li {
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <a href="#">
+                                            <a href="InactiveEmploye">
                                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Reviewed Reports
                                             </div>
                                             <div class="row no-gutters align-items-center">
@@ -326,7 +326,7 @@ ul li {
                     <div class="wrapper">
     <div class="form_container">
                         <div class="card-body">
-                                <table id="datatablesSimple">
+                                <table id="datatablesSimple" style="width:300%">
                                     <thead>
                                         <h5>MDRRMO-Reports</h5>
                                         <br>

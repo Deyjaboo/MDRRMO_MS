@@ -71,4 +71,7 @@ Route::get('/Report', function () {
     return view('Report');
 });
 
+Route::get('/addreport', function () {
+    return view('addreport');
+});
 require __DIR__.'/auth.php';

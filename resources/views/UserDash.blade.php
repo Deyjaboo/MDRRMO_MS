@@ -12,7 +12,7 @@
  <!-- Button-->
 
   <link href="{{('css/styles.css') }}" rel="stylesheet" type="text/css" >
-  <title>Report</title>
+  <title>User</title>
 </head>
 
 <style>
@@ -24,7 +24,7 @@
 .wrapper{
   max-width: 100%;
   width: 80%;
-  padding-top: 100px;
+
   /* padding-top: 180px; */
   height: 100%;
 }
@@ -61,22 +61,27 @@ body {
 }
 #navbar {
   --navbar-height: 64px;
-  position: fixed;
+  position: block;
   height: var(--navbar-height);
-  background-color: #0000b3;
+  background-color: #3333ff;
   left: 0;
   right: 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  
 }
 .navbar-container {
   display: flex;
   justify-content: space-between;
   height: 100%;
   align-items: center;
+ 
 }
 .navbar-item {
   margin: 0.4em;
   width: 100%;
+  font-size: 20px;
+  color:white;
+  
 }
 
 .home-link,
@@ -84,7 +89,7 @@ body {
   color: var(--navbar-text-color);
   text-decoration: none;
   display: flex;
-  font-weight: 400;
+  font-weight: 100;
   align-items: center;
 }
 
@@ -94,22 +99,25 @@ body {
 
 .navbar-link {
   justify-content: center;
-  width: 100%;
+  width: 120%;
   padding: 0.4em 0.8em;
   border-radius: 5px;
+  font-size: 18px;
+  color:white;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .navbar-link:is(:focus, :hover) {
   color: var(--navbar-text-color-focus);
   background-color:#0000ff;
+  
 }
 .navbar-logo {
-  background-color: var(--navbar-text-color-focus);
-
   border-radius: 50%;
-  width: 30px;
+  width: 10px;
   height: 30px;
   margin-right: 0.5em;
+ color:white;
 }
 #navbar-toggle {
   cursor: pointer;
@@ -163,7 +171,8 @@ body {
 .navbar-links {
   list-style: none;
   position: absolute;
-  background-color: #0000b3;
+  /* background-color: #0000b3; */
+  background-color: #3333ff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -247,6 +256,14 @@ body {
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
 
+  .navbar-link {
+  justify-content: center;
+  width: 100%;
+  padding: 0.4em 0.8em;
+  border-radius: 5px;
+  font-size: 18px;
+  color:white;
+}
 
 }
 
@@ -264,6 +281,8 @@ height: 150px;
   color:white;
 }
 
+
+
 </style>
 <body>
   
@@ -272,10 +291,10 @@ height: 150px;
    -->
  <header id="navbar">
   <nav class="navbar-container container">
-    <a href="/"  class="home-link">
-      
-      <div class="navbar-logo"></div>
-      MDRRMO-Bulan
+    <a href="" img src="images/logo.png"  class="home-link">
+<img src="images/logo.png" width="70px" height="70px">
+      <div  class="navbar-item">MDRRMO-Bulan</div>
+  
     </a>
     <button type="button" id="navbar-toggle" aria-controls="navbar-menu" aria-label="Toggle menu" aria-expanded="false">
       <span class="icon-bar"></span>
@@ -285,7 +304,7 @@ height: 150px;
     <div id="navbar-menu" aria-labelledby="navbar-toggle">
       <ul class="navbar-links">
         
-        <li class="navbar-item"><a class="navbar-link" href="#">Reports</a></li>
+        <li class="navbar-item"><a class="navbar-link" href="#"> Add Report</a></li>
   
                     <li class="navbar-item">
                     <form class="navbar-link" action="{{ route('logout') }}" method="POST">
@@ -306,7 +325,9 @@ height: 150px;
 </header> 
 <center>
 
-
+   <!-- <img src="images/logo1.jpg" style="width:908px;height:200px;"> -->
+  
+ 
 
 <div class="wrapper">
 
@@ -322,7 +343,7 @@ height: 150px;
                     </div> -->
 
   <div class="card-body">
-  <table id="datatablesSimple">
+  <table id="datatablesSimple" style="width:300%">
                                     <thead>
                                         <h5>Report History</h5>
                                         <br>
@@ -337,7 +358,7 @@ height: 150px;
                                             <th>Time Incident Reported</th>
                                             <th>Time Response initiated</th>
                                             <th>Time Response Terminated</th>
-                                            <th>Incident Description</th>
+                                            <th >Incident Description</th>
                                             <th>No. Persons Involved</th>
                                             <th>Name of Person/s Involved</th>
                                             <th>Age</th>
@@ -395,7 +416,7 @@ height: 150px;
                                             <td>4:00</td>
                                             <td>4:30</td>
                                             <td>4:39</td>
-                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore dolorem ipsum aspernatur consequuntur iure, repellat sint fuga quisquam vero reprehenderit id, quod labore quae dicta assumenda corporis totam perferendis! Amet?</td>
                                             <td>1</td>
                                             <td>Ligaya Gajo</td>
                                             <td>29</td>
