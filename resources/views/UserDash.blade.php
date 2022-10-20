@@ -304,7 +304,7 @@ height: 150px;
     <div id="navbar-menu" aria-labelledby="navbar-toggle">
       <ul class="navbar-links">
         
-        <li class="navbar-item"><a class="navbar-link" href="#"> Add Report</a></li>
+        <li class="navbar-item"><a class="navbar-link" href="addreport"> Add Report</a></li>
   
                     <li class="navbar-item">
                     <form class="navbar-link" action="{{ route('logout') }}" method="POST">

@@ -9,18 +9,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> Dashboard</title>
+    <title>Inactive Employee</title>
 
     <!-- Custom fonts for this template-->
- <!-- Button-->
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,400,500,600" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
- <!-- Button-->
-   
+
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+   
     <link href="{{('css/styles.css') }}" rel="stylesheet" type="text/css" >
     <!-- Custom styles for this template-->
     <link href="css/style.css" rel="stylesheet">
@@ -120,7 +114,7 @@ ul li {
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" >
+                <a class="nav-link collapsed" href="dashboard" >
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
@@ -319,104 +313,171 @@ ul li {
 
         
                     
-                    <h2>MDRRMO - Bulan</h2>
-
-                    <canvas id="myChart" style="width:100%;max-width:825px"></canvas>
+                    <h2>MDRRMO - Reviewed Report</h2>
 
                     <div class="wrapper">
     <div class="form_container">
                         <div class="card-body">
-                                <table id="datatablesSimple" style="width:300%">
+                                <table id="datatablesSimple">
                                     <thead>
-                                        <h5>MDRRMO-Reports</h5>
-                                        <br>
                                         <tr>
-                                            <th>Incident Track No.</th>
-                                            <th>Date</th>
-                                            <th>Covid Related</th>
-                                            <th>Type of Incident</th>
-                                            <th>Informant/Contact</th>
-                                            <th>Incident Location</th>
-                                            <th>Time Incident Occured</th>
-                                            <th>Time Incident Reported</th>
-                                            <th>Time Response initiated</th>
-                                            <th>Time Response Terminated</th>
-                                            <th>Incident Description</th>
-                                            <th>No. Persons Involved</th>
-                                            <th>Name of Person/s Involved</th>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Office</th>
                                             <th>Age</th>
-                                            <th>Sex</th>
-                                            <th>Address</th>
-                                            <th>Vehicle Used</th>
-                                            <th>Name of Driver</th>
-                                            <th>Team Responder</th>
-                                            <th>Name of Responders</th>
-                                            <th>Devices Used</th>
-                                            <th>Photos Taken By</th>
-                                            <th>Report Prepared by</th>
-                                            <th>Date Recorded</th>
-                                            <th>Edit/Delete</th>
+                                            <th>Start date</th>
+                                            <th>Salary</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Incident Track No.</th>
-                                            <th>Date</th>
-                                            <th>Covid Related</th>
-                                            <th>Type of Incident</th>
-                                            <th>Informant/Contact</th>
-                                            <th>Incident Location</th>
-                                            <th>Time Incident Occured</th>
-                                            <th>Time Incident Reported</th>
-                                            <th>Time Response initiated</th>
-                                            <th>Time Response Terminated</th>
-                                            <th>Incident Description</th>
-                                            <th>No. Persons Involved</th>
-                                            <th>Name of Person/s Involved</th>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Office</th>
                                             <th>Age</th>
-                                            <th>Sex</th>
-                                            <th>Address</th>
-                                            <th>Vehicle Used</th>
-                                            <th>Name of Driver</th>
-                                            <th>Team Responder</th>
-                                            <th>Name of Responders</th>
-                                            <th>Devices Used</th>
-                                            <th>Photos Taken By</th>
-                                            <th>Report Prepared by</th>
-                                            <th>Date Recorded</th>
-                                            <th>Edit/Delete</th>
+                                            <th>Start date</th>
+                                            <th>Salary</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <tr>
-                                            <td>R-2022-001</td>
-                                            <td>January 2, 2022</td>
-                                            <td>No</td>
-                                            <td>Medical Emergency</td>
-                                            <td>427 Base (BFP)</td>
-                                            <td>Calomagon P.A. Base</td>
-                                            <td>3:55</td>
-                                            <td>4:00</td>
-                                            <td>4:30</td>
-                                            <td>4:39</td>
-                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, fugiat, accusamus tempora veritatis quas provident nam sint quasi eos aut dolorum. Sunt molestiae sed asperiores aut reprehenderit porro vitae? Sapiente?</td>
-                                            <td>1</td>
-                                            <td>Ligaya Gajo</td>
-                                            <td>29</td>
-                                            <td>Female</td>
-                                            <td>Calomagon, P.A. Base</td>
-                                            <td>Commuter Ambulance</td>
-                                            <td>Harry Gliponeo</td>
-                                            <td>Team Charlie</td>
-                                            <td>Micco Gimena, Harry Gliponeo, Rey Bernales</td>
-                                            <td>Stretcher, Gloves-6,Facemask-4, Go bag</td>
-                                            <td></td>
-                                            <td>Micco M. Gimena</td>
-                                            <td>January 22, 2022</td>
-                                            <td>
-                                                <button type="button" class="btn btn-primary"><i class='bx bx-edit-alt'></i></button>
-                                                <button type="button" class="btn btn-danger"><i class='bx bx-trash'></i></button>
-                                            </td>
+                                            <td>Tiger Nixon</td>
+                                            <td>System Architect</td>
+                                            <td>Edinburgh</td>
+                                            <td>61</td>
+                                            <td>2011/04/25</td>
+                                            <td>$320,800</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Garrett Winters</td>
+                                            <td>Accountant</td>
+                                            <td>Tokyo</td>
+                                            <td>63</td>
+                                            <td>2011/07/25</td>
+                                            <td>$170,750</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ashton Cox</td>
+                                            <td>Junior Technical Author</td>
+                                            <td>San Francisco</td>
+                                            <td>66</td>
+                                            <td>2009/01/12</td>
+                                            <td>$86,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cedric Kelly</td>
+                                            <td>Senior Javascript Developer</td>
+                                            <td>Edinburgh</td>
+                                            <td>22</td>
+                                            <td>2012/03/29</td>
+                                            <td>$433,060</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Airi Satou</td>
+                                            <td>Accountant</td>
+                                            <td>Tokyo</td>
+                                            <td>33</td>
+                                            <td>2008/11/28</td>
+                                            <td>$162,700</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Brielle Williamson</td>
+                                            <td>Integration Specialist</td>
+                                            <td>New York</td>
+                                            <td>61</td>
+                                            <td>2012/12/02</td>
+                                            <td>$372,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Herrod Chandler</td>
+                                            <td>Sales Assistant</td>
+                                            <td>San Francisco</td>
+                                            <td>59</td>
+                                            <td>2012/08/06</td>
+                                            <td>$137,500</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Rhona Davidson</td>
+                                            <td>Integration Specialist</td>
+                                            <td>Tokyo</td>
+                                            <td>55</td>
+                                            <td>2010/10/14</td>
+                                            <td>$327,900</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Colleen Hurst</td>
+                                            <td>Javascript Developer</td>
+                                            <td>San Francisco</td>
+                                            <td>39</td>
+                                            <td>2009/09/15</td>
+                                            <td>$205,500</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sonya Frost</td>
+                                            <td>Software Engineer</td>
+                                            <td>Edinburgh</td>
+                                            <td>23</td>
+                                            <td>2008/12/13</td>
+                                            <td>$103,600</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Jena Gaines</td>
+                                            <td>Office Manager</td>
+                                            <td>London</td>
+                                            <td>30</td>
+                                            <td>2008/12/19</td>
+                                            <td>$90,560</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Michael Silva</td>
+                                            <td>Marketing Designer</td>
+                                            <td>London</td>
+                                            <td>66</td>
+                                            <td>2012/11/27</td>
+                                            <td>$198,500</td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>Timothy Mooney</td>
+                                            <td>Office Manager</td>
+                                            <td>London</td>
+                                            <td>37</td>
+                                            <td>2008/12/11</td>
+                                            <td>$136,200</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Jackson Bradshaw</td>
+                                            <td>Director</td>
+                                            <td>New York</td>
+                                            <td>65</td>
+                                            <td>2008/09/26</td>
+                                            <td>$645,750</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Olivia Liang</td>
+                                            <td>Support Engineer</td>
+                                            <td>Singapore</td>
+                                            <td>64</td>
+                                            <td>2011/02/03</td>
+                                            <td>$234,500</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bruno Nash</td>
+                                            <td>Software Engineer</td>
+                                            <td>London</td>
+                                            <td>38</td>
+                                            <td>2011/05/03</td>
+                                            <td>$163,500</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sakura Yamamoto</td>
+                                            <td>Support Engineer</td>
+                                            <td>Tokyo</td>
+                                            <td>37</td>
+                                            <td>2009/08/19</td>
+                                            <td>$139,575</td>
                                         </tr>
 
                                     </tbody>
@@ -451,24 +512,7 @@ ul li {
             </div>
         </div>
     </div>
-<script>
-    var ctx = document.getElementById("myChart").getContext('2d');
-var myChart = new Chart(ctx, {
-  type: 'bar',
-  data: {
-    labels: ["Medical Emergency", "Covid-19", "Dengue", "Civil Disturbance", "Vehicular/Pedestrian Accident",],
-    datasets: [{
-      label: 'Number of Occurence',
-      data: [7, 2, 1, 1, 18],
-      backgroundColor: "rgb(0, 0, 153)"
-    }, {
-      label: 'Persons Involved',
-      data: [8, 4, 2, 1, 34],
-      backgroundColor: "rgb(77, 77, 255)"
-    }]
-  }
-});
-</script>
+
     
 
 

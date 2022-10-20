@@ -41,9 +41,35 @@ Route::middleware('auth','isAdmin')->group(function () {
 
     Route::get('Adduser',[UserController::class ,'user_show']);
    
-    Route::get('/InactiveEmployee', function () {
-        return view('InactiveEmployee');
+   
+
+    Route::get('/Employee', function () {
+        return view('Employee');
     });
+    
+    // Route::get('/ActiveEmployee', function () {
+    //     return view('ActiveEmployee');
+    // });
+
+    // Route::get('/InactiveEmployee', function () {
+    //     return view('InactiveEmployee');
+    // });
+    Route::get('ActiveEmployee',[UserController::class ,'active_show']);
+    Route::get('InactiveEmployee',[UserController::class ,'inactive_show']);
+
+    Route::get('/NewReport', function () {
+        return view('NewReport');
+    });
+
+    Route::get('/ReviewedReport', function () {
+        return view('ReviewedReport');
+    });
+
+    Route::get('/Report', function () {
+        return view('Report');
+    });
+    
+  
  
 });
 //  Route::get('/dashboard', function () {
@@ -56,22 +82,13 @@ Route::middleware('auth','isAdmin')->group(function () {
         Route::get('/UserDash', function () {
             return view('UserDash');
          });
+         
+         Route::get('/addreport', function () {
+            return view('addreport');
+        });
+        
     });
 //  });
 
-Route::get('/Employee', function () {
-    return view('Employee');
-});
 
-Route::get('/ActiveEmployee', function () {
-    return view('ActiveEmployee');
-});
-
-Route::get('/Report', function () {
-    return view('Report');
-});
-
-Route::get('/addreport', function () {
-    return view('addreport');
-});
 require __DIR__.'/auth.php';
