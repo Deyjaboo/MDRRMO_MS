@@ -104,14 +104,14 @@ ul li {
 
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-        <img src="images/logo.png">  
+        <img src="images/logo12basd21.png">  
         <br><br>
            
 
                <!-- Sidebar - Brand -->
                <!-- <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon">
-                <img src="images/logo.png" width="160px" height="160px">  
+                <img src="images/logo12basd21.png" width="160px" height="160px">  
                 </div>
                
             </a> -->
@@ -256,7 +256,7 @@ ul li {
                                             <a href="dashboard">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                             All Reports</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">12</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$allreport}}</div>
                                         </div>
                                         <div class="col-auto">
                                         <i class=" fas fa-solid fa-users fa-2x text-gray-300"></i>
@@ -276,7 +276,7 @@ ul li {
                                             <a href="NewReport">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                             New Reports</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">30</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$newreport}}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-file fa-2x text-gray-300"></i>
@@ -298,7 +298,7 @@ ul li {
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50</div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$reviewedreport}}</div>
                                                 </div>
                                                
                                             </div>
@@ -320,7 +320,21 @@ ul li {
         
                     
                     <h2>MDRRMO - Bulan</h2>
-
+                    <br>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+       @if(session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+        @endif
                     <canvas id="myChart" style="width:100%;max-width:825px"></canvas>
 
                     <div class="wrapper">
@@ -331,8 +345,9 @@ ul li {
                                         <h5>MDRRMO-Reports</h5>
                                         <br>
                                         <tr>
+                                            <th>Picture</th>
                                             <th>Incident Track No.</th>
-                                            <th>Date</th>
+                                            <th>Date of Incident</th>
                                             <th>Covid Related</th>
                                             <th>Type of Incident</th>
                                             <th>Informant/Contact</th>
@@ -360,8 +375,9 @@ ul li {
                                     </thead>
                                     <tfoot>
                                         <tr>
+                                            <th>Picture</th>
                                             <th>Incident Track No.</th>
-                                            <th>Date</th>
+                                            <th>Date of Incident</th>
                                             <th>Covid Related</th>
                                             <th>Type of Incident</th>
                                             <th>Informant/Contact</th>
@@ -388,37 +404,41 @@ ul li {
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <td>R-2022-001</td>
-                                            <td>January 2, 2022</td>
-                                            <td>No</td>
-                                            <td>Medical Emergency</td>
-                                            <td>427 Base (BFP)</td>
-                                            <td>Calomagon P.A. Base</td>
-                                            <td>3:55</td>
-                                            <td>4:00</td>
-                                            <td>4:30</td>
-                                            <td>4:39</td>
-                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, fugiat, accusamus tempora veritatis quas provident nam sint quasi eos aut dolorum. Sunt molestiae sed asperiores aut reprehenderit porro vitae? Sapiente?</td>
-                                            <td>1</td>
-                                            <td>Ligaya Gajo</td>
-                                            <td>29</td>
-                                            <td>Female</td>
-                                            <td>Calomagon, P.A. Base</td>
-                                            <td>Commuter Ambulance</td>
-                                            <td>Harry Gliponeo</td>
-                                            <td>Team Charlie</td>
-                                            <td>Micco Gimena, Harry Gliponeo, Rey Bernales</td>
-                                            <td>Stretcher, Gloves-6,Facemask-4, Go bag</td>
-                                            <td></td>
-                                            <td>Micco M. Gimena</td>
-                                            <td>January 22, 2022</td>
+                                    @foreach($data as $data)
+                                        <tr> <td>
+                                            <img src="images/{{$data->Picture}}" alt="">
+                                        </td>
+                                            <td>{{$data->Incident_Track_Num}}</td>
+                                            <td>{{$data->DateOfIncident}}</td>
+                                            <td>{{$data->Covid}}</td>
+                                            <td>{{$data->TypeOfIncident}}</td>
+                                            <td>{{$data->Informat_Contact}}</td>
+                                            <td>{{$data->IncidentLocation}}</td>
+                                            <td>{{$data->TimeOccured}}</td>
+                                            <td>{{$data->TimeReported}}</td>
+                                            <td>{{$data->TimeResponse}}</td>
+                                            <td>{{$data->TimeTerminated}}</td>
+                                            <td>{{$data->Incident_Des}}</td>
+                                            <td>{{$data->Num_Person_Involve}}</td>
+                                            <td>{{$data->NameOfVictim}}</td>
+                                            <td>{{$data->Age}}</td>
+                                            <td>{{$data->Sex}}</td>
+                                            <td>{{$data->Address}}</td>
+                                            <td>{{$data->Vehicle_Used}}</td>
+                                            <td>{{$data->NameOfDriver}}</td>
+                                            <td>{{$data->ResponderTeam}}</td>
+                                            <td>{{$data->NameOfResponders}}</td>
+                                            <td>{{$data->Devices_Used}}</td>
+                                            <td>{{$data->Photos_By}}</td>
+                                            <td>{{$data->ReportedBy}}</td>
+                                            <td>{{$data->Date_Recorded}}</td>
+                                            
                                             <td>
                                                 <button type="button" class="btn btn-primary"><i class='bx bx-edit-alt'></i></button>
                                                 <button type="button" class="btn btn-danger"><i class='bx bx-trash'></i></button>
                                             </td>
                                         </tr>
-
+                                        @endforeach
                                     </tbody>
                                 </table>
 
@@ -459,11 +479,11 @@ var myChart = new Chart(ctx, {
     labels: ["Medical Emergency", "Covid-19", "Dengue", "Civil Disturbance", "Vehicular/Pedestrian Accident",],
     datasets: [{
       label: 'Number of Occurence',
-      data: [7, 2, 1, 1, 18],
+      data: [{{$medical}}, {{$covid}}, {{$dengue}}, {{$civil}}, {{$vehicular}}],
       backgroundColor: "rgb(0, 0, 153)"
     }, {
       label: 'Persons Involved',
-      data: [8, 4, 2, 1, 34],
+      data: [{{$med}}, {{$cov}}, {{$deng}}, {{$civ}}, {{$veh}}],
       backgroundColor: "rgb(77, 77, 255)"
     }]
   }

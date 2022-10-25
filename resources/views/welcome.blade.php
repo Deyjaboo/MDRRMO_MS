@@ -15,7 +15,7 @@
     <body>
 
 
-   <center> <img class="logo" src="images/logo.png"></center>
+   <center> <img class="logo" src="images/logo12basd21.png"></center>
 	<div class="container" id="container">
 		<div class="form-container log-in-container">
 		<form method="POST" action="{{ route('login') }}">

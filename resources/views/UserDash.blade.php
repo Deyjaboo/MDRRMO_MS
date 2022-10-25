@@ -17,8 +17,85 @@
 
 <style>
 
+img {
+  vertical-align: middle;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 20px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
 
 
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
 
 
 .wrapper{
@@ -291,8 +368,8 @@ height: 150px;
    -->
  <header id="navbar">
   <nav class="navbar-container container">
-    <a href="" img src="images/logo.png"  class="home-link">
-<img src="images/logo.png" width="70px" height="70px">
+    <a href="" img src="images/logo12basd21.png"  class="home-link">
+<img src="images/logo12basd21.png" width="70px" height="70px">
       <div  class="navbar-item">MDRRMO-Bulan</div>
   
     </a>
@@ -321,35 +398,84 @@ height: 150px;
       </ul>
     </div>
   </nav>
-  
-</header> 
-<center>
-
-   <!-- <img src="images/logo1.jpg" style="width:908px;height:200px;"> -->
-  
  
+</header> 
+<br>
+<div class="container">
+  <div class="mySlides">
+    <img src="images/cover.jpg" style="width:100%;height:300px;">
+  </div>
+
+  <div class="mySlides">
+    <img src="images/pic1.jpg" style="width:100%;height:300px;">
+  </div>
+
+  <div class="mySlides">
+    <img src="images/pic2.jpg" style="width:100%;height:300px;">
+  </div>
+    
+  <div class="mySlides">
+    <img src="images/pic3.jpg" style="width:100%;height:300px;">
+  </div>
+
+  
+    
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="images/cover.jpg" style="width:100%;height:100px;" onclick="currentSlide(1)" >
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="images/pic1.jpg" style="width:100%;height:100px;" onclick="currentSlide(2)">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="images/pic2.jpg" style="width:100%;height:100px;" onclick="currentSlide(3)" >
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="images/pic3.jpg" style="width:100%;height:100px;" onclick="currentSlide(4)" >
+    </div>
+   
+  </div>
+</div>
+
+
 
 <div class="wrapper">
-
  <div class="form_container">
    <form name="form">
     <div class="heading">
-    <!-- <img src="images/logo1.jpg" style="width:908px;height:200px;"> -->
-    <!-- <img src="images/logo1.jpg"> -->
+
   </div> 
   <br>
-  <!-- <div  class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="float: right;"  id="button-modal"> 
-                          <i class="fas fa-download fa-sm text-white-50"></i> Add Reports
-                    </div> -->
-
-  <div class="card-body">
-  <table id="datatablesSimple" style="width:300%">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+       @if(session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+        @endif
+        <div class="card-body">
+        <table id="datatablesSimple" style="width:300%">
                                     <thead>
-                                        <h5>Report History</h5>
+                                        <center><h5>MDRRMO-Reports</h5></center>
                                         <br>
                                         <tr>
+                                            <th>Picture</th>
                                             <th>Incident Track No.</th>
-                                            <th>Date</th>
+                                            <th>Date of Incident</th>
                                             <th>Covid Related</th>
                                             <th>Type of Incident</th>
                                             <th>Informant/Contact</th>
@@ -358,7 +484,7 @@ height: 150px;
                                             <th>Time Incident Reported</th>
                                             <th>Time Response initiated</th>
                                             <th>Time Response Terminated</th>
-                                            <th >Incident Description</th>
+                                            <th>Incident Description</th>
                                             <th>No. Persons Involved</th>
                                             <th>Name of Person/s Involved</th>
                                             <th>Age</th>
@@ -377,8 +503,9 @@ height: 150px;
                                     </thead>
                                     <tfoot>
                                         <tr>
+                                            <th>Picture</th>
                                             <th>Incident Track No.</th>
-                                            <th>Date</th>
+                                            <th>Date of Incident</th>
                                             <th>Covid Related</th>
                                             <th>Type of Incident</th>
                                             <th>Informant/Contact</th>
@@ -405,37 +532,41 @@ height: 150px;
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <td>R-2022-001</td>
-                                            <td>January 2, 2022</td>
-                                            <td>No</td>
-                                            <td>Medical Emergency</td>
-                                            <td>427 Base (BFP)</td>
-                                            <td>Calomagon P.A. Base</td>
-                                            <td>3:55</td>
-                                            <td>4:00</td>
-                                            <td>4:30</td>
-                                            <td>4:39</td>
-                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore dolorem ipsum aspernatur consequuntur iure, repellat sint fuga quisquam vero reprehenderit id, quod labore quae dicta assumenda corporis totam perferendis! Amet?</td>
-                                            <td>1</td>
-                                            <td>Ligaya Gajo</td>
-                                            <td>29</td>
-                                            <td>Female</td>
-                                            <td>Calomagon, P.A. Base</td>
-                                            <td>Commuter Ambulance</td>
-                                            <td>Harry Gliponeo</td>
-                                            <td>Team Charlie</td>
-                                            <td>Micco Gimena, Harry Gliponeo, Rey Bernales</td>
-                                            <td>Stretcher, Gloves-6,Facemask-4, Go bag</td>
-                                            <td></td>
-                                            <td>Micco M. Gimena</td>
-                                            <td>January 22, 2022</td>
+                                    @foreach($data as $data)
+                                        <tr> <td>
+                                            <img src="images/{{$data->Picture}}" alt="">
+                                        </td>
+                                            <td>{{$data->Incident_Track_Num}}</td>
+                                            <td>{{$data->DateOfIncident}}</td>
+                                            <td>{{$data->Covid}}</td>
+                                            <td>{{$data->TypeOfIncident}}</td>
+                                            <td>{{$data->Informat_Contact}}</td>
+                                            <td>{{$data->IncidentLocation}}</td>
+                                            <td>{{$data->TimeOccured}}</td>
+                                            <td>{{$data->TimeReported}}</td>
+                                            <td>{{$data->TimeResponse}}</td>
+                                            <td>{{$data->TimeTerminated}}</td>
+                                            <td>{{$data->Incident_Des}}</td>
+                                            <td>{{$data->Num_Person_Involve}}</td>
+                                            <td>{{$data->NameOfVictim}}</td>
+                                            <td>{{$data->Age}}</td>
+                                            <td>{{$data->Sex}}</td>
+                                            <td>{{$data->Address}}</td>
+                                            <td>{{$data->Vehicle_Used}}</td>
+                                            <td>{{$data->NameOfDriver}}</td>
+                                            <td>{{$data->ResponderTeam}}</td>
+                                            <td>{{$data->NameOfResponders}}</td>
+                                            <td>{{$data->Devices_Used}}</td>
+                                            <td>{{$data->Photos_By}}</td>
+                                            <td>{{$data->ReportedBy}}</td>
+                                            <td>{{$data->Date_Recorded}}</td>
+                                            
                                             <td>
                                                 <button type="button" class="btn btn-primary"><i class='bx bx-edit-alt'></i></button>
                                                 <button type="button" class="btn btn-danger"><i class='bx bx-trash'></i></button>
                                             </td>
                                         </tr>
-
+                                        @endforeach
                                     </tbody>
                                 </table>
 
@@ -447,7 +578,7 @@ height: 150px;
   </form>
  </div>
 </div>
-</center>
+
 
 
 
@@ -467,6 +598,37 @@ navbarToggle.addEventListener("click", toggleNavbarVisibility);
 
 navbarLinksContainer.addEventListener("click", (e) => e.stopPropagation());
 navbarMenu.addEventListener("click", toggleNavbarVisibility);
+
+
+
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("demo");
+  let captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
 </script>
 
 

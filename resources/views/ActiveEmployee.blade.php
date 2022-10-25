@@ -98,14 +98,14 @@ ul li {
 
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-        <img src="images/logo.png">  
+        <img src="images/logo12basd21.png">  
         <br><br>
            
 
                <!-- Sidebar - Brand -->
                <!-- <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon">
-                <img src="images/logo.png" width="160px" height="160px">  
+                <img src="images/logo12basd21.png" width="160px" height="160px">  
                 </div>
                
             </a> -->

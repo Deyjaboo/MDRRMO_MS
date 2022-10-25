@@ -9,14 +9,14 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="shortcut icon" href="images/logo.png"/>
+		<link rel="shortcut icon" href="images/logo12basd21.png"/>
        
     </head>
 
     <body style="background-image: url('images/cover.jpg');">
 	
 	<div class="container" id="container">
-	<center> <img class="logo" src="images/logo.png"></center>
+	<center> <img class="logo" src="images/logo12basd21.png"></center>
 
 	<form method="POST" action="{{ route('login') }}">
         @csrf

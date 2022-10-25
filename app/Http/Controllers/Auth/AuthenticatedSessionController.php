@@ -7,7 +7,7 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Validation\ValidationException;
 class AuthenticatedSessionController extends Controller
 {
     /**
@@ -30,9 +30,28 @@ class AuthenticatedSessionController extends Controller
     {
         $request->authenticate();
 
-        $request->session()->regenerate();
+        // $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        // return redirect()->intended(RouteServiceProvider::HOME);
+            if(Auth::user()->role =='admin'){
+            $request->session()->regenerate();
+            return redirect()->intended(RouteServiceProvider::HOME);
+            }
+            elseif(Auth::user()->role =='user' && Auth::user()->Status == 'Active'){
+                $request->session()->regenerate();
+                return redirect()->intended(RouteServiceProvider::HOME1);
+            }
+            else{
+                Auth::guard('web')->logout();
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+    
+                throw ValidationException::withMessages([
+                    'email' => __('auth.status'),
+                ]);
+    
+            }
+        
     }
 
     /**

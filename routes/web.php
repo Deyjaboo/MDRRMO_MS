@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\DataView;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,28 +34,17 @@ Route::get('/', function () {
 // });
 
 Route::middleware('auth','isAdmin')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    });
+    Route::get('dashboard',[DataView::class ,'dash_view']);
+
     Route::get('/sampledash', function () {
         return view('sampledash');
     });
-
     Route::get('Adduser',[UserController::class ,'user_show']);
    
-   
-
     Route::get('/Employee', function () {
         return view('Employee');
     });
     
-    // Route::get('/ActiveEmployee', function () {
-    //     return view('ActiveEmployee');
-    // });
-
-    // Route::get('/InactiveEmployee', function () {
-    //     return view('InactiveEmployee');
-    // });
     Route::get('ActiveEmployee',[UserController::class ,'active_show']);
     Route::get('InactiveEmployee',[UserController::class ,'inactive_show']);
 
@@ -69,6 +60,7 @@ Route::middleware('auth','isAdmin')->group(function () {
         return view('Report');
     });
     
+    // Route::post('report_pass',[ReportController::class ,'store']);
   
  
 });
@@ -79,14 +71,12 @@ Route::middleware('auth','isAdmin')->group(function () {
 //   Route::middleware(['auth'])->group(function(){
      
     Route::middleware('auth')->group(function () {
-        Route::get('/UserDash', function () {
-            return view('UserDash');
-         });
+        Route::get('UserDash',[DataView::class ,'user_view']);
          
          Route::get('/addreport', function () {
             return view('addreport');
         });
-        
+        Route::post('report_pass',[ReportController::class ,'store']);
     });
 //  });
 

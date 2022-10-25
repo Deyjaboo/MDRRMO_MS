@@ -33,7 +33,7 @@
 
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-        <img src="images/logo.png">  
+        <img src="images/logo12basd21.png">  
         <br><br>
            
 
