@@ -471,7 +471,7 @@ height: 150px;
         <table id="datatablesSimple" style="width:300%">
                                     <thead>
                                         <center><h5>MDRRMO-Reports</h5></center>
-                                        <br>
+                                 
                                         <tr>
                                             <th>Picture</th>
                                             <th>Incident Track No.</th>
@@ -500,7 +500,7 @@ height: 150px;
                                             <th>Date Recorded</th>
                                             <th>Remark by Admin</th>
                                             <th>Status</th>
-                                            <th>Process</th>s
+                                            <th>Process</th>
                                         </tr>
                                     </thead>
                                     <tfoot>

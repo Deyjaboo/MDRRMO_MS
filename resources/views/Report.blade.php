@@ -389,9 +389,8 @@
 
             <h1>Incident Details</h1>
 <br>
-            <div class="form_wrap fullname">
 
-            <div class="form_item">
+<div class="form_item">
                 <label>Type of Incident</label>
                 <!-- <input type="text" id="TypeIncident" name="TypeIncident">  -->
                 <select id="TypeIncident" name="TypeIncident" required>
@@ -404,41 +403,51 @@
                 </select>
             </div>
 
+            <div class="form_wrap fullname">
+
             <div class="form_item">
-                <label>Informant Contact Details</label>
+            <label>Informant Contact Details</label>
                 <input type="text" id="InformantContact" name="InformantContact" required>
             </div>
-            </div>
-
-            <div class="form_wrap fullname">
 
             <div class="form_item">
-                <label>Incident Location</label>
+                 <label>Incident Location</label>
                 <input type="text" id="IncidentLocation" name="IncidentLocation" required> 
             </div>
-
-            <div class="form_item">
-                <label>Time Incident Occured</label>
-                <input type="time" id="TimeOccured" name="TimeOccured" required>
-            </div>
             </div>
 
             <div class="form_wrap fullname">
 
             <div class="form_item">
-                <label>Time Incident Reported</label>
+            <label>Time Incident Occured</label>
+                <input type="time" id="TimeOccured" name="TimeOccured" required>
+            </div>
+
+            <div class="form_item">
+            <label>Time Incident Reported</label>
                 <input type="time" id="TimeReported" name="TimeReported" required> 
             </div>
 
+            </div>
+
+          
+
+            <div class="form_wrap fullname">
+
             <div class="form_item">
-                <label>Time Response Iniated</label>
+            <label>Time Response Iniated</label>
                 <input type="time" id="TimeResponse" name="TimeResponse" required> 
             </div>
+
             <div class="form_item">
                 <label>Time Response Terminated</label>
                 <input type="time" id="TimeResponseTerminated" name="TimeResponseTerminated" required>
             </div>
+
             </div>
+
+
+       
 
 
             <!-- <div class="form_wrap ">
@@ -456,9 +465,13 @@
                   <!-- <input type="textarea" style="height: 100px;" id="IncidentDescription" name="IncidentDescription" required> -->
             </div>
 
+
+
+            
+
             <div class="form-input">
         <div class="preview">
-        <img id="file-ip-1-preview">
+      <center><img id="file-ip-1-preview"></center>  
         </div>
         <label for="file-ip-1">Upload Image</label>
         <input type="file" name="picture" id="file-ip-1" accept="image/png, image/gif, image/jpeg" onchange="showPreview(event);" required>

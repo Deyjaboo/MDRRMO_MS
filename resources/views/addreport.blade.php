@@ -285,50 +285,55 @@
         </div>
         </div>
 
-            <h1>Incident Details</h1>
+        <h1>Incident Details</h1>
 <br>
-            <div class="form_wrap fullname">
 
-            <div class="form_item">
+<div class="form_item">
                 <label>Type of Incident</label>
+                <!-- <input type="text" id="TypeIncident" name="TypeIncident">  -->
                 <select id="TypeIncident" name="TypeIncident" required>
                   <option value="" selected="selected" disabled="disabled"></option>
                   <option value ="Medical Emergency">Medical Emergency</option>
-                  <option value ="Covid">Covid-19</option>
+                  <option value ="Covid-19">Covid-19</option>
                   <option value ="Dengue">Dengue</option>
                   <option value ="Civil Disturbance">Civil Disturbance</option>
                   <option value ="Vehicular/Pedestrian Accident">Vehicular/Pedestrian Accident</option>
                 </select>
             </div>
 
+            <div class="form_wrap fullname">
+
             <div class="form_item">
-                <label>Informant Contact Details</label>
+            <label>Informant Contact Details</label>
                 <input type="text" id="InformantContact" name="InformantContact" required>
             </div>
-            </div>
-
-            <div class="form_wrap fullname">
 
             <div class="form_item">
-                <label>Incident Location</label>
+                 <label>Incident Location</label>
                 <input type="text" id="IncidentLocation" name="IncidentLocation" required> 
             </div>
-
-            <div class="form_item">
-                <label>Time Incident Occured</label>
-                <input type="time" id="TimeOccured" name="TimeOccured" required>
-            </div>
             </div>
 
             <div class="form_wrap fullname">
 
             <div class="form_item">
-                <label>Time Incident Reported</label>
+            <label>Time Incident Occured</label>
+                <input type="time" id="TimeOccured" name="TimeOccured" required>
+            </div>
+
+            <div class="form_item">
+            <label>Time Incident Reported</label>
                 <input type="time" id="TimeReported" name="TimeReported" required> 
             </div>
 
+            </div>
+
+          
+
+            <div class="form_wrap fullname">
+
             <div class="form_item">
-                <label>Time Response Iniated</label>
+            <label>Time Response Iniated</label>
                 <input type="time" id="TimeResponse" name="TimeResponse" required> 
             </div>
 
@@ -336,6 +341,7 @@
                 <label>Time Response Terminated</label>
                 <input type="time" id="TimeResponseTerminated" name="TimeResponseTerminated" required>
             </div>
+
             </div>
 
 
@@ -350,7 +356,7 @@
 
             <div class="form_item">
             <label>Incident Description/ Action Taken</label>
-                      <input type="text" style=" height: 100px;" id="IncidentDescription" name="IncidentDescription" required>
+              <textarea cols="50" rows="10" id="IncidentDescription" name="IncidentDescription" required></textarea>
             </div>
 
             <div class="form-input">
@@ -366,11 +372,12 @@
            <br>
 
            <div class="form_item">
-  <a href="UserDash">
-<button  type="button"class="button" id="btncancel" >Cancel</button>
-</a>
-<button  type="submit"class="button" id="right" >Submit</button>
-</div>
+           <div  id="right">
+           <a href="UserDash">  <button type="button" class="button" id="btncancel">Cancel</button></a>
+           <button type="button" class="button">Submit</button>
+           </div>
+           </div>
+           <br>
 
         </form>
 <!-- <div class="form_item">
