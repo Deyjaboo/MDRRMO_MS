@@ -67,7 +67,13 @@
   border: 1px solid #dadce0;
   border-radius: 3px;
 }
-
+#IncidentDescription{
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #dadce0;
+  border-radius: 3px;
+}
 .form_item input[type="text"]:focus{
   border-color: #6271f0;
 }
@@ -156,7 +162,6 @@
    width:250px;
    height:200px;
    object-fit:fill;
-   
 
  }
 </style>
@@ -429,7 +434,6 @@
                 <label>Time Response Iniated</label>
                 <input type="time" id="TimeResponse" name="TimeResponse" required> 
             </div>
-
             <div class="form_item">
                 <label>Time Response Terminated</label>
                 <input type="time" id="TimeResponseTerminated" name="TimeResponseTerminated" required>
@@ -448,16 +452,16 @@
 
             <div class="form_item">
             <label>Incident Description/ Action Taken</label>
-                      <input type="text" style=" height: 100px;" id="IncidentDescription" name="IncidentDescription" required>
+              <textarea cols="30" rows="10" id="IncidentDescription" name="IncidentDescription" required></textarea>
+                  <!-- <input type="textarea" style="height: 100px;" id="IncidentDescription" name="IncidentDescription" required> -->
             </div>
 
             <div class="form-input">
-    <div class="preview">
-     <center><img id="file-ip-1-preview"></center> 
-    </div>
-    <label for="file-ip-1">Upload Image</label>
-    <input type="file" name="picture" id="file-ip-1" accept="image/png, image/gif, image/jpeg" onchange="showPreview(event);" required>
-    
+        <div class="preview">
+        <img id="file-ip-1-preview">
+        </div>
+        <label for="file-ip-1">Upload Image</label>
+        <input type="file" name="picture" id="file-ip-1" accept="image/png, image/gif, image/jpeg" onchange="showPreview(event);" required>
            </div>
             </div>
 

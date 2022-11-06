@@ -18,7 +18,11 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
  <!-- Button-->
-   
+ <!-- Modal-->
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ <!-- Modal-->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <link href="{{('css/styles.css') }}" rel="stylesheet" type="text/css" >
@@ -94,7 +98,9 @@ ul li {
     margin-left: 5px;
 }
 }
-
+#column1{
+    margin-right: 5px;
+}
 </style>
 
 <body id="page-top">
@@ -340,7 +346,7 @@ ul li {
                     <div class="wrapper">
     <div class="form_container">
                         <div class="card-body">
-                                <table id="datatablesSimple" style="width:300%">
+                                <table id="datatablesSimple" style="width:250%" class="TableData"> 
                                     <thead>
                                         <h5>MDRRMO-Reports</h5>
                                         <br>
@@ -370,7 +376,9 @@ ul li {
                                             <th>Photos Taken By</th>
                                             <th>Report Prepared by</th>
                                             <th>Date Recorded</th>
-                                            <th>Edit/Delete</th>
+                                            <th>Remark by Admin</th>
+                                            <th>Status</th>
+                                            <th  style="width:350%">Processes</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -400,13 +408,15 @@ ul li {
                                             <th>Photos Taken By</th>
                                             <th>Report Prepared by</th>
                                             <th>Date Recorded</th>
-                                            <th>Edit/Delete</th>
+                                            <th>Remark by Admin</th>
+                                            <th>Status</th>
+                                            <th  style="width:350%">Processes</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                     @foreach($data as $data)
                                         <tr> <td>
-                                            <img src="images/{{$data->Picture}}" alt="">
+                                            <img src="images/{{$data->Picture}}" alt="" width="200px" height="180px">
                                         </td>
                                             <td>{{$data->Incident_Track_Num}}</td>
                                             <td>{{$data->DateOfIncident}}</td>
@@ -432,10 +442,23 @@ ul li {
                                             <td>{{$data->Photos_By}}</td>
                                             <td>{{$data->ReportedBy}}</td>
                                             <td>{{$data->Date_Recorded}}</td>
+                                            <td>{{$data->Remark}}</td>
+                                            <td>{{$data->Status}}</td>
+                                      
                                             
                                             <td>
-                                                <button type="button" class="btn btn-primary"><i class='bx bx-edit-alt'></i></button>
-                                                <button type="button" class="btn btn-danger"><i class='bx bx-trash'></i></button>
+                                                <!-- <button type="button" class="btn btn-primary"><i class='bx bx-edit-alt'></i></button>
+                                                <button type="button" class="btn btn-danger"><i class='bx bx-trash'></i></button> -->
+                                                <div class="row">
+                                                    <div class="column" id="column1">
+                                                        <a href="javascript:void(0)" class="btn btn-success" id="editbtn"><i class="bx bx-edit-alt" data-toggle="tooltip" title="Edit"></i></a>
+                                                    </div>
+                                                    <div class="column" id="column1">
+                                                        <a href="javascript:void(0)" class="btn btn-primary" id="editbtn"><i class='bx bx-info-circle' data-toggle="tooltip" title="View"></i></a>
+                                                    </div>
+                                                   
+                                                   
+                                                </div>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -443,8 +466,117 @@ ul li {
                                 </table>
 
     </section>
+<!-- Modal start -->
+<div id="EditMe" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Edit Student Details</h5>
+        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
+      </div>
+      <form action="editstudent" method="post" enctype="multipart/form-data" id="editForm">
+      {{ csrf_field() }}
+      <div class="modal-body">
+					<!-- <div class="modal-body">
+						<p>Are you sure you want to Delete this record?</p>
+					</div> -->
+            <div class="form_wrap fullname">
+                <div class="form_item">
+                    <label>Student ID<span class="text-danger"></span></label>
+                    <input type="text" name="StudentId" id="EditStudentId" class="form-control" placeholder="Student ID" required>
+                </div>
+
+                <div class="form_item">
+                    <label>First Name<span class="text-danger"></span></label>
+                    <input type="text" name="FirstName" id="EditFirstName"  class="form-control" placeholder="Enter First Name" required>
+                </div>
+                </div>
+
+                <br>
+                <div class="form_wrap fullname">
+                <div class="form_item">
+                    <label>Last Name<span class="text-danger"></span></label>
+                    <input type="text" name="LastName" id="EditLastName" class="form-control" placeholder="Enter Last Name" required>
+                </div>
+                <div class="form_item">
+                    <label>MiddleName<span class="text-danger"></span></label>
+                    <input type="text" name="EditMiddleName" id="EditMiddleName" class="form-control" placeholder="Enter Middle Name">
+                </div>
+                </div>
+
+                <br>
+                <div class="form_wrap fullname">
+                    <div class="form_item">
+                    <label>Suffix<span class="text-danger"></span></label>
+                    <input type="text"  name="EditSuffix" id="EditSuffix" class="form-control" placeholder="Suffix">
+                    </div>
+                    <div class="form_item">
+                    <label>Mobile Number<span class="text-danger"></span></label>
+                    <input type="text"  name="EditMobileNumber" id="EditMobileNumber" class="form-control" placeholder="+639......" required>
+                    </div>
+                </div>
+
+                <br>
+                <div class="form_wrap fullname">
+
+                    <div class="form_item">
+                    <label>Course<span class="text-danger"></span></label>
+                    <select class="form-control col-12" name="EditCourse" id="EditCourse" required>
+                        <option value="" selected="selected" disabled="disabled">Course</option>
+                        <option value="BSIT">BSIT</option>
+                        <option value="BSEED">BSEED</option>
+                    </select>
+                    </div>
+
+                    <div class="form_item">
+                    <label>Year<span class="text-danger"></span></label>
+                    <select class="form-control col-12" name="EditYear" id="EditYear" required>
+                        <option value="" selected="selected" disabled="disabled">Year</option>
+                        <option value="1st">1st</option>
+                        <option value="2nd">2nd</option>
+                        <option value="3rd">3rd</option>
+                        <option value="4th">4th</option>
+                    </select>
+                    </div>
+            </div>
 
 
+      </div>
+      <div class="modal-footer">
+          <input type="submit" class="btn btn-primary" value="Edit">
+          <input type="button" class="btn btn-danger" data-dismiss="modal" value="Cancel">
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Modal end -->
+<script>
+     // Edit
+     $(document).ready(function(){
+
+        $('.TableData').on('click', '#editbtn', function(){
+        $tr = $(this).closest('tr');
+
+            var data = $tr.children("td").map(function(){
+                return $(this).text();
+            }).get();
+            $('#EditStudentId').val(data[1]);
+            $('#EditFirstName').val(data[2]);
+            $('#EditLastName').val(data[4]);
+            $('#EditMiddleName').val(data[3]);
+            $('#EditSuffix').val(data[5]);
+            $('#EditCourse').val(data[6]);
+            $('#EditYear').val(data[7]);
+            $('#EditMobileNumber').val(data[8]);
+            // $('#delete_modal_Form').attr('action', 'assets-delete/'+data[0]);
+            $('#editForm').attr('action', 'EditStudent/'+data[0]);
+            $('#EditMe').modal('show');
+        });
+});
+</script>
        
 
     <!-- Scroll to Top Button-->
@@ -471,6 +603,7 @@ ul li {
             </div>
         </div>
     </div>
+
 <script>
     var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {

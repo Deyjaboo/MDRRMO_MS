@@ -498,7 +498,9 @@ height: 150px;
                                             <th>Photos Taken By</th>
                                             <th>Report Prepared by</th>
                                             <th>Date Recorded</th>
-                                            <th>Edit/Delete</th>
+                                            <th>Remark by Admin</th>
+                                            <th>Status</th>
+                                            <th>Process</th>s
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -528,13 +530,15 @@ height: 150px;
                                             <th>Photos Taken By</th>
                                             <th>Report Prepared by</th>
                                             <th>Date Recorded</th>
-                                            <th>Edit/Delete</th>
+                                            <th>Remark by Admin</th>
+                                            <th>Status</th>
+                                            <th>Process</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                     @foreach($data as $data)
                                         <tr> <td>
-                                            <img src="images/{{$data->Picture}}" alt="">
+                                            <img src="images/{{$data->Picture}}" alt="" width="200px" height="180px">
                                         </td>
                                             <td>{{$data->Incident_Track_Num}}</td>
                                             <td>{{$data->DateOfIncident}}</td>
@@ -560,6 +564,9 @@ height: 150px;
                                             <td>{{$data->Photos_By}}</td>
                                             <td>{{$data->ReportedBy}}</td>
                                             <td>{{$data->Date_Recorded}}</td>
+                                            <td>{{$data->Remark}}</td>
+                                            <td>{{$data->Status}}</td>
+                                        
                                             
                                             <td>
                                                 <button type="button" class="btn btn-primary"><i class='bx bx-edit-alt'></i></button>

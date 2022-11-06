@@ -39,5 +39,6 @@ class Report extends Model
         'Year',
         'Month',
         'UserId',
+        'Remark',
     ];
 }

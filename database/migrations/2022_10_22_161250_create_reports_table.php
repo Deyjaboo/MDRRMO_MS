@@ -44,6 +44,7 @@ return new class extends Migration
             $table->string('Year');
             $table->string('Month');
             $table->string('UserId');
+            $table->string('Remark');
             $table->timestamps();
         });
     }

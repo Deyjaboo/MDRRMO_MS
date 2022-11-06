@@ -87,7 +87,7 @@ class ReportController extends Controller
                 $data->Year = $year;
                 $data->Month = $month;
                 $data->UserId = auth()->user()->id;
-
+                $data->Remark = "-";
                 $data->Status = "New";
             $data->save();
 
