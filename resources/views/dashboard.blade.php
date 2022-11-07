@@ -377,8 +377,9 @@ ul li {
                                             <th>Report Prepared by</th>
                                             <th>Date Recorded</th>
                                             <th>Remark by Admin</th>
+                                            <th>Pic</th>
                                             <th>Status</th>
-                                            <th  style="width:350%">Processes</th>
+                                            <th  style="width:350%">Edit/View_Details</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -409,6 +410,7 @@ ul li {
                                             <th>Report Prepared by</th>
                                             <th>Date Recorded</th>
                                             <th>Remark by Admin</th>
+                                            <th>Pic</th>
                                             <th>Status</th>
                                             <th  style="width:350%">Processes</th>
                                         </tr>
@@ -443,22 +445,22 @@ ul li {
                                             <td>{{$data->ReportedBy}}</td>
                                             <td>{{$data->Date_Recorded}}</td>
                                             <td>{{$data->Remark}}</td>
+                                            <td>{{$data->Picture}}</td>
                                             <td>{{$data->Status}}</td>
                                       
                                             
                                             <td>
                                                 <!-- <button type="button" class="btn btn-primary"><i class='bx bx-edit-alt'></i></button>
                                                 <button type="button" class="btn btn-danger"><i class='bx bx-trash'></i></button> -->
-                                                <div class="row">
-                                                    <div class="column" id="column1">
-                                                        <a href="javascript:void(0)" class="btn btn-success" id="editbtn"><i class="bx bx-edit-alt" data-toggle="tooltip" title="Edit"></i></a>
-                                                    </div>
-                                                    <div class="column" id="column1">
-                                                        <a href="javascript:void(0)" class="btn btn-primary" id="editbtn"><i class='bx bx-info-circle' data-toggle="tooltip" title="View"></i></a>
-                                                    </div>
-                                                   
-                                                   
-                                                </div>
+                                                    <!-- <div class="row">
+                                                        <div class="column" id="column1"> -->
+                                                            <a href="clickedit/{{$data->Incident_Track_Num}}" class="btn btn-success"><i class="bx bx-edit-alt" title="Edit"></i></a>
+                                                        <!-- </div> -->
+                                                        <!-- <div class="column" id="column1"> -->
+                                                            <a href="javascript:void(0)" class="btn btn-primary" id="editbtn"><i class='bx bx-info-circle' data-toggle="tooltip" title="View"></i></a>
+                                                        <!-- </div>
+                                                    
+                                                    </div> -->
                                             </td>
                                         </tr>
                                         @endforeach
@@ -467,11 +469,16 @@ ul li {
 
     </section>
 <!-- Modal start -->
-<div id="EditMe" class="modal fade">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+<div  id= "EditMe" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
+
+
+<!-- <div id="EditMe" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content"> -->
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Edit Student Details</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">View Details</h5>
         <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button> -->
@@ -482,39 +489,71 @@ ul li {
 					<!-- <div class="modal-body">
 						<p>Are you sure you want to Delete this record?</p>
 					</div> -->
-            <div class="form_wrap fullname">
+                <div class="form_wrap fullname">
                 <div class="form_item">
-                    <label>Student ID<span class="text-danger"></span></label>
-                    <input type="text" name="StudentId" id="EditStudentId" class="form-control" placeholder="Student ID" required>
+                    <label>Track No.<span class="text-danger"></span></label>
+                    <p name="TrackNo" id="TrackNo"></p>
+                    <!-- <input type="text" name="TrackNo" id="TrackNo" class="form-control" placeholder="Student ID" disabled> -->
                 </div>
 
                 <div class="form_item">
-                    <label>First Name<span class="text-danger"></span></label>
-                    <input type="text" name="FirstName" id="EditFirstName"  class="form-control" placeholder="Enter First Name" required>
+                    <label>Date of Incident<span class="text-danger"></span></label>
+                    <p name="DateOfIncident" id="DateOfIncident"></p>
+                    <!-- <input type="date" name="DateOfIncident" id="DateOfIncident"  class="form-control" placeholder="Enter First Name" required> -->
+                </div>
+                </div>
+
+                <div class="form_wrap fullname">
+                <div class="form_item">
+                <label>Image<span class="text-danger"></span></label>
+                    <img src="" id="image"/>
+                </div>
+                </div>
+                
+                <div class="form_wrap fullname">
+                <div class="form_item">
+                <label>Incident Description<span class="text-danger"></span></label>
+                <p name="IncidentDescription" id="IncidentDescription"></p>
+                <!-- <textarea cols="100" rows="5" id="IncidentDescription" name="IncidentDescription"  required></textarea> -->
                 </div>
                 </div>
 
                 <br>
                 <div class="form_wrap fullname">
                 <div class="form_item">
-                    <label>Last Name<span class="text-danger"></span></label>
-                    <input type="text" name="LastName" id="EditLastName" class="form-control" placeholder="Enter Last Name" required>
+                    <label>Covid Related<span class="text-danger"></span></label>
+                    <p name="Covid" id="Covid"></p>
+                     <!-- <select class="form-control" id="Covid" name="Covid" required>
+                        <option value ="Yes">Yes</option>
+                        <option value ="No">No</option>
+                    </select> -->
+                  
                 </div>
                 <div class="form_item">
-                    <label>MiddleName<span class="text-danger"></span></label>
-                    <input type="text" name="EditMiddleName" id="EditMiddleName" class="form-control" placeholder="Enter Middle Name">
+                    <label>Type of Incident<span class="text-danger"></span></label>
+                    <p name="TypeIncident" id="TypeIncident"></p>
+                    <!-- <select class="form-control" id="TypeIncident" name="TypeIncident" required>
+                        <option value="" selected="selected" disabled="disabled"></option>
+                        <option value ="Medical Emergency">Medical Emergency</option>
+                        <option value ="Covid">Covid-19</option>
+                        <option value ="Dengue">Dengue</option>
+                        <option value ="Civil Disturbance">Civil Disturbance</option>
+                        <option value ="Vehicular/Pedestrian Accident">Vehicular/Pedestrian Accident</option>
+                    </select> -->
                 </div>
                 </div>
 
                 <br>
                 <div class="form_wrap fullname">
                     <div class="form_item">
-                    <label>Suffix<span class="text-danger"></span></label>
-                    <input type="text"  name="EditSuffix" id="EditSuffix" class="form-control" placeholder="Suffix">
+                    <label>Informant Contact<span class="text-danger"></span></label>
+                    <p name="Contact" id="Contact"></p>
+                    <!-- <input type="text"  name="Contact" id="Contact" class="form-control" placeholder="Suffix"> -->
                     </div>
                     <div class="form_item">
-                    <label>Mobile Number<span class="text-danger"></span></label>
-                    <input type="text"  name="EditMobileNumber" id="EditMobileNumber" class="form-control" placeholder="+639......" required>
+                    <label>Incident Location<span class="text-danger"></span></label>
+                    <p name="IncidentLocation" id="IncidentLocation"></p>
+                    <!-- <input type="text"  name="IncidentLocation" id="IncidentLocation" class="form-control" placeholder="" required> -->
                     </div>
                 </div>
 
@@ -522,25 +561,149 @@ ul li {
                 <div class="form_wrap fullname">
 
                     <div class="form_item">
-                    <label>Course<span class="text-danger"></span></label>
-                    <select class="form-control col-12" name="EditCourse" id="EditCourse" required>
-                        <option value="" selected="selected" disabled="disabled">Course</option>
-                        <option value="BSIT">BSIT</option>
-                        <option value="BSEED">BSEED</option>
-                    </select>
+                    <label>Time Occured<span class="text-danger"></span></label>
+                    <p name="TimeOccured" id="TimeOccured"></p>
+                    <!-- <input type="time"  name="TimeOccured" id="TimeOccured" class="form-control" placeholder="" required> -->
                     </div>
 
                     <div class="form_item">
-                    <label>Year<span class="text-danger"></span></label>
-                    <select class="form-control col-12" name="EditYear" id="EditYear" required>
-                        <option value="" selected="selected" disabled="disabled">Year</option>
-                        <option value="1st">1st</option>
-                        <option value="2nd">2nd</option>
-                        <option value="3rd">3rd</option>
-                        <option value="4th">4th</option>
-                    </select>
+                    <label>Time Reported<span class="text-danger"></span></label>
+                    <p name="TimeReported" id="TimeReported"></p>
+                    <!-- <input type="time"  name="TimeReported" id="TimeReported" class="form-control" placeholder="" required> -->
                     </div>
-            </div>
+                </div>
+                <div class="form_wrap fullname">
+
+                    <div class="form_item">
+                    <label>Time Response Iniated<span class="text-danger"></span></label>
+                    <p name="TimeIniated" id="TimeIniated"></p>
+                    <!-- <input type="time"  name="TimeIniated" id="TimeIniated" class="form-control" placeholder="" required> -->
+                    </div>
+
+                    <div class="form_item">
+                    <label>Time Response Teminated<span class="text-danger"></span></label>
+                    <p name="TimeTeminated" id="TimeTeminated"></p>
+                    <!-- <input type="time"  name="TimeTeminated" id="TimeTeminated" class="form-control" placeholder="" required> -->
+                    </div>
+                </div>
+
+              
+
+                <div class="form_wrap fullname">
+                <div class="form_item">
+                <label>No. Persons Involved<span class="text-danger"></span></label>
+                <p name="PersonsInvolved" id="PersonsInvolved"></p>
+                <!-- <input type="text"  name="PersonsInvolved" id="PersonsInvolved" class="form-control" placeholder="" required> -->
+                </div>
+
+                <div class="form_item">
+                <label>Name of Person/s Involved<span class="text-danger"></span></label>
+                <p name="NamePersonInvolved" id="NamePersonInvolved"></p>
+                <!-- <input type="text"  name="NamePersonInvolved" id="NamePersonInvolved" class="form-control" placeholder="" required> -->
+                </div>
+                </div>
+
+                <div class="form_wrap fullname">
+                <div class="form_item">
+                <label>Age<span class="text-danger"></span></label>
+                <p name="Age1" id="Age1"></p>
+                <!-- <input type="text"  name="Age1" id="Age1" class="form-control" placeholder="" required> -->
+                </div>
+
+                <div class="form_item">
+                <label>Sex<span class="text-danger"></span></label>
+                <p name="Sex1" id="Sex1"></p>
+                <!-- <select class="form-control" id="Sex1" name="Sex1" required>
+                        <option value ="Male">Male</option>
+                        <option value ="Female">Female</option>
+                    </select> -->
+                </div>
+                </div>
+                
+
+                <div class="form_wrap fullname">
+                <div class="form_item">
+                <label>Address<span class="text-danger"></span></label>
+                <p name="Address1" id="Address1"></p>
+                <!-- <input type="text"  name="Address1" id="Address1" class="form-control" placeholder="" required> -->
+                </div>
+
+                <div class="form_item">
+                <label>Vehicle Used<span class="text-danger"></span></label>
+                <p name="VehicleUsed" id="VehicleUsed"></p>
+                <!-- <input type="text"  name="VehicleUsed" id="VehicleUsed" class="form-control" placeholder="" required> -->
+                </div>
+                </div>
+
+                <div class="form_wrap fullname">
+                <div class="form_item">
+                <label>Name of driver<span class="text-danger"></span></label>
+                <p name="NameDriver" id="NameDriver"></p>
+                <!-- <input type="text"  name="NameDriver" id="NameDriver" class="form-control" placeholder="" required> -->
+                </div>
+
+                <div class="form_item">
+                <label>Team Responder<span class="text-danger"></span></label>
+                <p name="TeamResponder" id="TeamResponder"></p>
+                <!-- <input type="text"  name="TeamResponder" id="TeamResponder" class="form-control" placeholder="" required> -->
+                </div>
+
+                </div>
+
+                <div class="form_wrap fullname">
+                <div class="form_item">
+                <label>Name of Responders<span class="text-danger"></span></label>
+                <p name="NameResponder" id="NameResponder"></p>
+                <!-- <input type="text"  name="NameResponder" id="NameResponder" class="form-control" placeholder="" required> -->
+                </div>
+
+                <div class="form_item">
+                <label>Devices Used<span class="text-danger"></span></label>
+                <p name="DevicesUsed" id="DevicesUsed"></p>
+                <!-- <input type="text"  name="DevicesUsed" id="DevicesUsed" class="form-control" placeholder="" required> -->
+                </div>
+                </div>
+
+                <div class="form_wrap fullname">
+                <div class="form_item">
+                <label>Photo Taken By<span class="text-danger"></span></label>
+                <p name="PhotoBy" id="PhotoBy"></p>
+                <!-- <input type="text"  name="PhotoBy" id="PhotoBy" class="form-control" placeholder="" required> -->
+                </div>
+
+                <div class="form_item">
+                <label>Report Prepared By<span class="text-danger"></span></label>
+                <p name="Reported" id="Reported"></p>
+                <!-- <input type="text"  name="Reported" id="Reported" class="form-control" placeholder="" required> -->
+                </div>
+
+                </div>
+                
+                <div class="form_wrap fullname">
+                <div class="form_item">
+                <label>DateRecorded<span class="text-danger"></span></label>
+                <p name="DateRecorded" id="DateRecorded"></p>
+                <!-- <input type="date"  name="DateRecorded" id="DateRecorded" class="form-control" placeholder="" required> -->
+                </div>
+                
+                <div class="form_item">
+                <label>Status<span class="text-danger"></span></label>
+                <p name="Status" id="Status"></p>
+                <!-- <input type="text"  name="Status" id="Status" class="form-control" placeholder="" required> -->
+                </div>
+                </div>
+                
+                <div class="form_wrap fullname">
+                <div class="form_item">
+                <label>Remark<span class="text-danger"></span></label>
+                <p name="Remark" id="Remark"></p>
+                <!-- <textarea cols="100" rows="5" id="Remark" name="Remark"  required></textarea> -->
+                </div>
+                </div>
+
+               
+
+                
 
 
       </div>
@@ -556,23 +719,70 @@ ul li {
 <script>
      // Edit
      $(document).ready(function(){
-
+        let image = document.getElementById("image");
+        
         $('.TableData').on('click', '#editbtn', function(){
         $tr = $(this).closest('tr');
 
             var data = $tr.children("td").map(function(){
                 return $(this).text();
             }).get();
-            $('#EditStudentId').val(data[1]);
-            $('#EditFirstName').val(data[2]);
-            $('#EditLastName').val(data[4]);
-            $('#EditMiddleName').val(data[3]);
-            $('#EditSuffix').val(data[5]);
-            $('#EditCourse').val(data[6]);
-            $('#EditYear').val(data[7]);
-            $('#EditMobileNumber').val(data[8]);
+            // $('#TrackNo').val(data[1]);
+            document.getElementById("TrackNo").innerHTML = data[1];
+            document.getElementById("DateOfIncident").innerHTML = data[2];
+            document.getElementById("Covid").innerHTML = data[3];
+            document.getElementById("TypeIncident").innerHTML = data[4];
+            document.getElementById("Contact").innerHTML = data[5];
+            document.getElementById("IncidentLocation").innerHTML = data[6];
+            document.getElementById("TimeOccured").innerHTML = data[7];
+            document.getElementById("TimeReported").innerHTML = data[8];
+            document.getElementById("TimeIniated").innerHTML = data[9];
+            document.getElementById("TimeTeminated").innerHTML = data[10];
+            document.getElementById("IncidentDescription").innerHTML = data[11];
+            document.getElementById("PersonsInvolved").innerHTML = data[12];
+            document.getElementById("NamePersonInvolved").innerHTML = data[13];
+            document.getElementById("Age1").innerHTML = data[14];
+            document.getElementById("Sex1").innerHTML = data[15];
+            document.getElementById("Address1").innerHTML = data[16];
+            document.getElementById("VehicleUsed").innerHTML = data[17];
+            document.getElementById("NameDriver").innerHTML = data[18];
+            document.getElementById("TeamResponder").innerHTML = data[19];
+            document.getElementById("NameResponder").innerHTML = data[20];
+            document.getElementById("DevicesUsed").innerHTML = data[21];
+            document.getElementById("PhotoBy").innerHTML = data[22];
+            document.getElementById("Reported").innerHTML = data[23];
+            document.getElementById("DateRecorded").innerHTML = data[24];
+            document.getElementById("Remark").innerHTML = data[25];
+            document.getElementById("Status").innerHTML = data[27];
+            // $('#DateOfIncident').val(data[2]);
+            // $('#Covid').val(data[3]);
+            // $('#TypeIncident').val(data[4]);
+            // $('#Contact').val(data[5]);
+            // $('#IncidentLocation').val(data[6]);
+            // $('#TimeOccured').val(data[7]);
+            // $('#TimeReported').val(data[8]);
+            // $('#TimeIniated').val(data[9]);
+            // $('#TimeTeminated').val(data[10]);
+            // $('#IncidentDescription').val(data[11]);
+            // $('#PersonsInvolved').val(data[12]);
+            // $('#NamePersonInvolved').val(data[13]);
+            // $('#Age1').val(data[14]);
+            // $('#Sex1').val(data[15]);
+            // $('#Address1').val(data[16]);
+            // $('#VehicleUsed').val(data[17]);
+            // $('#NameDriver').val(data[18]);
+            // $('#TeamResponder').val(data[19]);
+            // $('#NameResponder').val(data[20]);
+            // $('#DevicesUsed').val(data[21]);
+            // $('#PhotoBy').val(data[22]);
+            // $('#Reported').val(data[23]);
+            // $('#DateRecorded').val(data[24]);
+            // $('#Remark').val(data[25]);
+            // $('#Status').val(data[27]);
+            
+            image.src = "images/"+data[26];
             // $('#delete_modal_Form').attr('action', 'assets-delete/'+data[0]);
-            $('#editForm').attr('action', 'EditStudent/'+data[0]);
+            $('#editForm').attr('action', 'EditStudent/'+data[1]);
             $('#EditMe').modal('show');
         });
 });

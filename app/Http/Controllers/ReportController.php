@@ -99,7 +99,13 @@ class ReportController extends Controller
             }
  
     }
+    public function edit_function($id)
+    {
+    // $data = DB::table('reports')->get();
+      $data = DB::select('select * from reports where Incident_Track_Num = ?', [$id]);
 
+      return view('/EditReport',['data'=>$data]);
+    }
     /**
      * Display the specified resource.
      *

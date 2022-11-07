@@ -59,7 +59,11 @@ Route::middleware('auth','isAdmin')->group(function () {
     Route::get('/Report', function () {
         return view('Report');
     });
-    
+
+    Route::get('/EditReport', function () {
+        return view('EditReport');
+    });
+    Route::get('clickedit/{id}',[ReportController::class ,'edit_function']);
     // Route::post('report_pass',[ReportController::class ,'store']);
   
  
@@ -75,6 +79,9 @@ Route::middleware('auth','isAdmin')->group(function () {
          
          Route::get('/addreport', function () {
             return view('addreport');
+        });
+        Route::get('/EditReport', function () {
+            return view('EditReport');
         });
         Route::post('report_pass',[ReportController::class ,'store']);
     });
