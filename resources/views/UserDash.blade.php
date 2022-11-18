@@ -10,8 +10,13 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
  <!-- Button-->
-
+<!-- Modal-->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ <!-- Modal-->
   <link href="{{('css/styles.css') }}" rel="stylesheet" type="text/css" >
+  <link rel="shortcut icon" href="images/logo12basd21.png"/>
   <title>User</title>
 </head>
 
@@ -468,7 +473,7 @@ height: 150px;
             </div>
         @endif
         <div class="card-body">
-        <table id="datatablesSimple" style="width:300%">
+        <table id="datatablesSimple">
                                     <thead>
                                         <center><h5>MDRRMO-Reports</h5></center>
                                  
@@ -476,31 +481,10 @@ height: 150px;
                                             <th>Picture</th>
                                             <th>Incident Track No.</th>
                                             <th>Date of Incident</th>
-                                            <th>Covid Related</th>
                                             <th>Type of Incident</th>
-                                            <th>Informant/Contact</th>
-                                            <th>Incident Location</th>
-                                            <th>Time Incident Occured</th>
-                                            <th>Time Incident Reported</th>
-                                            <th>Time Response initiated</th>
-                                            <th>Time Response Terminated</th>
-                                            <th>Incident Description</th>
-                                            <th>No. Persons Involved</th>
-                                            <th>Name of Person/s Involved</th>
-                                            <th>Age</th>
-                                            <th>Sex</th>
-                                            <th>Address</th>
-                                            <th>Vehicle Used</th>
-                                            <th>Name of Driver</th>
-                                            <th>Team Responder</th>
-                                            <th>Name of Responders</th>
-                                            <th>Devices Used</th>
-                                            <th>Photos Taken By</th>
                                             <th>Report Prepared by</th>
-                                            <th>Date Recorded</th>
-                                            <th>Remark by Admin</th>
                                             <th>Status</th>
-                                            <th>Process</th>
+                                            <th  style="width:350%">Edit/View_Details</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -508,31 +492,10 @@ height: 150px;
                                             <th>Picture</th>
                                             <th>Incident Track No.</th>
                                             <th>Date of Incident</th>
-                                            <th>Covid Related</th>
                                             <th>Type of Incident</th>
-                                            <th>Informant/Contact</th>
-                                            <th>Incident Location</th>
-                                            <th>Time Incident Occured</th>
-                                            <th>Time Incident Reported</th>
-                                            <th>Time Response initiated</th>
-                                            <th>Time Response Terminated</th>
-                                            <th>Incident Description</th>
-                                            <th>No. Persons Involved</th>
-                                            <th>Name of Person/s Involved</th>
-                                            <th>Age</th>
-                                            <th>Sex</th>
-                                            <th>Address</th>
-                                            <th>Vehicle Used</th>
-                                            <th>Name of Driver</th>
-                                            <th>Team Responder</th>
-                                            <th>Name of Responders</th>
-                                            <th>Devices Used</th>
-                                            <th>Photos Taken By</th>
                                             <th>Report Prepared by</th>
-                                            <th>Date Recorded</th>
-                                            <th>Remark by Admin</th>
                                             <th>Status</th>
-                                            <th>Process</th>
+                                            <th  style="width:350%">Edit/View_Details</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -540,37 +503,17 @@ height: 150px;
                                         <tr> <td>
                                             <img src="images/{{$data->Picture}}" alt="" width="200px" height="180px">
                                         </td>
-                                            <td>{{$data->Incident_Track_Num}}</td>
+                                        <td>{{$data->Incident_Track_Num}}</td>
                                             <td>{{$data->DateOfIncident}}</td>
-                                            <td>{{$data->Covid}}</td>
                                             <td>{{$data->TypeOfIncident}}</td>
-                                            <td>{{$data->Informat_Contact}}</td>
-                                            <td>{{$data->IncidentLocation}}</td>
-                                            <td>{{$data->TimeOccured}}</td>
-                                            <td>{{$data->TimeReported}}</td>
-                                            <td>{{$data->TimeResponse}}</td>
-                                            <td>{{$data->TimeTerminated}}</td>
-                                            <td>{{$data->Incident_Des}}</td>
-                                            <td>{{$data->Num_Person_Involve}}</td>
-                                            <td>{{$data->NameOfVictim}}</td>
-                                            <td>{{$data->Age}}</td>
-                                            <td>{{$data->Sex}}</td>
-                                            <td>{{$data->Address}}</td>
-                                            <td>{{$data->Vehicle_Used}}</td>
-                                            <td>{{$data->NameOfDriver}}</td>
-                                            <td>{{$data->ResponderTeam}}</td>
-                                            <td>{{$data->NameOfResponders}}</td>
-                                            <td>{{$data->Devices_Used}}</td>
-                                            <td>{{$data->Photos_By}}</td>
                                             <td>{{$data->ReportedBy}}</td>
-                                            <td>{{$data->Date_Recorded}}</td>
-                                            <td>{{$data->Remark}}</td>
                                             <td>{{$data->Status}}</td>
-                                        
-                                            
                                             <td>
-                                                <button type="button" class="btn btn-primary"><i class='bx bx-edit-alt'></i></button>
-                                                <button type="button" class="btn btn-danger"><i class='bx bx-trash'></i></button>
+                                                <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#EditReportModal{{$data->id}}"><i class='bx bx-edit-alt'></i></button>
+                                                @include('modal.EditReport')
+                                                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#ViewReportModal{{$data->id}}"><i class='bx bx-info-circle'></i></button>
+                                                <!-- <a class="btn btn-primary" data-toggle="modal" data-target="#ViewReportModal{{$data->id}}"><i class='bx bx-info-circle' data-toggle="tooltip" title="View"></i></a> -->
+                                                @include('modal.ViewReport')
                                             </td>
                                         </tr>
                                         @endforeach

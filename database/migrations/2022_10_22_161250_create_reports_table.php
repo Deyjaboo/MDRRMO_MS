@@ -16,15 +16,15 @@ return new class extends Migration
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
             $table->integer('Num_Person_Involve');
-            $table->string('NameOfVictim');
+            $table->longText('NameOfVictim');
             $table->string('Age');
             $table->string('Sex');
-            $table->string('Address');
+            $table->longText('Address');
             $table->string('Vehicle_Used');
             $table->string('NameOfDriver');
             $table->string('ResponderTeam');
-            $table->string('NameOfResponders');
-            $table->string('Devices_Used');
+            $table->longText('NameOfResponders');
+            $table->longText('Devices_Used');
             $table->string('Photos_By');
             $table->string('ReportedBy');
             $table->string('Date_Recorded');
@@ -33,12 +33,12 @@ return new class extends Migration
             $table->string('Covid');
             $table->string('TypeOfIncident');
             $table->string('Informat_Contact');
-            $table->string('IncidentLocation');
+            $table->longText('IncidentLocation');
             $table->string('TimeOccured');
             $table->string('TimeReported');
             $table->string('TimeResponse');
             $table->string('TimeTerminated');
-            $table->string('Incident_Des');
+            $table->longText('Incident_Des');
             $table->string('Status');
             $table->string('Picture');
             $table->string('Year');

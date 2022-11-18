@@ -19,6 +19,7 @@
     <!-- Custom styles for this template-->
     <link href="css/style.css" rel="stylesheet">
     <!-- <link href="css/styles.css" rel="stylesheet"> -->
+    <link rel="shortcut icon" href="images/logo12basd21.png"/>
 </head>
 <style>
 .wrapper{
@@ -213,6 +214,14 @@
             </li>
 
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="Export" >
+                <i class="fas fa-solid fa-file-export"></i>
+                <span>Export Data</span> 
+                </a>
+            </li>
+
+
               
             <li class="nav-item">
                     <form action="{{ route('logout') }}" method="POST">
@@ -274,10 +283,10 @@
         <input type="date" id="DateIncident" name="DateIncident" required> 
     </div>
 
-    <div class="form_item">
+    <!-- <div class="form_item">
         <label>Incident Tracking Number</label>
         <input type="text" id="IncidentTrackNum" name="IncidentTrackNum" required>
-    </div>
+    </div> -->
 
 
     </div>

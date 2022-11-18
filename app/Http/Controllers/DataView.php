@@ -20,7 +20,7 @@ class DataView extends Controller
         $dengue = DB::table('reports')->where('TypeOfIncident', "Dengue")->count();
         $civil = DB::table('reports')->where('TypeOfIncident', "Civil Disturbance")->count();
         $vehicular = DB::table('reports')->where('TypeOfIncident', "Vehicular/Pedestrian Accident")->count();
-        
+
         $med = DB::table('reports')->where('TypeOfIncident', "Medical Emergency")->sum('Num_Person_Involve');
         $cov = DB::table('reports')->where('TypeOfIncident', "Covid-19")->sum('Num_Person_Involve');
         $deng = DB::table('reports')->where('TypeOfIncident', "Dengue")->sum('Num_Person_Involve');

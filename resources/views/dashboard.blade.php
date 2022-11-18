@@ -29,6 +29,7 @@
     <!-- Custom styles for this template-->
     <link href="css/style.css" rel="stylesheet">
     <!-- <link href="css/styles.css" rel="stylesheet"> -->
+    <link rel="shortcut icon" href="images/logo12basd21.png"/>
 </head>
 <style>
     .new{
@@ -42,7 +43,7 @@ ul li {
       position: relative;
       text-decoration: none;
       text-align: center;
-   
+
     }
 
     li a {
@@ -57,7 +58,7 @@ ul li {
     li:hover {
       cursor: pointer;
     }
-   
+
 
     ul li ul {
       visibility: hidden;
@@ -110,19 +111,19 @@ ul li {
 
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-        <img src="images/logo12basd21.png">  
+        <img src="images/logo12basd21.png">
         <br><br>
-           
+
 
                <!-- Sidebar - Brand -->
                <!-- <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon">
-                <img src="images/logo12basd21.png" width="160px" height="160px">  
+                <img src="images/logo12basd21.png" width="160px" height="160px">
                 </div>
-               
+
             </a> -->
 
-        
+
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -132,7 +133,7 @@ ul li {
                 </a>
             </li>
 
-           
+
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -147,7 +148,7 @@ ul li {
                 <a class="nav-link collapsed" href="Adduser" >
                     <i class=" fas fa-solid fa-users"></i>
                     <span>Manage Employee</span>
-                    
+
                 </a>
             </li>
 
@@ -156,25 +157,34 @@ ul li {
                 <a class="nav-link collapsed" href="Report" >
                 <i class="fas fa-clipboard-list"></i>
                 <span>Add Reports</span>
-                    
+
                 </a>
             </li>
 
 
-              
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="Export" >
+                <i class="fas fa-solid fa-file-export"></i>
+                <span>Export Data</span>
+                </a>
+            </li>
+
+
+
             <li class="nav-item">
                     <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <a  class="nav-link collapsed"  href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                         <i class="fas fa-sign-out-alt"></i>     
-                    <span>Logout</span> 
+                         <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
                     </a>
                     </form>
             </li>
 
-    
+
 
 
 
@@ -196,12 +206,12 @@ ul li {
                         <i class='bx bx-menu'></i>
                     </button>
 
-                   
+
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        
+
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- <h4>Report and Monitoring Information System</h4> -->
@@ -212,7 +222,7 @@ ul li {
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
                                 <i class='bx bxs-user-circle'></i>
                             </a>
-                           
+
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
@@ -265,7 +275,8 @@ ul li {
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{$allreport}}</div>
                                         </div>
                                         <div class="col-auto">
-                                        <i class=" fas fa-solid fa-users fa-2x text-gray-300"></i>
+                                        <!-- <i class=" fas fa-solid fa-users fa-2x text-gray-300"></i> -->
+                                        <i class='bx bxs-folder fa-2x text-gray-300'></i>
                                         </a>
                                         </div>
                                     </div>
@@ -306,7 +317,7 @@ ul li {
                                                 <div class="col-auto">
                                                     <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$reviewedreport}}</div>
                                                 </div>
-                                               
+
                                             </div>
                                         </div>
                                         <div class="col-auto">
@@ -319,12 +330,12 @@ ul li {
                         </div>
 
                     </div>
-                    <!-- <div  class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="float: right;"  id="button-modal"> 
+                    <!-- <div  class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="float: right;"  id="button-modal">
                           <i class="fas fa-download fa-sm text-white-50"></i> Add Employee
                     </div> -->
 
-        
-                    
+
+
                     <h2>MDRRMO - Bulan</h2>
                     <br>
         @if ($errors->any())
@@ -346,17 +357,17 @@ ul li {
                     <div class="wrapper">
     <div class="form_container">
                         <div class="card-body">
-                                <table id="datatablesSimple" style="width:250%" class="TableData"> 
+                                <table id="datatablesSimple" class="TableData">
                                     <thead>
                                         <h5>MDRRMO-Reports</h5>
                                         <br>
                                         <tr>
-                                            <th>Picture</th>
+                                        <th>Picture</th>
                                             <th>Incident Track No.</th>
                                             <th>Date of Incident</th>
-                                            <th>Covid Related</th>
+                                            <!-- <th>Covid Related</th> -->
                                             <th>Type of Incident</th>
-                                            <th>Informant/Contact</th>
+                                            <!-- <th>Informant/Contact</th>
                                             <th>Incident Location</th>
                                             <th>Time Incident Occured</th>
                                             <th>Time Incident Reported</th>
@@ -373,11 +384,11 @@ ul li {
                                             <th>Team Responder</th>
                                             <th>Name of Responders</th>
                                             <th>Devices Used</th>
-                                            <th>Photos Taken By</th>
+                                            <th>Photos Taken By</th> -->
                                             <th>Report Prepared by</th>
-                                            <th>Date Recorded</th>
+                                            <!-- <th>Date Recorded</th>
                                             <th>Remark by Admin</th>
-                                            <th>Pic</th>
+                                            <th>Pic</th> -->
                                             <th>Status</th>
                                             <th  style="width:350%">Edit/View_Details</th>
                                         </tr>
@@ -387,9 +398,9 @@ ul li {
                                             <th>Picture</th>
                                             <th>Incident Track No.</th>
                                             <th>Date of Incident</th>
-                                            <th>Covid Related</th>
+                                            <!-- <th>Covid Related</th> -->
                                             <th>Type of Incident</th>
-                                            <th>Informant/Contact</th>
+                                            <!-- <th>Informant/Contact</th>
                                             <th>Incident Location</th>
                                             <th>Time Incident Occured</th>
                                             <th>Time Incident Reported</th>
@@ -406,13 +417,13 @@ ul li {
                                             <th>Team Responder</th>
                                             <th>Name of Responders</th>
                                             <th>Devices Used</th>
-                                            <th>Photos Taken By</th>
+                                            <th>Photos Taken By</th> -->
                                             <th>Report Prepared by</th>
-                                            <th>Date Recorded</th>
+                                            <!-- <th>Date Recorded</th>
                                             <th>Remark by Admin</th>
-                                            <th>Pic</th>
+                                            <th>Pic</th> -->
                                             <th>Status</th>
-                                            <th  style="width:350%">Processes</th>
+                                            <th  style="width:350%">Edit/View_Details</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -422,9 +433,9 @@ ul li {
                                         </td>
                                             <td>{{$data->Incident_Track_Num}}</td>
                                             <td>{{$data->DateOfIncident}}</td>
-                                            <td>{{$data->Covid}}</td>
+                                            <!-- <td>{{$data->Covid}}</td> -->
                                             <td>{{$data->TypeOfIncident}}</td>
-                                            <td>{{$data->Informat_Contact}}</td>
+                                            <!-- <td>{{$data->Informat_Contact}}</td>
                                             <td>{{$data->IncidentLocation}}</td>
                                             <td>{{$data->TimeOccured}}</td>
                                             <td>{{$data->TimeReported}}</td>
@@ -441,25 +452,29 @@ ul li {
                                             <td>{{$data->ResponderTeam}}</td>
                                             <td>{{$data->NameOfResponders}}</td>
                                             <td>{{$data->Devices_Used}}</td>
-                                            <td>{{$data->Photos_By}}</td>
+                                            <td>{{$data->Photos_By}}</td> -->
                                             <td>{{$data->ReportedBy}}</td>
-                                            <td>{{$data->Date_Recorded}}</td>
-                                            <td>{{$data->Remark}}</td>
-                                            <td>{{$data->Picture}}</td>
+                                            <!-- <td>{{$data->Date_Recorded}}</td>
+                                             <td>{{$data->Remark}}</td>
+                                            <td>{{$data->Picture}}</td>  -->
                                             <td>{{$data->Status}}</td>
-                                      
-                                            
+
+
                                             <td>
                                                 <!-- <button type="button" class="btn btn-primary"><i class='bx bx-edit-alt'></i></button>
                                                 <button type="button" class="btn btn-danger"><i class='bx bx-trash'></i></button> -->
                                                     <!-- <div class="row">
                                                         <div class="column" id="column1"> -->
-                                                            <a href="clickedit/{{$data->Incident_Track_Num}}" class="btn btn-success"><i class="bx bx-edit-alt" title="Edit"></i></a>
+                                                            <!-- <a href="clickedit/{{$data->Incident_Track_Num}}" class="btn btn-success"><i class="bx bx-edit-alt" title="Edit"></i></a> -->
+                                                            <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#EditReportModal{{$data->id}}"><i class='bx bx-edit-alt'></i></button>
+                                                            @include('modal.EditReport')
                                                         <!-- </div> -->
                                                         <!-- <div class="column" id="column1"> -->
-                                                            <a href="javascript:void(0)" class="btn btn-primary" id="editbtn"><i class='bx bx-info-circle' data-toggle="tooltip" title="View"></i></a>
-                                                        <!-- </div>
-                                                    
+                                                            <!-- <a href="javascript:void(0)" class="btn btn-primary" id="editbtn"><i class='bx bx-info-circle' data-toggle="tooltip" title="View"></i></a> -->
+                                                            <a class="btn btn-secondary" data-toggle="modal" data-target="#ViewReportModal{{$data->id}}"><i class='bx bx-info-circle' data-toggle="tooltip" title="View"></i></a>
+                                                            @include('modal.ViewReport')
+                                                            <!-- </div>
+
                                                     </div> -->
                                             </td>
                                         </tr>
@@ -509,7 +524,7 @@ ul li {
                     <img src="" id="image"/>
                 </div>
                 </div>
-                
+
                 <div class="form_wrap fullname">
                 <div class="form_item">
                 <label>Incident Description<span class="text-danger"></span></label>
@@ -527,7 +542,7 @@ ul li {
                         <option value ="Yes">Yes</option>
                         <option value ="No">No</option>
                     </select> -->
-                  
+
                 </div>
                 <div class="form_item">
                     <label>Type of Incident<span class="text-danger"></span></label>
@@ -587,7 +602,7 @@ ul li {
                     </div>
                 </div>
 
-              
+
 
                 <div class="form_wrap fullname">
                 <div class="form_item">
@@ -619,7 +634,7 @@ ul li {
                     </select> -->
                 </div>
                 </div>
-                
+
 
                 <div class="form_wrap fullname">
                 <div class="form_item">
@@ -678,21 +693,21 @@ ul li {
                 </div>
 
                 </div>
-                
+
                 <div class="form_wrap fullname">
                 <div class="form_item">
                 <label>DateRecorded<span class="text-danger"></span></label>
                 <p name="DateRecorded" id="DateRecorded"></p>
                 <!-- <input type="date"  name="DateRecorded" id="DateRecorded" class="form-control" placeholder="" required> -->
                 </div>
-                
+
                 <div class="form_item">
                 <label>Status<span class="text-danger"></span></label>
                 <p name="Status" id="Status"></p>
                 <!-- <input type="text"  name="Status" id="Status" class="form-control" placeholder="" required> -->
                 </div>
                 </div>
-                
+
                 <div class="form_wrap fullname">
                 <div class="form_item">
                 <label>Remark<span class="text-danger"></span></label>
@@ -701,9 +716,9 @@ ul li {
                 </div>
                 </div>
 
-               
 
-                
+
+
 
 
       </div>
@@ -720,7 +735,7 @@ ul li {
      // Edit
      $(document).ready(function(){
         let image = document.getElementById("image");
-        
+
         $('.TableData').on('click', '#editbtn', function(){
         $tr = $(this).closest('tr');
 
@@ -779,7 +794,7 @@ ul li {
             // $('#DateRecorded').val(data[24]);
             // $('#Remark').val(data[25]);
             // $('#Status').val(data[27]);
-            
+
             image.src = "images/"+data[26];
             // $('#delete_modal_Form').attr('action', 'assets-delete/'+data[0]);
             $('#editForm').attr('action', 'EditStudent/'+data[1]);
@@ -787,7 +802,7 @@ ul li {
         });
 });
 </script>
-       
+
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
@@ -832,7 +847,7 @@ var myChart = new Chart(ctx, {
   }
 });
 </script>
-    
+
 
 
 

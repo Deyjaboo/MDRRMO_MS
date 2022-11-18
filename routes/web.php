@@ -48,13 +48,9 @@ Route::middleware('auth','isAdmin')->group(function () {
     Route::get('ActiveEmployee',[UserController::class ,'active_show']);
     Route::get('InactiveEmployee',[UserController::class ,'inactive_show']);
 
-    Route::get('/NewReport', function () {
-        return view('NewReport');
-    });
+    Route::get('NewReport',[ReportController::class ,'NewReport_show']);
+    Route::get('ReviewedReport',[ReportController::class ,'ReviewedReport_show']);
 
-    Route::get('/ReviewedReport', function () {
-        return view('ReviewedReport');
-    });
 
     Route::get('/Report', function () {
         return view('Report');
@@ -65,7 +61,7 @@ Route::middleware('auth','isAdmin')->group(function () {
     });
     Route::get('clickedit/{id}',[ReportController::class ,'edit_function']);
     // Route::post('report_pass',[ReportController::class ,'store']);
-  
+
  
 });
 //  Route::get('/dashboard', function () {
@@ -80,12 +76,20 @@ Route::middleware('auth','isAdmin')->group(function () {
          Route::get('/addreport', function () {
             return view('addreport');
         });
+
+        // Route::get('/Export', function () {
+        //     return view('Export');
+        // });
+        Route::get('Export',[ReportController::class ,'report_show']);
+
         Route::get('/EditReport', function () {
             return view('EditReport');
         });
         Route::post('report_pass',[ReportController::class ,'store']);
     });
 //  });
+Route::get('ViewReport/{id}',[ReportController::class ,'View_Report_Details']);
+Route::get('EditReport/{id}',[ReportController::class ,'Edit_Report_Details']);
 
-
+Route::post('UpdateReport/{id}',[ReportController::class ,'update_report'])->name('UpdateReport');
 require __DIR__.'/auth.php';

@@ -12,11 +12,16 @@
     <title>Managed Employee</title>
 <!-- Modal-->
    
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+ <!-- Button-->
+ <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,400,500,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+ <!-- Button-->
     <!-- Custom fonts for this template-->
 
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
@@ -26,6 +31,7 @@
     <link href="css/style.css" rel="stylesheet">
     <!-- <link href="css/styles.css" rel="stylesheet"> -->
     <link rel="shortcut icon" href="images/logo12basd21.png"/>
+    
 </head>
 
 <style>
@@ -40,6 +46,83 @@
     #boxcolor3{
         background-color:  #ff6666;
     }
+
+    .btn0 {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 10px 14px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.btn1 {
+  background-color:#00cccc;
+  border: none;
+  color: white;
+  padding: 10px 14px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.btn2 {
+  background-color:#009900;
+  border: none;
+  color: white;
+  padding: 10px 14px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.btn0:hover {
+    background-color: #0039e6;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.20), 0 8px 8px rgba(0,0,0,0.12);
+}
+
+.btn0:active {
+  background-color:#0039e6;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.6), 0 1px 2px rgba(0,0,0,0.12);
+  transition: all 0.3s cubic-bezier(.20,.8,.20,1);
+}
+
+.btn1:hover {
+    background-color:  #1affff;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.20), 0 8px 8px rgba(0,0,0,0.12);
+}
+
+.btn1:active {
+  background-color:  #1affff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.6), 0 1px 2px rgba(0,0,0,0.12);
+  transition: all 0.3s cubic-bezier(.20,.8,.20,1);
+}
+
+
+.btn2:hover {
+    background-color:  #00b300;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.20), 0 8px 8px rgba(0,0,0,0.12);
+}
+
+.btn2:active {
+  background-color:  #00b300;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.6), 0 1px 2px rgba(0,0,0,0.12);
+  transition: all 0.3s cubic-bezier(.20,.8,.20,1);
+}
+
+
+#place,#month,#year{
+    width: 50%;
+  padding: 8px 8px;
+  margin: 4px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  background-color:#f2f2f2;
+  border-radius: 5px;
+}
+
 </style>
  
 <body id="page-top">
@@ -148,80 +231,55 @@
 
 <!-- Content Row -->
 <div class="row">
-
     <!--  Employee -->
     <div class="col-xl-4 col-md-6 mb-4" >
-        <div class="card left-primary shadow h-100 py-2" id="boxcolor1">
-            <div class="card-body" >
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <a href="Adduser">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                        All Employee</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$num}}</div>
-                    </div>
-                    <div class="col-auto">
-                    <i class=" fas fa-users fa-2x text-gray-300"></i>
-                    </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <label for="cars">Choose a month:</label>
+  <select name="month" id="month">
+    <option value=""></option disabled>
+    <option value="January">January</option>
+    <option value="February">February</option>
+    <option value="March">March</option>
+    <option value="April">April</option>
+    <option value="May">May</option>
+    <option value="June">June</option>
+    <option value="July">July</option>
+    <option value="August">August</option>
+    <option value="September">September</option>
+    <option value="October">October</option>
+    <option value="November">November</option>
+    <option value="December">December</option>
+   
+    
+  </select>
+  <br><br>
     </div>   
 
     <!-- Active Employee -->
     <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card  shadow h-100 py-2" id="boxcolor2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <a href="ActiveEmployee">
-                        <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
-                        Active Employee</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$active}}</div>
-                    </div>
-                    <div class="col-auto">
-                    <i class=" fas fa-user-friends fa-2x text-gray-300"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <label for="cars">Choose a year:</label>
+  <select name="year" id="year">
+    <option value=""></option disabled>
+    <option value="2022">2022</option>
+    <option value="2023">2023</option>
+    <option value="2024">2024</option>
+    <option value="2025">2025</option>
+    <option value="2026">2026</option>
+  </select>
     </div>
 
-     <!-- Inactive Employee -->
+
     <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card  shadow h-100 py-2"  id="boxcolor3">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <a href="InactiveEmployee">
-                        <div class="text-xs font-weight-bold text-white text-uppercase mb-1">Inactive Employee
-                        </div>
-                        <div class="row no-gutters align-items-center">
-                            <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$inactive}}</div>
-                            </div>
-                           
-                        </div>
-                    </div>
-                    <div class="col-auto">
-                    <i class=" fas fa-user fa-2x text-gray-300"></i>
-                       </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <button class="btn0"><i class="fa fa-search"></i></button>
+    <button class="btn1"><i class="fa fa-refresh"></i></button>
+    <button class="btn2"><i class="fa fa-file-export"></i></button>
     </div>
-
+   
 </div>
 
-<div  class="d-none d-sm-inline-block  shadow-sm" style="float: right;"  id="button-modal"> 
+<!-- <div  class="d-none d-sm-inline-block  shadow-sm" style="float: right;"  id="button-modal"> 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fas fa-download fa-sm text-white-50"></i> Add Employee</button>       
-</div>
+</div> -->
 
-
-<h2>Managed Employee</h2>
 @if(session()->has('message'))
             <div class="alert alert-success">
                 {{ session()->get('message') }}
@@ -230,39 +288,52 @@
 <div class="wrapper">
 <div class="form_container">
     <div class="card-body">
-            <table id="datatablesSimple">
-                <thead>
-                    <h5>MDRRMO-Employee</h5>
-                    <br>
-                    <tr>
-                        <th>Name</th>
-                        <th>Address</th>
-                        <th>Contact No.</th>
-                        <th>User Name</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                        <th>Name</th>
-                        <th>Address</th>
-                        <th>Contact No.</th>
-                        <th>User Name</th>
-                        <th>Status</th>
-                    </tr>
-                </tfoot>
-                <tbody>
-                @foreach($data as $data)
-                    <tr>
-                        <td>{{$data->name}}</td>
-                        <td>{{$data->address}}</td>
-                        <td>{{$data->contact_num}}</td>
-                        <td>{{$data->email}}</td>
-                        <td>{{$data->Status}}</td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
+    <table id="datatablesSimple">
+                                    <thead>
+                                        <center><h5>MDRRMO-Reports</h5></center>
+                                 
+                                        <tr>
+                                            <th>Picture</th>
+                                            <th>Incident Track No.</th>
+                                            <th>Date of Incident</th>
+                                            <th>Type of Incident</th>
+                                            <th>Report Prepared by</th>
+                                            <th>Status</th>
+                                            <th  style="width:350%">View_Details</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Picture</th>
+                                            <th>Incident Track No.</th>
+                                            <th>Date of Incident</th>
+                                            <th>Type of Incident</th>
+                                            <th>Report Prepared by</th>
+                                            <th>Status</th>
+                                            <th  style="width:350%">View_Details</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                    @foreach($data as $data)
+                                        <tr> <td>
+                                            <img src="images/{{$data->Picture}}" alt="" width="200px" height="180px">
+                                        </td>
+                                        <td>{{$data->Incident_Track_Num}}</td>
+                                            <td>{{$data->DateOfIncident}}</td>
+                                            <td>{{$data->TypeOfIncident}}</td>
+                                            <td>{{$data->ReportedBy}}</td>
+                                            <td>{{$data->Status}}</td>
+                                            <td>
+                                               
+                                                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#ViewReportModal{{$data->id}}"><i class='bx bx-info-circle'></i></button>
+                                                <!-- <a class="btn btn-primary" data-toggle="modal" data-target="#ViewReportModal{{$data->id}}"><i class='bx bx-info-circle' data-toggle="tooltip" title="View"></i></a> -->
+                                                @include('modal.ViewReport')
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+               
 
 </section>
 

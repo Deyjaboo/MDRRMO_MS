@@ -17,7 +17,7 @@ class UserController extends Controller
         return view('Adduser',['data'=>$data,'num'=>$num ,'active'=>$active ,'inactive'=>$inactive]);
     }
     function active_show(){
-        $data = DB::table('users')->where('role', "user")->get();
+        $data = DB::table('users')->where('role', "user")->where('Status', "Active")->get();
         $num = DB::table('users')->where('role', "user")->count();
 
         $active = DB::table('users')->where('Status', "Active")->where('role', "user")->count();
@@ -25,7 +25,7 @@ class UserController extends Controller
         return view('ActiveEmployee',['data'=>$data,'num'=>$num ,'active'=>$active ,'inactive'=>$inactive]);
     }
     function inactive_show(){
-        $data = DB::table('users')->where('role', "user")->get();
+        $data = DB::table('users')->where('role', "user")->where('Status', "Inactive")->get();
         $num = DB::table('users')->where('role', "user")->count();
 
         $active = DB::table('users')->where('Status', "Active")->where('role', "user")->count();

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/logo12basd21.png"/>
     <title>Add Report</title>
 </head>
 <style>
@@ -172,10 +173,10 @@
         <input type="date" id="DateIncident" name="DateIncident" required> 
     </div>
 
-    <div class="form_item">
+    <!-- <div class="form_item">
         <label>Incident Tracking Number</label>
         <input type="text" id="IncidentTrackNum" name="IncidentTrackNum" required>
-    </div>
+    </div> -->
 
 
     </div>
@@ -356,7 +357,7 @@
 
             <div class="form_item">
             <label>Incident Description/ Action Taken</label>
-              <textarea cols="50" rows="10" id="IncidentDescription" name="IncidentDescription" required></textarea>
+              <textarea cols="45" rows="10" id="IncidentDescription" name="IncidentDescription" required></textarea>
             </div>
 
             <div class="form-input">

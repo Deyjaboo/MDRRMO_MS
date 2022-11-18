@@ -9,15 +9,25 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Inactive Employee</title>
-
+    <title>Reviewed Report</title>
+<!-- Button-->
+<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,400,500,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+ <!-- Button-->
+ <!-- Modal-->
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ <!-- Modal-->
     <!-- Custom fonts for this template-->
-
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
    
     <link href="{{('css/styles.css') }}" rel="stylesheet" type="text/css" >
     <!-- Custom styles for this template-->
     <link href="css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/logo12basd21.png"/>
     <!-- <link href="css/styles.css" rel="stylesheet"> -->
 </head>
 <style>
@@ -250,10 +260,10 @@ ul li {
                                             <a href="dashboard">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                             All Reports</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">12</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$allreport}}</div>
                                         </div>
                                         <div class="col-auto">
-                                        <i class=" fas fa-solid fa-users fa-2x text-gray-300"></i>
+                                        <i class='bx bxs-folder fa-2x text-gray-300'></i>
                                         </a>
                                         </div>
                                     </div>
@@ -270,7 +280,7 @@ ul li {
                                             <a href="NewReport">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                             New Reports</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">30</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$newreport}}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-file fa-2x text-gray-300"></i>
@@ -292,7 +302,7 @@ ul li {
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50</div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$reviewedreport}}</div>
                                                 </div>
                                                
                                             </div>
@@ -313,173 +323,70 @@ ul li {
 
         
                     
-                    <h2>MDRRMO - Reviewed Report</h2>
+                    <h2>MDRRMO - Review Report</h2>
 
                     <div class="wrapper">
     <div class="form_container">
-                        <div class="card-body">
-                                <table id="datatablesSimple">
+    <br>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+       @if(session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+        @endif
+        <div class="card-body">
+        <table id="datatablesSimple">
                                     <thead>
+                                        <center><h5>MDRRMO- Reports</h5></center>
+                                 
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Picture</th>
+                                            <th>Incident Track No.</th>
+                                            <th>Date of Incident</th>
+                                            <th>Type of Incident</th>
+                                            <th>Report Prepared by</th>
+                                            <th>Status</th>
+                                            <th  style="width:350%">Edit/View_Details</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Picture</th>
+                                            <th>Incident Track No.</th>
+                                            <th>Date of Incident</th>
+                                            <th>Type of Incident</th>
+                                            <th>Report Prepared by</th>
+                                            <th>Status</th>
+                                            <th  style="width:350%">Edit/View_Details</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
+                                    @foreach($data as $data)
+                                        <tr> <td>
+                                            <img src="images/{{$data->Picture}}" alt="" width="200px" height="180px">
+                                        </td>
+                                        <td>{{$data->Incident_Track_Num}}</td>
+                                            <td>{{$data->DateOfIncident}}</td>
+                                            <td>{{$data->TypeOfIncident}}</td>
+                                            <td>{{$data->ReportedBy}}</td>
+                                            <td>{{$data->Status}}</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#EditReportModal{{$data->id}}"><i class='bx bx-edit-alt'></i></button>
+                                                @include('modal.EditReport')
+                                                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#ViewReportModal{{$data->id}}"><i class='bx bx-info-circle'></i></button>
+                                                <!-- <a class="btn btn-primary" data-toggle="modal" data-target="#ViewReportModal{{$data->id}}"><i class='bx bx-info-circle' data-toggle="tooltip" title="View"></i></a> -->
+                                                @include('modal.ViewReport')
+                                            </td>
                                         </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ashton Cox</td>
-                                            <td>Junior Technical Author</td>
-                                            <td>San Francisco</td>
-                                            <td>66</td>
-                                            <td>2009/01/12</td>
-                                            <td>$86,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cedric Kelly</td>
-                                            <td>Senior Javascript Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>22</td>
-                                            <td>2012/03/29</td>
-                                            <td>$433,060</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>2008/11/28</td>
-                                            <td>$162,700</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Brielle Williamson</td>
-                                            <td>Integration Specialist</td>
-                                            <td>New York</td>
-                                            <td>61</td>
-                                            <td>2012/12/02</td>
-                                            <td>$372,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Herrod Chandler</td>
-                                            <td>Sales Assistant</td>
-                                            <td>San Francisco</td>
-                                            <td>59</td>
-                                            <td>2012/08/06</td>
-                                            <td>$137,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rhona Davidson</td>
-                                            <td>Integration Specialist</td>
-                                            <td>Tokyo</td>
-                                            <td>55</td>
-                                            <td>2010/10/14</td>
-                                            <td>$327,900</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Colleen Hurst</td>
-                                            <td>Javascript Developer</td>
-                                            <td>San Francisco</td>
-                                            <td>39</td>
-                                            <td>2009/09/15</td>
-                                            <td>$205,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sonya Frost</td>
-                                            <td>Software Engineer</td>
-                                            <td>Edinburgh</td>
-                                            <td>23</td>
-                                            <td>2008/12/13</td>
-                                            <td>$103,600</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jena Gaines</td>
-                                            <td>Office Manager</td>
-                                            <td>London</td>
-                                            <td>30</td>
-                                            <td>2008/12/19</td>
-                                            <td>$90,560</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Michael Silva</td>
-                                            <td>Marketing Designer</td>
-                                            <td>London</td>
-                                            <td>66</td>
-                                            <td>2012/11/27</td>
-                                            <td>$198,500</td>
-                                        </tr>
-
-
-                                        <tr>
-                                            <td>Timothy Mooney</td>
-                                            <td>Office Manager</td>
-                                            <td>London</td>
-                                            <td>37</td>
-                                            <td>2008/12/11</td>
-                                            <td>$136,200</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jackson Bradshaw</td>
-                                            <td>Director</td>
-                                            <td>New York</td>
-                                            <td>65</td>
-                                            <td>2008/09/26</td>
-                                            <td>$645,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Olivia Liang</td>
-                                            <td>Support Engineer</td>
-                                            <td>Singapore</td>
-                                            <td>64</td>
-                                            <td>2011/02/03</td>
-                                            <td>$234,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bruno Nash</td>
-                                            <td>Software Engineer</td>
-                                            <td>London</td>
-                                            <td>38</td>
-                                            <td>2011/05/03</td>
-                                            <td>$163,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sakura Yamamoto</td>
-                                            <td>Support Engineer</td>
-                                            <td>Tokyo</td>
-                                            <td>37</td>
-                                            <td>2009/08/19</td>
-                                            <td>$139,575</td>
-                                        </tr>
-
+                                        @endforeach
                                     </tbody>
                                 </table>
 
