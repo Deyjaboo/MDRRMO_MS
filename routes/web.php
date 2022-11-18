@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\DataView;
+use App\Http\Controllers\ExportController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -61,7 +62,12 @@ Route::middleware('auth','isAdmin')->group(function () {
     });
     Route::get('clickedit/{id}',[ReportController::class ,'edit_function']);
     // Route::post('report_pass',[ReportController::class ,'store']);
-
+    
+   
+    //Export Controller
+    Route::get('Export',[ExportController::class ,'report_show']);
+    Route::get('/search/', [ExportController::class ,'search'])->name('search');
+    Route::get('ClearExport',[ExportController::class ,'refresh']);
  
 });
 //  Route::get('/dashboard', function () {
@@ -80,7 +86,7 @@ Route::middleware('auth','isAdmin')->group(function () {
         // Route::get('/Export', function () {
         //     return view('Export');
         // });
-        Route::get('Export',[ReportController::class ,'report_show']);
+      
 
         Route::get('/EditReport', function () {
             return view('EditReport');

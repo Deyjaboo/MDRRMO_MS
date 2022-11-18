@@ -230,6 +230,7 @@
 </div> -->
 
 <!-- Content Row -->
+<form action="{{ route('search') }}" method="GET">
 <div class="row">
     <!--  Employee -->
     <div class="col-xl-4 col-md-6 mb-4" >
@@ -270,7 +271,9 @@
 
     <div class="col-xl-4 col-md-6 mb-4">
     <button class="btn0"><i class="fa fa-search"></i></button>
-    <button class="btn1"><i class="fa fa-refresh"></i></button>
+    </form>
+    <a class="btn1" href="ClearExport"><i class="fa fa-refresh"></i></a>
+    <!-- <button class="btn1"><i class="fa fa-refresh"></i></button> -->
     <button class="btn2"><i class="fa fa-file-export"></i></button>
     </div>
    

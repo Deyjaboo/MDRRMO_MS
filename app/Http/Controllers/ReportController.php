@@ -217,12 +217,7 @@ class ReportController extends Controller
 
         return view('ReviewedReport',['data'=>$data,'allreport'=>$allreport ,'newreport'=>$newreport ,'reviewedreport'=>$reviewedreport]);
     }
-    function report_show(){
-        $data = DB::table('reports')->get();
-        $year = DB::table('reports')->value('Year');
-
-        return view('Export',['data'=>$data, 'year'=>$year]);
-    }
+   
     /**
      * Display the specified resource.
      *
