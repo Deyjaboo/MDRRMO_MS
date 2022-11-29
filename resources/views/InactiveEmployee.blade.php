@@ -14,7 +14,12 @@
     <!-- Custom fonts for this template-->
 
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-   
+   <!-- Button-->
+ <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,400,500,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+ <!-- Button-->
     <link href="{{('css/styles.css') }}" rel="stylesheet" type="text/css" >
     <!-- Custom styles for this template-->
     <link href="css/style.css" rel="stylesheet">
@@ -257,22 +262,23 @@ ul li {
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div> -->
 
-                    <!-- Content Row -->
-                    <div class="row">
+  <!-- Content Row -->
+ <div class="row">
 
 <!--  Employee -->
 <div class="col-xl-4 col-md-6 mb-4">
-    <div class="card shadow h-100 py-2" id="boxcolor1">
+    <div class="card border-left-success shadow h-100 py-2">
         <div class="card-body">
             <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                     <a href="Adduser">
-                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                     All Employee</div>
                     <div class="h5 mb-0 font-weight-bold text-gray-800">{{$num}}</div>
                 </div>
                 <div class="col-auto">
-                <i class=" fas fa-solid fa-users fa-2x text-gray-300"></i>
+                <!-- <i class=" fas fa-solid fa-users fa-2x text-gray-300"></i> -->
+                <i class=" fas fa-users fa-2x text-gray-300"></i>
                 </a>
                 </div>
             </div>
@@ -282,12 +288,12 @@ ul li {
 
 <!-- Active Employee -->
 <div class="col-xl-4 col-md-6 mb-4">
-    <div class="card shadow h-100 py-2" id="boxcolor2">
+    <div class="card border-left-warning shadow h-100 py-2">
         <div class="card-body">
             <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                     <a href="ActiveEmployee">
-                    <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
+                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                     Active Employee</div>
                     <div class="h5 mb-0 font-weight-bold text-gray-800">{{$active}}</div>
                 </div>
@@ -300,20 +306,20 @@ ul li {
     </div>
 </div>
 
- <!-- Inactive Employee -->
+<!-- Inactive Employee -->
 <div class="col-xl-4 col-md-6 mb-4">
-    <div class="card  shadow h-100 py-2" id="boxcolor3">
+    <div class="card border-left-danger shadow h-100 py-2">
         <div class="card-body">
             <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                     <a href="InactiveEmployee">
-                    <div class="text-xs font-weight-bold text-white text-uppercase mb-1">Inactive Employee
+                    <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Inactive Employee
                     </div>
                     <div class="row no-gutters align-items-center">
                         <div class="col-auto">
                             <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$inactive}}</div>
                         </div>
-                       
+
                     </div>
                 </div>
                 <div class="col-auto">
@@ -327,15 +333,14 @@ ul li {
 
 </div>
 
-
                     <h2>Inactive Employees</h2>
 
                     <div class="wrapper">
     <div class="form_container">
     <div class="card-body">
-            <table id="datatablesSimple">
+    <table id="datatablesSimple">
                 <thead>
-                    <!-- <h5>Employee Table</h5> -->
+                    <h5>MDRRMO-Employee</h5>
                     <br>
                     <tr>
                         <th>Name</th>
@@ -343,6 +348,7 @@ ul li {
                         <th>Contact No.</th>
                         <th>User Name</th>
                         <th>Status</th>
+                        <th>Edit_Details</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -352,6 +358,7 @@ ul li {
                         <th>Contact No.</th>
                         <th>User Name</th>
                         <th>Status</th>
+                        <th>Edit_Details</th>
                     </tr>
                 </tfoot>
                 <tbody>
@@ -362,6 +369,10 @@ ul li {
                         <td>{{$data->contact_num}}</td>
                         <td>{{$data->email}}</td>
                         <td>{{$data->Status}}</td>
+                        <td>
+                            <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#EditEmployee{{$data->id}}"><i class='bx bx-edit-alt'></i></button>
+                            @include('modal.EditEmployee')
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

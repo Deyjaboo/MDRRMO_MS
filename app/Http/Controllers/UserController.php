@@ -32,4 +32,33 @@ class UserController extends Controller
         $inactive = DB::table('users')->where('Status', "Inactive")->count();
         return view('InactiveEmployee',['data'=>$data,'num'=>$num ,'active'=>$active ,'inactive'=>$inactive]);
     }
+
+    public function edit_employee(Request $request, $id)
+    {
+        // $request->validate([
+        //     'StudentId' => ['required', 'min:7'],
+        //     'FirstName' => ['required', 'string', 'max:255', 'regex:/^([^0-9]*)$/'],
+        //     'LastName' => ['required', 'string', 'max:255','regex:/^([^0-9]*)$/'],
+        // ]);
+                $Name = $request->input('Name');
+                $Address = $request->input('Address');
+                $number = $request->input('number');
+                $email = $request->input('email');
+                $Status = $request->input('status');
+              
+        DB::table('users')
+        ->where('id', $id)
+        ->update(array(
+            'name' => $Name,
+            'address' => $Address,
+            'contact_num' => $number,
+            'email' => $email,
+            'Status' => $Status,
+            
+        ));
+        
+       
+            return redirect('Adduser')->with('message','Employee details updated successfully!');
+        
+    }
 }

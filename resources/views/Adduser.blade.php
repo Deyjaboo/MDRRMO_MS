@@ -12,7 +12,12 @@
     <title>Managed Employee</title>
 <!-- Modal-->
    
-
+ <!-- Button-->
+ <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,400,500,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+ <!-- Button-->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -147,10 +152,9 @@
 </div> -->
 
 <!-- Content Row -->
-<div class="row">
-
+<!-- <div class="row"> -->
     <!--  Employee -->
-    <div class="col-xl-4 col-md-6 mb-4" >
+    <!-- <div class="col-xl-4 col-md-6 mb-4" >
         <div class="card left-primary shadow h-100 py-2" id="boxcolor1">
             <div class="card-body" >
                 <div class="row no-gutters align-items-center">
@@ -167,10 +171,10 @@
                 </div>
             </div>
         </div>
-    </div>   
+    </div>    -->
 
     <!-- Active Employee -->
-    <div class="col-xl-4 col-md-6 mb-4">
+    <!-- <div class="col-xl-4 col-md-6 mb-4">
         <div class="card  shadow h-100 py-2" id="boxcolor2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
@@ -187,10 +191,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
      <!-- Inactive Employee -->
-    <div class="col-xl-4 col-md-6 mb-4">
+    <!-- <div class="col-xl-4 col-md-6 mb-4">
         <div class="card  shadow h-100 py-2"  id="boxcolor3">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
@@ -213,6 +217,77 @@
             </div>
         </div>
     </div>
+
+</div> -->
+
+ <!-- Content Row -->
+ <div class="row">
+
+<!--  Employee -->
+<div class="col-xl-4 col-md-6 mb-4">
+    <div class="card border-left-success shadow h-100 py-2">
+        <div class="card-body">
+            <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                    <a href="Adduser">
+                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                    All Employee</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{$num}}</div>
+                </div>
+                <div class="col-auto">
+                <!-- <i class=" fas fa-solid fa-users fa-2x text-gray-300"></i> -->
+                <i class=" fas fa-users fa-2x text-gray-300"></i>
+                </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Active Employee -->
+<div class="col-xl-4 col-md-6 mb-4">
+    <div class="card border-left-warning shadow h-100 py-2">
+        <div class="card-body">
+            <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                    <a href="ActiveEmployee">
+                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                    Active Employee</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{$active}}</div>
+                </div>
+                <div class="col-auto">
+                <i class=" fas fa-user-friends fa-2x text-gray-300"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Inactive Employee -->
+<div class="col-xl-4 col-md-6 mb-4">
+    <div class="card border-left-danger shadow h-100 py-2">
+        <div class="card-body">
+            <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                    <a href="InactiveEmployee">
+                    <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Inactive Employee
+                    </div>
+                    <div class="row no-gutters align-items-center">
+                        <div class="col-auto">
+                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$inactive}}</div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-auto">
+                <i class=" fas fa-user fa-2x text-gray-300"></i>
+                   </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 </div>
 
@@ -240,6 +315,7 @@
                         <th>Contact No.</th>
                         <th>User Name</th>
                         <th>Status</th>
+                        <th>Edit_Details</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -249,6 +325,7 @@
                         <th>Contact No.</th>
                         <th>User Name</th>
                         <th>Status</th>
+                        <th>Edit_Details</th>
                     </tr>
                 </tfoot>
                 <tbody>
@@ -259,6 +336,10 @@
                         <td>{{$data->contact_num}}</td>
                         <td>{{$data->email}}</td>
                         <td>{{$data->Status}}</td>
+                        <td>
+                            <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#EditEmployee{{$data->id}}"><i class='bx bx-edit-alt'></i></button>
+                            @include('modal.EditEmployee')
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

@@ -68,7 +68,10 @@ Route::middleware('auth','isAdmin')->group(function () {
     Route::get('Export',[ExportController::class ,'report_show']);
     Route::get('/search/', [ExportController::class ,'search'])->name('search');
     Route::get('ClearExport',[ExportController::class ,'refresh']);
- 
+    Route::get('/export_data',[ExportController::class ,'export']);
+
+    //User Controller
+    Route::post('EditEmployee/{id}',[UserController::class ,'edit_employee'])->name('EditEmployee');
 });
 //  Route::get('/dashboard', function () {
 //      return view('dashboard');

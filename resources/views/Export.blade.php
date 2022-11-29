@@ -57,7 +57,7 @@
   border-radius: 8px;
 }
 
-.btn1 {
+#btn1 {
   background-color:#00cccc;
   border: none;
   color: white;
@@ -67,7 +67,7 @@
   border-radius: 8px;
 }
 
-.btn2 {
+#btn2 {
   background-color:#009900;
   border: none;
   color: white;
@@ -88,24 +88,24 @@
   transition: all 0.3s cubic-bezier(.20,.8,.20,1);
 }
 
-.btn1:hover {
+#btn1:hover {
     background-color:  #1affff;
     box-shadow: 0 14px 28px rgba(0,0,0,0.20), 0 8px 8px rgba(0,0,0,0.12);
 }
 
-.btn1:active {
+#btn1:active {
   background-color:  #1affff;
   box-shadow: 0 1px 2px rgba(0,0,0,0.6), 0 1px 2px rgba(0,0,0,0.12);
   transition: all 0.3s cubic-bezier(.20,.8,.20,1);
 }
 
 
-.btn2:hover {
+#btn2:hover {
     background-color:  #00b300;
     box-shadow: 0 14px 28px rgba(0,0,0,0.20), 0 8px 8px rgba(0,0,0,0.12);
 }
 
-.btn2:active {
+#btn2:active {
   background-color:  #00b300;
   box-shadow: 0 1px 2px rgba(0,0,0,0.6), 0 1px 2px rgba(0,0,0,0.12);
   transition: all 0.3s cubic-bezier(.20,.8,.20,1);
@@ -272,9 +272,12 @@
     <div class="col-xl-4 col-md-6 mb-4">
     <button class="btn0"><i class="fa fa-search"></i></button>
     </form>
-    <a class="btn1" href="ClearExport"><i class="fa fa-refresh"></i></a>
+    <a class="btn1" id="btn1" href="ClearExport"><i class="fa fa-refresh"></i></a>
     <!-- <button class="btn1"><i class="fa fa-refresh"></i></button> -->
-    <button class="btn2"><i class="fa fa-file-export"></i></button>
+    <!-- <a class="btn2" href="export_data" ><i class="fa fa-file-export"></i></a> -->
+    <a class="btn2" id="btn2" data-toggle="modal" data-target="#exportconfirm"><i class="fa fa-file-export"></i></a>
+    @include('modal.ConfirmExport')
+    <!-- <button class="btn2"><i class="fa fa-file-export"></i></button> -->
     </div>
    
 </div>
@@ -283,9 +286,24 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fas fa-download fa-sm text-white-50"></i> Add Employee</button>       
 </div> -->
 
-@if(session()->has('message'))
+<br>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+       @if(session()->has('message'))
             <div class="alert alert-success">
                 {{ session()->get('message') }}
+            </div>
+        @endif
+        @if(session()->has('message1'))
+            <div class="alert alert-danger">
+                {{ session()->get('message1') }}
             </div>
         @endif
 <div class="wrapper">

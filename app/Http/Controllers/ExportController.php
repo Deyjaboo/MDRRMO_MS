@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Export;
 use Illuminate\Http\Request;
 use DB;
+use Carbon\Carbon;
+use App\Exports\Report_Export;
+use Maatwebsite\Excel\Facades\Excel;
 class ExportController extends Controller
 {
 
@@ -201,6 +204,20 @@ class ExportController extends Controller
             }
             
         return view('Export',['data'=>$data]);
+    }
+    public function export()
+    { 
+        $createdAt = Carbon::parse(date('Y-m-d H:i:s'));
+        $date = $createdAt->format('M d Y');
+
+      $num1 = Export::query()->count();
+      if($num1!=0){
+        return Excel::download(new Report_Export, 'Report('.$date.').xlsx');
+        // return redirect('Export')->with('message','Export successful!');
+      }else{
+        return redirect('Export')->with('message1','Empty export file!');
+      }
+     
     }
     /**
      * Display a listing of the resource.
