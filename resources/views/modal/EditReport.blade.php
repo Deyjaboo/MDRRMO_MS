@@ -263,10 +263,19 @@
                     @endif
                 </select>
                 </div> -->
+               
+                @if(Auth::user()->role == "user")
                 <div class="form_item">
                 <b> <label>Remark<span class="text-danger"></span></label></b>
                 <textarea class="form-control"  name="Remark" id="Remark" cols="10" rows="5">{{$data->Remark}}</textarea>
                 </div>
+                @else
+                <div class="form_item">
+                <b> <label>Remark<span class="text-danger"></span></label></b>
+                <textarea class="form-control"  name="Remark" id="Remark" cols="10" rows="5" disabled>{{$data->Remark}}</textarea>
+                </div>
+                @endif
+              
                 </div>
 
                 <!-- <div class="form_wrap fullname">

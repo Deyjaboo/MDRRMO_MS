@@ -51,7 +51,7 @@
                 <div class="form_wrap fullname">
                 <div class="form_item">
                     <b><label>Covid Related<span class="text-danger"></span></label></b>
-                    <p name="Covid" id="Covid"><i> {{$data->Covid}}</i></p>
+                    <p name="Covid" id="Covid">{{$data->Covid}}</p>
                 </div>
                 <div class="form_item">
                 <b><label>Type of Incident<span class="text-danger"></span></label></b>

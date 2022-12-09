@@ -11,7 +11,7 @@
 
     <title>Managed Employee</title>
 <!-- Modal-->
-   
+
  <!-- Button-->
  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,400,500,600" rel="stylesheet" type="text/css">
@@ -25,7 +25,7 @@
     <!-- Custom fonts for this template-->
 
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-   
+
     <link href="{{('css/styles.css') }}" rel="stylesheet" type="text/css" >
     <!-- Custom styles for this template-->
     <link href="css/style.css" rel="stylesheet">
@@ -46,7 +46,7 @@
         background-color:  #ff6666;
     }
 </style>
- 
+
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -54,11 +54,11 @@
 
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-        <img src="images/logo12basd21.png">  
+        <img src="images/logo12basd21.png">
         <br><br>
-           
 
-             
+
+
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -68,7 +68,7 @@
                 </a>
             </li>
 
-           
+
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -83,33 +83,33 @@
                 <a class="nav-link collapsed" href="Adduser" >
                     <i class=" fas fa-solid fa-users"></i>
                     <span>Manage Employee</span>
-                    
+
                 </a>
             </li>
-            
+
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="Report">
                     <i class="fas fa-clipboard-list"></i>
                     <span> Add Reports</span>
                     </a>
-              </li> 
+              </li>
 
               <li class="nav-item">
                 <a class="nav-link collapsed" href="Export" >
                 <i class="fas fa-solid fa-file-export"></i>
-                <span>Export Data</span> 
+                <span>Export Data</span>
                 </a>
             </li>
-             
+
             <li class="nav-item">
                     <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <a  class="nav-link collapsed"  href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                         <i class="fas fa-sign-out-alt"></i>     
-                    <span>Logout</span> 
+                         <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
                     </a>
                     </form>
                      </li>
@@ -134,7 +134,7 @@
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        
+
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- <h5>Report and Monitoring Information System</h5> -->
@@ -206,7 +206,7 @@
                             <div class="col-auto">
                                 <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$inactive}}</div>
                             </div>
-                           
+
                         </div>
                     </div>
                     <div class="col-auto">
@@ -291,8 +291,8 @@
 
 </div>
 
-<div  class="d-none d-sm-inline-block  shadow-sm" style="float: right;"  id="button-modal"> 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fas fa-download fa-sm text-white-50"></i> Add Employee</button>       
+<div  class="d-none d-sm-inline-block  shadow-sm" style="float: right;"  id="button-modal">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fas fa-download fa-sm text-white-50"></i> Add Employee</button>
 </div>
 
 
@@ -357,7 +357,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-    <form method="POST" action="{{ route('register') }}"> 
+    <form method="POST" action="{{ route('register') }}">
         @csrf
   <div class="modal-body">
   <div class="form-row">
@@ -389,7 +389,7 @@
         <button type="submit" class="btn btn-primary">Submit</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
       </div>
-    </form>  
+    </form>
     </div>
   </div>
 </div>

@@ -374,8 +374,8 @@
 
            <div class="form_item">
            <div  id="right">
-           <a href="UserDash">  <button type="button" class="button" id="btncancel">Cancel</button></a>
            <button type="button" class="button">Submit</button>
+           <a href="UserDash">  <button type="button" class="button" id="btncancel">Cancel</button></a>
            </div>
            </div>
            <br>

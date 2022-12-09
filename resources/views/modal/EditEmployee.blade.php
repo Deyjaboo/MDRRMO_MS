@@ -1,9 +1,9 @@
 <style>
   #asd,#exampleModalLongTitle,#labelresume,#resume{
             color:black;
-           
+
           }
-    
+
 </style>
 <!-- Modal -->
 
@@ -56,7 +56,7 @@
                         <option value="Active">Active</option>
                         <option value="Inactive" selected>Inactive</option>
                     @endif
-                    
+
                 </select>
             </div>
         </div>
@@ -65,7 +65,7 @@
         <button type="submit" class="btn btn-primary">Edit</button>
         <!-- <a class="btn btn-primary" href="export_data" onclick="myFunction()">Export</a> -->
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-        </form>  
+        </form>
     </div>
     </div>
   </div>
@@ -74,7 +74,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>  <!-- gride line table-->
         <script src="js/datatables-simple-demo.js"></script>
-      
+
 
 
 
@@ -83,5 +83,3 @@
         $('#exportconfirm').modal('hide');
     }
 </script>
-
-                                    

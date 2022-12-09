@@ -38,7 +38,7 @@ ul li {
       position: relative;
       text-decoration: none;
       text-align: center;
-   
+
     }
 
     li a {
@@ -53,7 +53,7 @@ ul li {
     li:hover {
       cursor: pointer;
     }
-   
+
 
     ul li ul {
       visibility: hidden;
@@ -114,19 +114,19 @@ ul li {
 
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-        <img src="images/logo12basd21.png">  
+        <img src="images/logo12basd21.png">
         <br><br>
-           
+
 
                <!-- Sidebar - Brand -->
                <!-- <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon">
-                <img src="images/logo12basd21.png" width="160px" height="160px">  
+                <img src="images/logo12basd21.png" width="160px" height="160px">
                 </div>
-               
+
             </a> -->
 
-        
+
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -136,7 +136,7 @@ ul li {
                 </a>
             </li>
 
-           
+
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -151,7 +151,7 @@ ul li {
                 <a class="nav-link collapsed" href="Adduser" >
                     <i class=" fas fa-solid fa-users"></i>
                     <span>Manage Employee</span>
-                    
+
                 </a>
             </li>
 
@@ -160,7 +160,7 @@ ul li {
                 <a class="nav-link collapsed" href="Report" >
                 <i class="fas fa-clipboard-list"></i>
                 <span>Add Reports</span>
-                    
+
                 </a>
             </li>
 
@@ -168,25 +168,25 @@ ul li {
             <li class="nav-item">
                 <a class="nav-link collapsed" href="Export" >
                 <i class="fas fa-solid fa-file-export"></i>
-                <span>Export Data</span> 
+                <span>Export Data</span>
                 </a>
             </li>
 
 
-              
+
             <li class="nav-item">
                     <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <a  class="nav-link collapsed"  href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                         <i class="fas fa-sign-out-alt"></i>     
-                    <span>Logout</span> 
+                         <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
                     </a>
                     </form>
             </li>
 
-    
+
 
 
 
@@ -208,12 +208,12 @@ ul li {
                         <i class='bx bx-menu'></i>
                     </button>
 
-                   
+
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        
+
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- <h4>Report and Monitoring Information System</h4> -->
@@ -224,7 +224,7 @@ ul li {
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
                                 <i class='bx bxs-user-circle'></i>
                             </a>
-                           
+
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
@@ -380,7 +380,7 @@ ul li {
     </section>
 
 
-       
+
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
@@ -407,7 +407,7 @@ ul li {
         </div>
     </div>
 
-    
+
 
 
 

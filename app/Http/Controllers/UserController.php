@@ -45,7 +45,7 @@ class UserController extends Controller
                 $number = $request->input('number');
                 $email = $request->input('email');
                 $Status = $request->input('status');
-              
+
         DB::table('users')
         ->where('id', $id)
         ->update(array(
@@ -54,11 +54,11 @@ class UserController extends Controller
             'contact_num' => $number,
             'email' => $email,
             'Status' => $Status,
-            
+
         ));
-        
-       
+
+
             return redirect('Adduser')->with('message','Employee details updated successfully!');
-        
+
     }
 }
