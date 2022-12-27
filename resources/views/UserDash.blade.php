@@ -11,7 +11,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
  <!-- Button-->
 <!-- Modal-->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
  <!-- Modal-->
@@ -149,21 +149,21 @@ body {
   left: 0;
   right: 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-  
+
 }
 .navbar-container {
   display: flex;
   justify-content: space-between;
   height: 100%;
   align-items: center;
- 
+
 }
 .navbar-item {
   margin: 0.4em;
   width: 100%;
   font-size: 20px;
   color:white;
-  
+
 }
 
 .home-link,
@@ -192,7 +192,7 @@ body {
 .navbar-link:is(:focus, :hover) {
   color: var(--navbar-text-color-focus);
   background-color:#0000ff;
-  
+
 }
 .navbar-logo {
   border-radius: 50%;
@@ -293,8 +293,8 @@ body {
     width: 100%;
     height: 100%;
   }
-  
-}  
+
+}
 
 
 
@@ -367,8 +367,8 @@ height: 150px;
 
 </style>
 <body>
-  
-<!-- 
+
+<!--
 <body  style="background-image: url('images/logo1.jpg');">
    -->
  <header id="navbar">
@@ -376,7 +376,7 @@ height: 150px;
     <a href="" img src="images/logo12basd21.png"  class="home-link">
 <img src="images/logo12basd21.png" width="70px" height="70px">
       <div  class="navbar-item">MDRRMO-Bulan</div>
-  
+
     </a>
     <button type="button" id="navbar-toggle" aria-controls="navbar-menu" aria-label="Toggle menu" aria-expanded="false">
       <span class="icon-bar"></span>
@@ -385,26 +385,26 @@ height: 150px;
     </button>
     <div id="navbar-menu" aria-labelledby="navbar-toggle">
       <ul class="navbar-links">
-        
+
         <li class="navbar-item"><a class="navbar-link" href="addreport"> Add Report</a></li>
-  
+
                     <li class="navbar-item">
                     <form class="navbar-link" action="{{ route('logout') }}" method="POST">
                                 @csrf
                     <a  class="nav-link collapsed"  href="route('logout')"
                                     onclick="event.preventDefault();
-                                                this.closest('form').submit();">   
-                    <span>Logout</span> 
+                                                this.closest('form').submit();">
+                    <span>Logout</span>
                     </a>
                     </form>
                     </li>
-      
+
 
       </ul>
     </div>
   </nav>
- 
-</header> 
+
+</header>
 <br>
 <div class="container">
   <div class="mySlides">
@@ -418,13 +418,13 @@ height: 150px;
   <div class="mySlides">
     <img src="images/pic2.jpg" style="width:100%;height:300px;">
   </div>
-    
+
   <div class="mySlides">
     <img src="images/pic3.jpg" style="width:100%;height:300px;">
   </div>
 
-  
-    
+
+
   <a class="prev" onclick="plusSlides(-1)">❮</a>
   <a class="next" onclick="plusSlides(1)">❯</a>
 
@@ -445,7 +445,7 @@ height: 150px;
     <div class="column">
       <img class="demo cursor" src="images/pic3.jpg" style="width:100%;height:100px;" onclick="currentSlide(4)" >
     </div>
-   
+
   </div>
 </div>
 
@@ -456,7 +456,7 @@ height: 150px;
    <form name="form">
     <div class="heading">
 
-  </div> 
+  </div>
   <br>
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -476,7 +476,7 @@ height: 150px;
         <table id="datatablesSimple">
                                     <thead>
                                         <center><h5>MDRRMO-Reports</h5></center>
-                                 
+
                                         <tr>
                                             <th>Picture</th>
                                             <th>Incident Track No.</th>

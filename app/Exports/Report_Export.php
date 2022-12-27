@@ -44,11 +44,11 @@ class Report_Export implements FromCollection, WithHeadings, ShouldAutoSize, Wit
         'TimeResponse',
         'TimeTerminated',
         'Incident_Des',
-        'Picture',
-        'Status',
-        'Year',
-        'Month',
-        'UserId',
+        // 'Picture',
+        // 'Status',
+        // 'Year',
+        // 'Month',
+        // 'UserId',
         'Remark',
             )->orderBy('created_at')->get();
             // substr('Mname', 0, 1) getting first string
@@ -80,11 +80,11 @@ class Report_Export implements FromCollection, WithHeadings, ShouldAutoSize, Wit
         'TimeResponse',
         'TimeTerminated',
         'Incident_Des',
-        'Picture',
-        'Status',
-        'Year',
-        'Month',
-        'UserId',
+        // 'Picture',
+        // 'Status',
+        // 'Year',
+        // 'Month',
+        // 'UserId',
         'Remark',
         ];
     }
@@ -96,7 +96,7 @@ class Report_Export implements FromCollection, WithHeadings, ShouldAutoSize, Wit
             AfterSheet::class    => function(AfterSheet $event) {
                 // All headers
 
-                $cellRange = 'A1:AD1';
+                $cellRange = 'A1:Y1';
                 $header = [
                     'font' => [
                         'family'     => 'Calibri',
@@ -114,7 +114,7 @@ class Report_Export implements FromCollection, WithHeadings, ShouldAutoSize, Wit
                     ],
                 ];
                 $num1 = Export::query()->count()+1;
-                $body1 = 'A1'.':AD'.$num1; //RANGE OF CELL
+                $body1 = 'A1'.':Y'.$num1; //RANGE OF CELL
                 $event->sheet->getStyle($body1)->applyFromArray($styleArray)->getBorders()->getAllBorders()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);;
                 //Border
                 // $event->sheet->getStyle($body1)

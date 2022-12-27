@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Export;
+use App\Models\Report;
 use Illuminate\Http\Request;
 use DB;
 use Carbon\Carbon;
@@ -15,12 +16,23 @@ class ExportController extends Controller
         $data = DB::table('reports')->get()->sortBy('created_at');;
         $year = DB::table('reports')->value('Year');
 
-        return view('Export',['data'=>$data, 'year'=>$year]);
+        // $y = array(DB::table('reports')->value('Year'));
+        // $array = array_unique($y);
+        // $count = count($y);
+
+        // $y = DB::table('reports')->value('Year')->sortBy('created_at');
+        // $array = Report::select('year')->distinct()->get()->sortBy('created_at');
+        $array = Report::distinct()->get(['year'])->sortBy('created_at')->pluck('year');
+        
+      
+
+
+        return view('Export',['data'=>$data, 'year'=>$year, 'array'=>$array ]);
     }
     function search(Request $request){
         $month = $request->input('month');
         $year = $request->input('year');
-
+        $array = Report::distinct()->get(['year'])->sortBy('created_at')->pluck('year');
         if($month != "" && $year == ""){
             $data = DB::table('reports')->where('Month', $month)->get()->sortBy('created_at');
 
@@ -37,7 +49,7 @@ class ExportController extends Controller
                     $new_data->Address = $data1->Address;
                     $new_data->Age = $data1->Age;
                     $new_data->Sex = $data1->Sex;
-                    $new_data->Covid = $data1->Sex;
+                    $new_data->Covid = $data1->Covid;
                     $new_data->Num_Person_Involve = $data1->Num_Person_Involve;
                     $new_data->NameOfDriver = $data1->NameOfDriver;
                     $new_data->Vehicle_Used = $data1->Vehicle_Used;
@@ -80,7 +92,7 @@ class ExportController extends Controller
                     $new_data->Address = $data1->Address;
                     $new_data->Age = $data1->Age;
                     $new_data->Sex = $data1->Sex;
-                    $new_data->Covid = $data1->Sex;
+                    $new_data->Covid = $data1->Covid;
                     $new_data->Num_Person_Involve = $data1->Num_Person_Involve;
                     $new_data->NameOfDriver = $data1->NameOfDriver;
                     $new_data->Vehicle_Used = $data1->Vehicle_Used;
@@ -123,7 +135,7 @@ class ExportController extends Controller
                     $new_data->Address = $data1->Address;
                     $new_data->Age = $data1->Age;
                     $new_data->Sex = $data1->Sex;
-                    $new_data->Covid = $data1->Sex;
+                    $new_data->Covid = $data1->Covid;
                     $new_data->Num_Person_Involve = $data1->Num_Person_Involve;
                     $new_data->NameOfDriver = $data1->NameOfDriver;
                     $new_data->Vehicle_Used = $data1->Vehicle_Used;
@@ -166,7 +178,7 @@ class ExportController extends Controller
                     $new_data->Address = $data1->Address;
                     $new_data->Age = $data1->Age;
                     $new_data->Sex = $data1->Sex;
-                    $new_data->Covid = $data1->Sex;
+                    $new_data->Covid = $data1->Covid;
                     $new_data->Num_Person_Involve = $data1->Num_Person_Involve;
                     $new_data->NameOfDriver = $data1->NameOfDriver;
                     $new_data->Vehicle_Used = $data1->Vehicle_Used;
@@ -193,17 +205,17 @@ class ExportController extends Controller
                 $new_data->save();
             }
         }
-        return view('Export',['data'=>$data]);
+        return view('Export',['data'=>$data , 'array'=>$array ]);
     }
     public function refresh(){
         $data = DB::table('reports')->get()->sortBy('created_at');
-
+        $array = Report::distinct()->get(['year'])->sortBy('created_at')->pluck('year');
             $num1 = Export::query()->count();
             if($num1!=0){
                 Export::truncate();
             }
             
-        return view('Export',['data'=>$data]);
+        return view('Export',['data'=>$data , 'array'=>$array ]);
     }
     public function export()
     { 

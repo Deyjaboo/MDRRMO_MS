@@ -394,7 +394,16 @@
   </div>
 </div>
 <!-- Large modal -->
-
+<script>
+function myFunction() {
+  var x = document.getElementById("password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
 
 
   <script src="js/scripts.js"></script>

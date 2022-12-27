@@ -44,6 +44,7 @@ class DatabaseSeeder extends Seeder
             'contact_num'=> '0912345691',
             'email' => 'admin@gmail.com',
             'password' => Hash::make('secret'),
+            'confirm_pass'=> '@32secret',
             'role' => 'admin',
             'Status'=> 'Active',
             'created_at' => now(),

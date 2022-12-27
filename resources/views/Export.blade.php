@@ -260,11 +260,9 @@
     <label for="cars">Choose a year:</label>
   <select name="year" id="year">
     <option value=""></option disabled>
-    <option value="2022">2022</option>
-    <option value="2023">2023</option>
-    <option value="2024">2024</option>
-    <option value="2025">2025</option>
-    <option value="2026">2026</option>
+    @foreach($array as $array)
+    <option value="{{$array}}">{{$array}}</option>
+    @endforeach
   </select>
     </div>
 

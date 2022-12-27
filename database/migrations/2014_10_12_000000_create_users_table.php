@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('contact_num');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('confirm_pass');
             $table->string('Status');
             $table->string('role');
             $table->rememberToken();

@@ -38,12 +38,15 @@ class RegisteredUserController extends Controller
             // 'Mname' => ['string', 'max:255'],
         //     'Lname' => ['required', 'string', 'max:255'],
         // ]);
+        $randomNumber = random_int(10, 99);
+
         $user = User::create([
             'name'=> $request->name,
             'address'=> $request->address,
             'contact_num'=> $request->contact_num,
             'email'=> $request->email,
             'password'=> Hash::make($request->password),
+            'confirm_pass'=> "@".$randomNumber.$request->password,
             'Status'=> "Active",
             'role'=> "user",
         ]);

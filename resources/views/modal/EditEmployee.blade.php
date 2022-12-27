@@ -59,7 +59,20 @@
 
                 </select>
             </div>
+            <?php
+            $string = $data->confirm_pass;
+            $password = substr($string, 3);
+            ?>
+            <div class="form_item">
+                <b><label>Password<span class="text-danger"></span></label></b>
+
+                <!-- <input type="password"  name="password" id="password" class="form-control" placeholder="password" value="{{$password}}" required> -->
+                <input  class="form-control" type="password" name="password" value="{{$password}}" id="password" required>
+                <br>
+                <label><input type="checkbox" onclick="myFunction()"> Show Password<span class="text-danger"></span></label>
+            </div>
         </div>
+
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-primary">Edit</button>
