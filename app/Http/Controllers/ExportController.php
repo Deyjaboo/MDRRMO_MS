@@ -24,8 +24,6 @@ class ExportController extends Controller
         // $array = Report::select('year')->distinct()->get()->sortBy('created_at');
         $array = Report::distinct()->get(['year'])->sortBy('created_at')->pluck('year');
         
-      
-
 
         return view('Export',['data'=>$data, 'year'=>$year, 'array'=>$array ]);
     }

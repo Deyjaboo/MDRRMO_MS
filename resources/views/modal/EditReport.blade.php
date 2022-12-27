@@ -245,37 +245,32 @@
                 <input type="date"  name="Date_Recorded" id="Date_Recorded" class="form-control" placeholder="Date Recorded" value="{{$data->Date_Recorded}}" required>
                 </div>
 
-                <!-- <div class="form_item">
+                <div class="form_item">
                 <label>Status<span class="text-danger"></span></label>
                 <select id="Status" name="Status" class="form-control" required>
                     @if($data->Status == 'New')
                     <option value="New" selected>New</option>
-                    <option value ="Editing">Editing</option>
-                    <option value ="Reviewed">Reviewed</option>
-                    @elseif($data->Status == 'Editing')
-                    <option value="New" >New</option>
-                    <option value ="Editing" selected>Editing</option>
                     <option value ="Reviewed">Reviewed</option>
                     @else
                     <option value="New">New</option>
-                    <option value ="Editing" >Editing</option>
                     <option value ="Reviewed" selected>Reviewed</option>
                     @endif
                 </select>
-                </div> -->
-
-                @if(Auth::user()->role == "user")
+                </div>
+                </div>
+                <div class="form_wrap fullname">
+                @if(Auth::user()->role == "admin")
                 <div class="form_item">
                 <b> <label>Remark<span class="text-danger"></span></label></b>
                 <textarea class="form-control"  name="Remark" id="Remark" cols="10" rows="5">{{$data->Remark}}</textarea>
                 </div>
+
                 @else
                 <div class="form_item">
                 <b> <label>Remark<span class="text-danger"></span></label></b>
                 <textarea class="form-control"  name="Remark" id="Remark" cols="10" rows="5" disabled>{{$data->Remark}}</textarea>
                 </div>
                 @endif
-
                 </div>
 
                 <!-- <div class="form_wrap fullname">
