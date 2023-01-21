@@ -31,7 +31,10 @@
     <link href="css/style.css" rel="stylesheet">
     <!-- <link href="css/styles.css" rel="stylesheet"> -->
     <link rel="shortcut icon" href="images/logo12basd21.png"/>
-    
+    <!-- table-->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" type="text/css">
+ <!-- table-->
 </head>
 
 <style>
@@ -121,6 +124,22 @@
   box-sizing: border-box;
   background-color:#f2f2f2;
   border-radius: 5px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }
 
 </style>
@@ -252,7 +271,7 @@
    
     
   </select>
-  <br><br>
+
     </div>   
 
     <!-- Active Employee -->
@@ -280,11 +299,7 @@
    
 </div>
 
-<!-- <div  class="d-none d-sm-inline-block  shadow-sm" style="float: right;"  id="button-modal"> 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fas fa-download fa-sm text-white-50"></i> Add Employee</button>       
-</div> -->
 
-<br>
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -306,8 +321,9 @@
         @endif
 <div class="wrapper">
 <div class="form_container">
-    <div class="card-body">
-    <table id="datatablesSimple">
+<div style="overflow-x:auto;">
+    <table id="example" class="display"  width="100%">
+
                                     <thead>
                                         <center><h5>MDRRMO-Reports</h5></center>
                                  
@@ -403,13 +419,19 @@
   </div>
 </div>
 <!-- Large modal -->
+<!-- table -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+<!-- table -->
 
-
-
-  <script src="js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>  <!-- gride line table-->
-        <script src="js/datatables-simple-demo.js"></script>
 </body>
-
+<script>
+  //table script pagination
+$(document).ready(function () {
+    $('#example').DataTable({
+        pagingType: 'full_numbers',
+    });
+});
+</script>
 </html>

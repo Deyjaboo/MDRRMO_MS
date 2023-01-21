@@ -101,7 +101,7 @@ class ReportController extends Controller
     public function edit_function($id)
     {
     // $data = DB::table('reports')->get();
-      $data = DB::select('select * from reports where Incident_Track_Num = ?', [$id]);
+      $data = DB::select('select * from reports where id = ?', [$id]);
 
       return view('/EditReport',['data'=>$data]);
     }
@@ -118,13 +118,87 @@ class ReportController extends Controller
         return view('modal.EditReport',['data'=>$data]);
     }
 
+    public function Edit_Report($id)
+    {
+        // $data = DB::table('companies')->get();
+        $data = DB::select('select * from reports where id = ?', [$id]);
+        return view('modal.EditReportForEmployee',['data'=>$data]);
+    }
+    
+    public function update_report_employee(Request $request, $id)
+    {
+      
+                $DateOfIncident = $request->input('DateOfIncident');
+                // formating date
+                $createdAt = Carbon::parse(date($request->input('DateOfIncident')));
+                $year = $createdAt->format('Y');
+                $month = $createdAt->format('F');
+                // formating date
+                $NameOfVictim = $request->input('NameOfVictim');
+                $Address = $request->input('Address');
+                $Age = $request->input('Age');
+                $Sex = $request->input('Sex');
+                $Covid = $request->input('Covid');
+                $Num_Person_Involve = $request->input('Num_Person_Involve');
+                $NameOfDriver = $request->input('NameOfDriver');
+                $Vehicle_Used = $request->input('Vehicle_Used');
+                $Devices_Used = $request->input('Devices_Used');
+                $ResponderTeam = $request->input('ResponderTeam');
+                $NameOfResponders = $request->input('NameOfResponders');
+                $Photos_By = $request->input('Photos_By');
+                $Date_Recorded = $request->input('Date_Recorded');
+                $TypeOfIncident = $request->input('TypeOfIncident');
+                $Informat_Contact = $request->input('Informat_Contact');
+                $IncidentLocation = $request->input('IncidentLocation');
+                $TimeOccured = $request->input('TimeOccured');
+                $TimeReported = $request->input('TimeReported');
+                $TimeResponse = $request->input('TimeResponse');
+                $TimeTerminated = $request->input('TimeTerminated');
+                $Incident_Des = $request->input('Incident_Des');
+                $Year = $year;
+                $Month = $month;
+                // if($request->input('Remark') == "-" || $request->input('Remark') == ""){
+                //     $Remark = "-";
+                // }else{
+                //     $Remark = $request->input('Remark');
+                // }
+                // $Status = $request->input('Status');
+
+        DB::table('reports')
+        ->where('id', $id)
+        ->update(array(
+            'DateOfIncident' => $DateOfIncident,
+            'NameOfVictim' => $NameOfVictim,
+            'Address' => $Address,
+            'Age' => $Age,
+            'Sex' => $Sex,
+            'Covid' => $Covid,
+            'Num_Person_Involve' => $Num_Person_Involve,
+            'NameOfDriver' => $NameOfDriver,
+            'Vehicle_Used' => $Vehicle_Used,
+            'Devices_Used' => $Devices_Used,
+            'ResponderTeam' => $ResponderTeam,
+            'NameOfResponders' => $NameOfResponders,
+            'Photos_By' => $Photos_By,
+            'Date_Recorded' => $Date_Recorded,
+            'TypeOfIncident' => $TypeOfIncident,
+            'Informat_Contact' => $Informat_Contact,
+            'IncidentLocation' => $IncidentLocation,
+            'TimeOccured' => $TimeOccured,
+            'TimeReported' => $TimeReported,
+            'TimeResponse' => $TimeResponse,
+            'TimeTerminated' => $TimeTerminated,
+            'Incident_Des' => $Incident_Des,
+            'Year' => $year,
+            'Month' => $month,
+            // 'Remark' => $Remark,
+            // 'Status' => $Status,
+        ));
+            return redirect('UserDash')->with('message','Report updated successfully!');
+    }
     public function update_report(Request $request, $id)
     {
-        // $request->validate([
-        //     'StudentId' => ['required', 'min:7'],
-        //     'FirstName' => ['required', 'string', 'max:255', 'regex:/^([^0-9]*)$/'],
-        //     'LastName' => ['required', 'string', 'max:255','regex:/^([^0-9]*)$/'],
-        // ]);
+      
                 $DateOfIncident = $request->input('DateOfIncident');
                 // formating date
                 $createdAt = Carbon::parse(date($request->input('DateOfIncident')));
@@ -160,7 +234,7 @@ class ReportController extends Controller
                     $Remark = $request->input('Remark');
                 }
                 // $Status = $request->input('Status');
-                $Status = "Reviewed";
+                $Status = $request->input('Status');
 
         DB::table('reports')
         ->where('id', $id)
@@ -193,12 +267,7 @@ class ReportController extends Controller
             'Status' => $Status,
         ));
         
-        if(auth()->user()->role == "admin"){
             return redirect('dashboard')->with('message','Report updated successfully!');
-        }else{
-            return redirect('UserDash')->with('message','Report updated successfully!');
-        }
-        
     }
 
     function NewReport_show(){

@@ -60,7 +60,7 @@
   margin-bottom: 5px;
 }
 
-.form_item input[type="text"],input[type="date"],input[type="time"],
+.form_item input[type="text"],input[type="date"],input[type="time"],input[type="number"],
 .form_item select{
   width: 100%;
   padding: 10px;
@@ -165,6 +165,11 @@
    object-fit:fill;
 
  }
+
+ label{
+ 
+ font-weight: 600;
+}
 </style>
 
 <body id="page-top">
@@ -312,7 +317,7 @@
 
     <div class="form_item">
         <label>Age</label>
-        <input type="text" id="Age" name="Age" required> 
+        <input type="number" id="Age" name="Age" required> 
     </div>
 
 
@@ -339,7 +344,7 @@
 
     <div class="form_item">
         <label>Persons Involved</label>
-        <input type="text" id="PersonInvolved" name="PersonInvolved" required>
+        <input type="number" id="PersonInvolved" name="PersonInvolved" required>
     </div>
 
     </div>
@@ -416,7 +421,7 @@
 
             <div class="form_item">
             <label>Informant Contact Details</label>
-                <input type="text" id="InformantContact" name="InformantContact" required>
+                <input type="number" id="InformantContact" name="InformantContact" required>
             </div>
 
             <div class="form_item">

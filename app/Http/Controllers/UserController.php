@@ -70,5 +70,6 @@ class UserController extends Controller
             return redirect('Adduser')->with('message','Employee details updated successfully!');
 
     }
+    
 
 }

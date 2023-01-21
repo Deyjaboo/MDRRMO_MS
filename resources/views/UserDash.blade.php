@@ -15,6 +15,12 @@
    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
  <!-- Modal-->
+ <!-- table-->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" type="text/css">
+ <!-- table-->
+
+
   <link href="{{('css/styles.css') }}" rel="stylesheet" type="text/css" >
   <link rel="shortcut icon" href="images/logo12basd21.png"/>
   <title>User</title>
@@ -27,9 +33,9 @@ img {
 }
 
 /* Position the image container (needed to position the left and right arrows) */
-.container {
+/* .container {
   position: relative;
-}
+} */
 
 /* Hide the images by default */
 .mySlides {
@@ -42,10 +48,10 @@ img {
 }
 
 /* Next & previous buttons */
-.prev,
+/* .prev,
 .next {
   cursor: pointer;
-  position: absolute;
+  position: relative;
   top: 40%;
   width: auto;
   padding: 20px;
@@ -56,7 +62,7 @@ img {
   border-radius: 0 3px 3px 0;
   user-select: none;
   -webkit-user-select: none;
-}
+} */
 
 /* Position the "next button" to the right */
 .next {
@@ -363,7 +369,21 @@ height: 150px;
   color:white;
 }
 
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
 
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
 
 </style>
 <body>
@@ -424,14 +444,6 @@ height: 150px;
   </div>
 
 
-
-  <a class="prev" onclick="plusSlides(-1)">❮</a>
-  <a class="next" onclick="plusSlides(1)">❯</a>
-
-  <div class="caption-container">
-    <p id="caption"></p>
-  </div>
-
   <div class="row">
     <div class="column">
       <img class="demo cursor" src="images/cover.jpg" style="width:100%;height:100px;" onclick="currentSlide(1)" >
@@ -453,12 +465,8 @@ height: 150px;
 
 <div class="wrapper">
  <div class="form_container">
-   <form name="form">
-    <div class="heading">
 
-  </div>
-  <br>
-        @if ($errors->any())
+ @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -466,71 +474,98 @@ height: 150px;
                     @endforeach
                 </ul>
             </div>
+
         @endif
        @if(session()->has('message'))
             <div class="alert alert-success">
                 {{ session()->get('message') }}
             </div>
         @endif
-        <div class="card-body">
-        <table id="datatablesSimple">
-                                    <thead>
-                                        <center><h5>MDRRMO-Reports</h5></center>
+
+        @foreach($data as $data)
+
+        <div style="overflow-x:auto;">
+        <table id="example" class="display"  width="100%">
+
+        <thead>
+        <tr>
+              <th>Picture</th>
+              <th>Incident Track No.</th>
+              <th>Date of Incident</th>
+              <th>Type of Incident</th>
+              <th>Report Prepared by</th>
+              <th>Status</th>
+              <th>Edit/View_Details</th>
+          </tr>
+        </thead>
+
+
+        <tbody>
 
                                         <tr>
-                                            <th>Picture</th>
-                                            <th>Incident Track No.</th>
-                                            <th>Date of Incident</th>
-                                            <th>Type of Incident</th>
-                                            <th>Report Prepared by</th>
-                                            <th>Status</th>
-                                            <th  style="width:350%">Edit/View_Details</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Picture</th>
-                                            <th>Incident Track No.</th>
-                                            <th>Date of Incident</th>
-                                            <th>Type of Incident</th>
-                                            <th>Report Prepared by</th>
-                                            <th>Status</th>
-                                            <th  style="width:350%">Edit/View_Details</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                    @foreach($data as $data)
-                                        <tr> <td>
-                                            <img src="images/{{$data->Picture}}" alt="" width="200px" height="180px">
-                                        </td>
-                                        <td>{{$data->Incident_Track_Num}}</td>
+                                           <td>
+                                            <img src="images/{{$data->Picture}}" alt="" width="100%" height="100%">
+                                          </td>
+
+                                            <td>{{$data->Incident_Track_Num}}</td>
                                             <td>{{$data->DateOfIncident}}</td>
                                             <td>{{$data->TypeOfIncident}}</td>
                                             <td>{{$data->ReportedBy}}</td>
-                                            <td>{{$data->Status}}</td>
+                                            @if($data->Status == "New")
+                                              <td style="color:#3778F2">{{$data->Status}}</td>
+                                            @elseif($data->Status == "Editing")
+                                              <td style="color:#E32421">{{$data->Status}}</td>
+                                            @else
+                                              <td style="color:#0FA418">{{$data->Status}}</td>
+                                            @endif
                                             <td>
-                                                <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#EditReportModal{{$data->id}}"><i class='bx bx-edit-alt'></i></button>
-                                                @include('modal.EditReport')
+                                                @if($data->Status == "New" || $data->Status == "Editing")
+                                                <!-- <a href="clickedit/{{$data->id}}" class="btn btn-success"><i class="bx bx-edit-alt" title="Edit"></i></a>  -->
+                                                <!-- <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#EditReportForEmployee"><i class='bx bx-edit-alt'></i></button> -->
+                                                @include('modal.EditReportForEmployee')
+                                                <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#Edit"><i class='bx bx-edit-alt'></i></button>
+                                                @include('modal.sample')
+                                                @endif
                                                 <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#ViewReportModal{{$data->id}}"><i class='bx bx-info-circle'></i></button>
                                                 <!-- <a class="btn btn-primary" data-toggle="modal" data-target="#ViewReportModal{{$data->id}}"><i class='bx bx-info-circle' data-toggle="tooltip" title="View"></i></a> -->
                                                 @include('modal.ViewReport')
+
                                             </td>
                                         </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+
+        </tbody>
+         @endforeach
+        <!-- <tfoot>
+        <tr>
+              <th>Picture</th>
+              <th>Incident Track No.</th>
+              <th>Date of Incident</th>
+              <th>Type of Incident</th>
+              <th>Report Prepared by</th>
+              <th>Status</th>
+              <th>Edit/View_Details</th>
+          </tr>
+        </tfoot> -->
+    </table>
+
 
 
 
 </div>
 
-
-  </form>
  </div>
 </div>
 
 
 
+<script>
+  //table script pagination
+$(document).ready(function () {
+    $('#example').DataTable({
+        pagingType: 'full_numbers',
+    });
+});
+</script>
 
 
 <script>
@@ -579,14 +614,14 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
   captionText.innerHTML = dots[slideIndex-1].alt;
 }
+
 </script>
 
 
-
-<script src="js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>  <!-- gride line table-->
-        <script src="js/datatables-simple-demo.js"></script>
 </body>
-
+<!-- table -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+<!-- table -->
 </html>

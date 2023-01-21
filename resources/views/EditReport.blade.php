@@ -155,26 +155,26 @@
  }
 </style>
 <body style="background-color: #e6e6ff;">
+
 <div class="wrapper">
       <center> <h2>MDRRMO - Edit Reports</h2></center> 
         <br>
         <div class="form_container">
 
-        <form name="form" action="report_pass" method="post" enctype="multipart/form-data">
-       {{ csrf_field() }}
-
-
+   
+        <form action="{{ route ('report_edit' , $data[0]->id) }}" method="post" enctype="multipart/form-data">
+        {{ csrf_field() }}
 
     <div class="form_wrap fullname">
 
     <div class="form_item">
         <label>Date of Incident</label>
-        <input type="date" id="DateIncident" name="DateIncident" value="{{$data[0]->DateOfIncident}}" required>
+        <input type="date" id="DateOfIncident" name="DateOfIncident" value="{{$data[0]->DateOfIncident}}" required>
     </div>
 
     <div class="form_item">
         <label>Incident Tracking Number</label>
-        <input type="text" id="IncidentTrackNum" name="IncidentTrackNum" value="{{$data[0]->Incident_Track_Num}}" disabled>
+        <input type="text" id="Incident_Track_Num" name="Incident_Track_Num" value="{{$data[0]->Incident_Track_Num}}" disabled>
     </div>
 
 
@@ -184,7 +184,7 @@
 
     <div class="form_item">
         <label>Name Person/s and Victim/s Involved</label>
-        <input type="text" id="NamePersonsInvolved" name="NamePersonsInvolved" value="{{$data[0]->NameOfVictim}}" required> 
+        <input type="text" id="NameOfVictim" name="NameOfVictim" value="{{$data[0]->NameOfVictim}}" required> 
     </div>
 
     <div class="form_item">
@@ -236,7 +236,7 @@
 
     <div class="form_item">
         <label>Persons Involved</label>
-        <input type="text" id="PersonInvolved" name="PersonInvolved" value="{{$data[0]->Num_Person_Involve}}" required>
+        <input type="text" id="Num_Person_Involve" name="Num_Person_Involve" value="{{$data[0]->Num_Person_Involve}}" required>
     </div>
 
     </div>
@@ -248,12 +248,12 @@
 
         <div class="form_item">
             <label>Name of Driver</label>
-            <input type="text" id="NameDriver" name="NameDriver" value="{{$data[0]->NameOfDriver}}" required> 
+            <input type="text" id="NameOfDriver" name="NameOfDriver" value="{{$data[0]->NameOfDriver}}" required> 
         </div>
 
         <div class="form_item">
             <label>Vehicle Used</label>
-            <input type="text" id="VehicleUsed" name="VehicleUse" value="{{$data[0]->Vehicle_Used}}" required>
+            <input type="text" id="Vehicle_Used" name="Vehicle_Used" value="{{$data[0]->Vehicle_Used}}" required>
         </div>
 
 
@@ -263,7 +263,7 @@
 
         <div class="form_item">
             <label>Devices Used</label>
-            <input type="text" id="DevicesUsed" name="DevicesUsed" value="{{$data[0]->Devices_Used}}" required> 
+            <input type="text" id="Devices_Used" name="Devices_Used" value="{{$data[0]->Devices_Used}}" required> 
         </div>
 
         <div class="form_item">
@@ -276,7 +276,7 @@
         <div class="form_wrap">
         <div class="form_item">
             <label>Name of Responders</label>
-            <input type="text" id="NameResponders" name="NameResponders" value="{{$data[0]->NameOfResponders}}" required>
+            <input type="text" id="NameOfResponders" name="NameOfResponders" value="{{$data[0]->NameOfResponders}}" required>
         </div>
         </div>
 
@@ -284,12 +284,12 @@
 
         <div class="form_item">
             <label>Photo Taken By:</label>
-            <input type="text" id="PhotoBy" name="PhotoBy" value="{{$data[0]->Photos_By}}" required> 
+            <input type="text" id="Photos_By" name="Photos_By" value="{{$data[0]->Photos_By}}" required> 
         </div>
 
         <div class="form_item">
             <label>Date Recorded</label>
-            <input type="date" id="DateRecorded" name="DateRecorded" value="{{$data[0]->Date_Recorded}}" required>
+            <input type="date" id="Date_Recorded" name="Date_Recorded" value="{{$data[0]->Date_Recorded}}" required>
         </div>
         </div>
 
@@ -299,44 +299,44 @@
 
             <div class="form_item">
                 <label>Type of Incident</label>
-                <select id="TypeIncident" name="TypeIncident" required>
-                @if($data[0]->TypeOfIncident == 'Medical Emergency')
-                  <option value ="Medical Emergency" selected>Medical Emergency</option>
-                  <option value ="Covid">Covid-19</option>
-                  <option value ="Dengue">Dengue</option>
-                  <option value ="Civil Disturbance">Civil Disturbance</option>
-                  <option value ="Vehicular/Pedestrian Accident">Vehicular/Pedestrian Accident</option>
-                @elseif($data[0]->TypeOfIncident == 'Covid-19')
-                  <option value ="Medical Emergency" >Medical Emergency</option>
-                  <option value ="Covid" selected>Covid-19</option>
-                  <option value ="Dengue">Dengue</option>
-                  <option value ="Civil Disturbance">Civil Disturbance</option>
-                  <option value ="Vehicular/Pedestrian Accident">Vehicular/Pedestrian Accident</option>
-                @elseif($data[0]->TypeOfIncident == 'Dengue')
-                  <option value ="Medical Emergency" >Medical Emergency</option>
-                  <option value ="Covid" >Covid-19</option>
-                  <option value ="Dengue" selected>Dengue</option>
-                  <option value ="Civil Disturbance">Civil Disturbance</option>
-                  <option value ="Vehicular/Pedestrian Accident">Vehicular/Pedestrian Accident</option>
-                @elseif($data[0]->TypeOfIncident == 'Civil Disturbance')
-                  <option value ="Medical Emergency" >Medical Emergency</option>
-                  <option value ="Covid">Covid-19</option>
-                  <option value ="Dengue">Dengue</option>
-                  <option value ="Civil Disturbance" selected>Civil Disturbance</option>
-                  <option value ="Vehicular/Pedestrian Accident">Vehicular/Pedestrian Accident</option>
-                @else
-                  <option value ="Medical Emergency">Medical Emergency</option>
-                  <option value ="Covid">Covid-19</option>
-                  <option value ="Dengue">Dengue</option>
-                  <option value ="Civil Disturbance">Civil Disturbance</option>
-                  <option value ="Vehicular/Pedestrian Accident" selected>Vehicular/Pedestrian Accident</option>
-                  @endif
-                </select>
+                <select id="TypeOfIncident" name="TypeOfIncident" class="form-control" required>
+                        @if($data[0]->TypeOfIncident == 'Medical Emergency')
+                        <option value ="Medical Emergency" selected>Medical Emergency</option>
+                        <option value ="Covid">Covid</option>
+                        <option value ="Dengue">Dengue</option>
+                        <option value ="Civil Disturbance">Civil Disturbance</option>
+                        <option value ="Vehicular/Pedestrian Accident">Vehicular/Pedestrian Accident</option>
+                        @elseif($data[0]->TypeOfIncident == 'Covid')
+                        <option value ="Medical Emergency" >Medical Emergency</option>
+                        <option value ="Covid" selected>Covid</option>
+                        <option value ="Dengue">Dengue</option>
+                        <option value ="Civil Disturbance">Civil Disturbance</option>
+                        <option value ="Vehicular/Pedestrian Accident">Vehicular/Pedestrian Accident</option>
+                        @elseif($data[0]->TypeOfIncident == 'Dengue')
+                        <option value ="Medical Emergency" >Medical Emergency</option>
+                        <option value ="Covid" >Covid</option>
+                        <option value ="Dengue" selected>Dengue</option>
+                        <option value ="Civil Disturbance">Civil Disturbance</option>
+                        <option value ="Vehicular/Pedestrian Accident">Vehicular/Pedestrian Accident</option>
+                        @elseif($data[0]->TypeOfIncident == 'Civil Disturbance')
+                        <option value ="Medical Emergency" >Medical Emergency</option>
+                        <option value ="Covid">Covid</option>
+                        <option value ="Dengue">Dengue</option>
+                        <option value ="Civil Disturbance" selected>Civil Disturbance</option>
+                        <option value ="Vehicular/Pedestrian Accident">Vehicular/Pedestrian Accident</option>
+                        @else
+                        <option value ="Medical Emergency">Medical Emergency</option>
+                        <option value ="Covid">Covid</option>
+                        <option value ="Dengue">Dengue</option>
+                        <option value ="Civil Disturbance">Civil Disturbance</option>
+                        <option value ="Vehicular/Pedestrian Accident" selected>Vehicular/Pedestrian Accident</option>
+                        @endif
+                    </select>
             </div>
 
             <div class="form_item">
                 <label>Informant Contact Details</label>
-                <input type="text" id="InformantContact" name="InformantContact" value="{{$data[0]->Informat_Contact}}" required>
+                <input type="text" id="Informat_Contact" name="Informat_Contact" value="{{$data[0]->Informat_Contact}}" required>
             </div>
             </div>
 
@@ -367,7 +367,7 @@
 
             <div class="form_item">
                 <label>Time Response Terminated</label>
-                <input type="time" id="TimeResponseTerminated" name="TimeResponseTerminated" value="{{$data[0]->TimeTerminated}}" required>
+                <input type="time" id="TimeTerminated" name="TimeTerminated" value="{{$data[0]->TimeTerminated}}" required>
             </div>
             </div>
 
@@ -383,13 +383,13 @@
 
             <div class="form_item">
             <label>Incident Description/ Action Taken</label>
-                <textarea cols="75" rows="5" id="IncidentDescription" name="IncidentDescription"  required>{{$data[0]->Incident_Des}}</textarea>
+                <textarea cols="75" rows="5" id="Incident_Des" name="Incident_Des"  required>{{$data[0]->Incident_Des}}</textarea>
             </div>
             </div>
             <div class="form_wrap fullname">
             <div class="form_item">
             <label>Remark</label>
-                <textarea cols="75" rows="5" id="Remark" name="Remark"></textarea>
+                <textarea cols="75" rows="5" id="Remark" name="Remark" disabled>{{$data[0]->Remark}}</textarea>
             </div>
 
             <!-- <div class="form-input">
@@ -407,7 +407,7 @@
            <div class="form_item">
  
 <button  type="button"class="button" id="btncancel" onclick="history.back()" >Cancel</button>
-<button  type="submit"class="button" id="right" >Submit</button>
+<button  type="submit" class="button" id="right" >Submit</button>
 </div>
 
         </form>

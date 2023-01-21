@@ -30,6 +30,12 @@
     <link href="css/style.css" rel="stylesheet">
     <!-- <link href="css/styles.css" rel="stylesheet"> -->
     <link rel="shortcut icon" href="images/logo12basd21.png"/>
+
+
+     <!-- table-->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" type="text/css">
+ <!-- table-->
 </head>
 <style>
     .new{
@@ -102,6 +108,24 @@ ul li {
 #column1{
     margin-right: 5px;
 }
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+
 </style>
 
 <body id="page-top">
@@ -127,7 +151,7 @@ ul li {
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" >
+                <a class="nav-link collapsed" href="" >
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
@@ -206,44 +230,10 @@ ul li {
                         <i class='bx bx-menu'></i>
                     </button>
 
-
-
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-
                         <div class="topbar-divider d-none d-sm-block"></div>
-
-                        <!-- <h4>Report and Monitoring Information System</h4> -->
-                        <!-- Nav Item - User Information -->
-                        <!-- <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <i class='bx bxs-user-circle'></i>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div>
-                        </li> -->
 
                     </ul>
 
@@ -253,32 +243,43 @@ ul li {
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                    </div> -->
-
                     <!-- Content Row -->
                     <div class="row">
+<style>
+.column {
+  float: left;
+  padding-left: 50px;
+  width: 50%;
+  /* padding: 10px; */
+}
 
+/* Clear floats after the columns */
+.row:after {
+  display: table;
+  clear: both;
+}
+</style>
                         <!--  Employee -->
                         <div class="col-xl-4 col-md-6 mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <a href="dashboard">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                            All Reports</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$allreport}}</div>
-                                        </div>
-                                        <div class="col-auto">
-                                        <!-- <i class=" fas fa-solid fa-users fa-2x text-gray-300"></i> -->
-                                        <i class='bx bxs-folder fa-2x text-gray-300'></i>
+                                        <a href="dashboard">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">All Reports</div>
+                                            <div class="row">
+                                                <div class="column">
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{$allreport}}</div>
+                                                </div>
+                                                <div class="column">
+                                                    <div class="col-auto">
+                                                        <i class='bx bxs-folder fa-2x text-gray-300'></i>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </a>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -289,16 +290,19 @@ ul li {
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
+                                            <div class="col mr-2">
                                             <a href="NewReport">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            New Reports</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$newreport}}</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-file fa-2x text-gray-300"></i>
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">New Reports</div>
+                                                <div class="row">
+                                                    <div class="column">
+                                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$newreport}}</div>
+                                                    </div>
+                                                    <div class="column">
+                                                        <div class="col-auto"><i class="fas fa-file fa-2x text-gray-300"></i></div>
+                                                    </div>
+                                                </div>
                                             </a>
-                                        </div>
+                                            </div>
                                     </div>
                                 </div>
                             </div>
@@ -309,21 +313,22 @@ ul li {
                             <div class="card border-left-dark shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <a href="ReviewedReport">
-                                            <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Reviewed Reports
-                                            </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$reviewedreport}}</div>
+                                       
+                                    <div class="col mr-2">
+                                        <a href="ReviewedReport">
+                                            <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Reviewed Reports</div>
+                                                <div class="row">
+                                                    <div class="column">
+                                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$reviewedreport}}</div>
+                                                    </div>
+                                                    <div class="column">
+                                                        <div class="col-auto"><i class="fas fa-clipboard-list fa-2x text-gray-300"></i></div>
+                                                    </div>
                                                 </div>
-
                                             </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                           </a>
-                                        </div>
+                                        </a>
+                                    </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -352,135 +357,58 @@ ul li {
                 {{ session()->get('message') }}
             </div>
         @endif
-                    <canvas id="myChart" style="width:100%;max-width:825px"></canvas>
+                    <!-- <canvas id="myChart" style="width:100%;max-width:825px"></canvas> -->
+                    <canvas id="myChart" style="width:10px;max-width:1100px"></canvas>
 
                     <div class="wrapper">
     <div class="form_container">
-                        <div class="card-body">
-                                <table id="datatablesSimple" class="TableData">
-                                    <thead>
-                                        <h5>MDRRMO-Reports</h5>
-                                        <br>
-                                        <tr>
-                                        <th>Picture</th>
-                                            <th>Incident Track No.</th>
-                                            <th>Date of Incident</th>
-                                            <!-- <th>Covid Related</th> -->
-                                            <th>Type of Incident</th>
-                                            <!-- <th>Informant/Contact</th>
-                                            <th>Incident Location</th>
-                                            <th>Time Incident Occured</th>
-                                            <th>Time Incident Reported</th>
-                                            <th>Time Response initiated</th>
-                                            <th>Time Response Terminated</th>
-                                            <th>Incident Description</th>
-                                            <th>No. Persons Involved</th>
-                                            <th>Name of Person/s Involved</th>
-                                            <th>Age</th>
-                                            <th>Sex</th>
-                                            <th>Address</th>
-                                            <th>Vehicle Used</th>
-                                            <th>Name of Driver</th>
-                                            <th>Team Responder</th>
-                                            <th>Name of Responders</th>
-                                            <th>Devices Used</th>
-                                            <th>Photos Taken By</th> -->
-                                            <th>Report Prepared by</th>
-                                            <!-- <th>Date Recorded</th>
-                                            <th>Remark by Admin</th>
-                                            <th>Pic</th> -->
-                                            <th>Status</th>
-                                            <th  style="width:350%">Edit/View_Details</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Picture</th>
-                                            <th>Incident Track No.</th>
-                                            <th>Date of Incident</th>
-                                            <!-- <th>Covid Related</th> -->
-                                            <th>Type of Incident</th>
-                                            <!-- <th>Informant/Contact</th>
-                                            <th>Incident Location</th>
-                                            <th>Time Incident Occured</th>
-                                            <th>Time Incident Reported</th>
-                                            <th>Time Response initiated</th>
-                                            <th>Time Response Terminated</th>
-                                            <th>Incident Description</th>
-                                            <th>No. Persons Involved</th>
-                                            <th>Name of Person/s Involved</th>
-                                            <th>Age</th>
-                                            <th>Sex</th>
-                                            <th>Address</th>
-                                            <th>Vehicle Used</th>
-                                            <th>Name of Driver</th>
-                                            <th>Team Responder</th>
-                                            <th>Name of Responders</th>
-                                            <th>Devices Used</th>
-                                            <th>Photos Taken By</th> -->
-                                            <th>Report Prepared by</th>
-                                            <!-- <th>Date Recorded</th>
-                                            <th>Remark by Admin</th>
-                                            <th>Pic</th> -->
-                                            <th>Status</th>
-                                            <th  style="width:350%">Edit/View_Details</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                    @foreach($data as $data)
-                                        <tr> <td>
-                                            <img src="images/{{$data->Picture}}" alt="" width="200px" height="180px">
-                                        </td>
-                                            <td>{{$data->Incident_Track_Num}}</td>
-                                            <td>{{$data->DateOfIncident}}</td>
-                                            <!-- <td>{{$data->Covid}}</td> -->
-                                            <td>{{$data->TypeOfIncident}}</td>
-                                            <!-- <td>{{$data->Informat_Contact}}</td>
-                                            <td>{{$data->IncidentLocation}}</td>
-                                            <td>{{$data->TimeOccured}}</td>
-                                            <td>{{$data->TimeReported}}</td>
-                                            <td>{{$data->TimeResponse}}</td>
-                                            <td>{{$data->TimeTerminated}}</td>
-                                            <td>{{$data->Incident_Des}}</td>
-                                            <td>{{$data->Num_Person_Involve}}</td>
-                                            <td>{{$data->NameOfVictim}}</td>
-                                            <td>{{$data->Age}}</td>
-                                            <td>{{$data->Sex}}</td>
-                                            <td>{{$data->Address}}</td>
-                                            <td>{{$data->Vehicle_Used}}</td>
-                                            <td>{{$data->NameOfDriver}}</td>
-                                            <td>{{$data->ResponderTeam}}</td>
-                                            <td>{{$data->NameOfResponders}}</td>
-                                            <td>{{$data->Devices_Used}}</td>
-                                            <td>{{$data->Photos_By}}</td> -->
-                                            <td>{{$data->ReportedBy}}</td>
-                                            <!-- <td>{{$data->Date_Recorded}}</td>
-                                             <td>{{$data->Remark}}</td>
-                                            <td>{{$data->Picture}}</td>  -->
-                                            <td>{{$data->Status}}</td>
+    <div style="overflow-x:auto;">
 
 
-                                            <td>
-                                                <!-- <button type="button" class="btn btn-primary"><i class='bx bx-edit-alt'></i></button>
-                                                <button type="button" class="btn btn-danger"><i class='bx bx-trash'></i></button> -->
-                                                    <!-- <div class="row">
-                                                        <div class="column" id="column1"> -->
-                                                            <!-- <a href="clickedit/{{$data->Incident_Track_Num}}" class="btn btn-success"><i class="bx bx-edit-alt" title="Edit"></i></a> -->
-                                                            <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#EditReportModal{{$data->id}}"><i class='bx bx-edit-alt'></i></button>
-                                                            @include('modal.EditReport')
-                                                        <!-- </div> -->
-                                                        <!-- <div class="column" id="column1"> -->
-                                                            <!-- <a href="javascript:void(0)" class="btn btn-primary" id="editbtn"><i class='bx bx-info-circle' data-toggle="tooltip" title="View"></i></a> -->
-                                                            <a class="btn btn-secondary" data-toggle="modal" data-target="#ViewReportModal{{$data->id}}"><i class='bx bx-info-circle' data-toggle="tooltip" title="View"></i></a>
-                                                            @include('modal.ViewReport')
-                                                            <!-- </div>
 
-                                                    </div> -->
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+
+    <table id="example" class="display" style="width:100%">
+        <thead>
+            <h5>MDRRMO-Reports</h5>
+            <br>
+            <tr>
+                <th>Picture</th>
+                <th>Incident Track No.</th>
+                <th>Date of Incident</th>
+                <th>Type of Incident</th>
+                <th>Report Prepared by</th>
+                <th>Status</th>
+                <th  style="width:350%">Edit/View_Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($data as $data)
+            <tr> <td>
+                <img src="images/{{$data->Picture}}" alt="" width="200px">
+            </td>
+                <td>{{$data->Incident_Track_Num}}</td>
+                <td>{{$data->DateOfIncident}}</td>
+                <td>{{$data->TypeOfIncident}}</td>
+                <td>{{$data->ReportedBy}}</td>
+                @if($data->Status == "New")
+                    <td style="color:#3778F2">{{$data->Status}}</td>
+                @elseif($data->Status == "Editing")
+                    <td style="color:#E32421">{{$data->Status}}</td>
+                @else
+                    <td style="color:#0FA418">{{$data->Status}}</td>
+                @endif
+                <td>
+                    <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#EditReportModal{{$data->id}}"><i class='bx bx-edit-alt'></i></button>
+                    @include('modal.EditReport')
+                    <a class="btn btn-secondary" data-toggle="modal" data-target="#ViewReportModal{{$data->id}}"><i class='bx bx-info-circle' data-toggle="tooltip" title="View"></i></a>
+                    @include('modal.ViewReport')
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    
+    </table>
+
 
     </section>
 <!-- Modal start -->
@@ -834,27 +762,36 @@ ul li {
 var myChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ["Medical Emergency", "Covid-19", "Dengue", "Civil Disturbance", "Vehicular/Pedestrian Accident",],
+    labels: ["Medical Emergency", "Covid-19", "Dengue", "Civil Disturbance", "Vehicular/Pedestrian Accident",""],
     datasets: [{
       label: 'Number of Occurence',
-      data: [{{$medical}}, {{$covid}}, {{$dengue}}, {{$civil}}, {{$vehicular}}],
-      backgroundColor: "rgb(0, 0, 153)"
+      data: [{{$medical}}, {{$covid}}, {{$dengue}}, {{$civil}}, {{$vehicular}},0],
+      backgroundColor: "rgb(77, 77, 255)"
     }, {
       label: 'Persons Involved',
-      data: [{{$med}}, {{$cov}}, {{$deng}}, {{$civ}}, {{$veh}}],
-      backgroundColor: "rgb(77, 77, 255)"
+      data: [{{$med}}, {{$cov}}, {{$deng}}, {{$civ}}, {{$veh}},0],
+      backgroundColor: "rgb(255, 117, 26)"
     }]
   }
+});
+</script>
+<script>
+    $(document).ready(function () {
+    $('#example').DataTable({
+        pagingType: 'full_numbers',
+    });
 });
 </script>
 
 
 
-
-    <script src="js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>  <!-- gride line table-->
-        <script src="js/datatables-simple-demo.js"></script>
+   
+      
 </body>
+
+<script src="js/scripts.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
 
 </html>

@@ -24,6 +24,11 @@
 
     <!-- Custom fonts for this template-->
 
+ <!-- table-->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" type="text/css">
+ <!-- table-->
+
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
     <link href="{{('css/styles.css') }}" rel="stylesheet" type="text/css" >
@@ -45,6 +50,22 @@
     #boxcolor3{
         background-color:  #ff6666;
     }
+
+    table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
 </style>
 
 <body id="page-top">
@@ -142,155 +163,105 @@
 
                 </nav>
 
-                <div class="container-fluid">
 
-<!-- Page Heading
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-</div> -->
+                <div id="content">
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
 
-<!-- Content Row -->
-<!-- <div class="row"> -->
-    <!--  Employee -->
-    <!-- <div class="col-xl-4 col-md-6 mb-4" >
-        <div class="card left-primary shadow h-100 py-2" id="boxcolor1">
-            <div class="card-body" >
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <a href="Adduser">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                        All Employee</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$num}}</div>
-                    </div>
-                    <div class="col-auto">
-                    <i class=" fas fa-users fa-2x text-gray-300"></i>
-                    </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>    -->
+        <!-- Content Row -->
+        <div class="row">
+<style>
+.column {
+float: left;
+padding-left: 50px;
+width: 50%;
+/* padding: 10px; */
+}
 
-    <!-- Active Employee -->
-    <!-- <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card  shadow h-100 py-2" id="boxcolor2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <a href="ActiveEmployee">
-                        <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
-                        Active Employee</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$active}}</div>
-                    </div>
-                    <div class="col-auto">
-                    <i class=" fas fa-user-friends fa-2x text-gray-300"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-     <!-- Inactive Employee -->
-    <!-- <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card  shadow h-100 py-2"  id="boxcolor3">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <a href="InactiveEmployee">
-                        <div class="text-xs font-weight-bold text-white text-uppercase mb-1">Inactive Employee
-                        </div>
+/* Clear floats after the columns */
+.row:after {
+display: table;
+clear: both;
+}
+</style>
+            <!--  Employee -->
+            <div class="col-xl-4 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
                         <div class="row no-gutters align-items-center">
-                            <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$inactive}}</div>
+                            <div class="col mr-2">
+                            <a href="Adduser">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1"> All Employee</div>
+                                <div class="row">
+                                    <div class="column">
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$num}}</div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="col-auto">
+                                        <i class=" fas fa-users fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
                             </div>
 
                         </div>
                     </div>
-                    <div class="col-auto">
-                    <i class=" fas fa-user fa-2x text-gray-300"></i>
-                       </a>
+                </div>
+            </div>
+
+            <!-- New Reports -->
+            <div class="col-xl-4 col-md-6 mb-4">
+                <div class="card border-left-warning shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                <a href="ActiveEmployee">
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Active Employee</div>
+                                    <div class="row">
+                                        <div class="column">
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$active}}</div>
+                                        </div>
+                                        <div class="column">
+                                            <div class="col-auto"> <i class=" fas fa-user-friends fa-2x text-gray-300"></i></div>
+                                        </div>
+                                    </div>
+                                </a>
+                                </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-</div> -->
-
- <!-- Content Row -->
- <div class="row">
-
-<!--  Employee -->
-<div class="col-xl-4 col-md-6 mb-4">
-    <div class="card border-left-success shadow h-100 py-2">
-        <div class="card-body">
-            <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                    <a href="Adduser">
-                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                    All Employee</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{$num}}</div>
-                </div>
-                <div class="col-auto">
-                <!-- <i class=" fas fa-solid fa-users fa-2x text-gray-300"></i> -->
-                <i class=" fas fa-users fa-2x text-gray-300"></i>
-                </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Active Employee -->
-<div class="col-xl-4 col-md-6 mb-4">
-    <div class="card border-left-warning shadow h-100 py-2">
-        <div class="card-body">
-            <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                    <a href="ActiveEmployee">
-                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                    Active Employee</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{$active}}</div>
-                </div>
-                <div class="col-auto">
-                <i class=" fas fa-user-friends fa-2x text-gray-300"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Inactive Employee -->
-<div class="col-xl-4 col-md-6 mb-4">
-    <div class="card border-left-danger shadow h-100 py-2">
-        <div class="card-body">
-            <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                    <a href="InactiveEmployee">
-                    <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Inactive Employee
-                    </div>
-                    <div class="row no-gutters align-items-center">
-                        <div class="col-auto">
-                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$inactive}}</div>
+            <!-- Reviewed Reports -->
+            <div class="col-xl-4 col-md-6 mb-4">
+                <div class="card border-left-danger shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                           
+                        <div class="col mr-2">
+                            <a href="InactiveEmployee">
+                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Inactive Employee</div>
+                                    <div class="row">
+                                        <div class="column">
+                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$inactive}}</div>
+                                        </div>
+                                        <div class="column">
+                                            <div class="col-auto">  <i class=" fas fa-user fa-2x text-gray-300"></i></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
 
+                        </div>
                     </div>
                 </div>
-                <div class="col-auto">
-                <i class=" fas fa-user fa-2x text-gray-300"></i>
-                   </a>
-                </div>
             </div>
+
         </div>
-    </div>
-</div>
 
-</div>
-
+               
 <div  class="d-none d-sm-inline-block  shadow-sm" style="float: right;"  id="button-modal">
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fas fa-download fa-sm text-white-50"></i> Add Employee</button>
 </div>
@@ -304,8 +275,10 @@
         @endif
 <div class="wrapper">
 <div class="form_container">
-    <div class="card-body">
-            <table id="datatablesSimple">
+<div style="overflow-x:auto;">
+
+<table id="example" class="display"  width="100%">
+
                 <thead>
                     <h5>MDRRMO-Employee</h5>
                     <br>
@@ -318,16 +291,7 @@
                         <th>Edit_Details</th>
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                        <th>Name</th>
-                        <th>Address</th>
-                        <th>Contact No.</th>
-                        <th>User Name</th>
-                        <th>Status</th>
-                        <th>Edit_Details</th>
-                    </tr>
-                </tfoot>
+              
                 <tbody>
                 @foreach($data as $data)
                     <tr>
@@ -394,22 +358,31 @@
   </div>
 </div>
 <!-- Large modal -->
+
+
+
+      
+</body>
+<!-- table -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+<!-- table -->
+
 <script>
-function myFunction() {
-  var x = document.getElementById("password");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
-}
+  //table script pagination
+$(document).ready(function () {
+    $('#example').DataTable({
+        pagingType: 'full_numbers',
+    });
+});
 </script>
 
-
-  <script src="js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>  <!-- gride line table-->
-        <script src="js/datatables-simple-demo.js"></script>
-</body>
-
+<!-- <script>
+    $(document).ready(function(){
+    $('#checkbox').on('change', function(){
+        $('#password').attr('type',$('#checkbox').prop('checked')==true?"text":"password"); 
+    });
+    });
+</script> -->
 </html>

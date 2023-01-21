@@ -45,25 +45,15 @@ Route::middleware('auth','isAdmin')->group(function () {
     Route::get('/Employee', function () {
         return view('Employee');
     });
-    
     Route::get('ActiveEmployee',[UserController::class ,'active_show']);
     Route::get('InactiveEmployee',[UserController::class ,'inactive_show']);
-
     Route::get('NewReport',[ReportController::class ,'NewReport_show']);
     Route::get('ReviewedReport',[ReportController::class ,'ReviewedReport_show']);
-
 
     Route::get('/Report', function () {
         return view('Report');
     });
 
-    Route::get('/EditReport', function () {
-        return view('EditReport');
-    });
-    Route::get('clickedit/{id}',[ReportController::class ,'edit_function']);
-    // Route::post('report_pass',[ReportController::class ,'store']);
-    
-   
     //Export Controller
     Route::get('Export',[ExportController::class ,'report_show']);
     Route::get('/search/', [ExportController::class ,'search'])->name('search');
@@ -72,12 +62,11 @@ Route::middleware('auth','isAdmin')->group(function () {
 
     //User Controller
     Route::post('EditEmployee/{id}',[UserController::class ,'edit_employee'])->name('EditEmployee');
+   
 });
-//  Route::get('/dashboard', function () {
-//      return view('dashboard');
-//  })->middleware(['auth','isAdmin'])->name('dashboard');
-
-//   Route::middleware(['auth'])->group(function(){
+Route::get('/sample', function () {
+    return view('sample');
+});
      
     Route::middleware('auth')->group(function () {
         Route::get('UserDash',[DataView::class ,'user_view']);
@@ -85,20 +74,23 @@ Route::middleware('auth','isAdmin')->group(function () {
          Route::get('/addreport', function () {
             return view('addreport');
         });
-
-        // Route::get('/Export', function () {
-        //     return view('Export');
-        // });
-      
-
+        
         Route::get('/EditReport', function () {
             return view('EditReport');
         });
         Route::post('report_pass',[ReportController::class ,'store']);
+        
+        // Route::get('/EditReport', function () {
+        //     return view('EditReport');
+        // });
+     Route::get('clickedit/{id}',[ReportController::class ,'edit_function']);
+       
     });
+    Route::post('report_edit/{id}',[ReportController::class ,'update_report_employee'])->name('report_edit');
 //  });
-Route::get('ViewReport/{id}',[ReportController::class ,'View_Report_Details']);
-Route::get('EditReport/{id}',[ReportController::class ,'Edit_Report_Details']);
+// Route::get('ViewReport/{id}',[ReportController::class ,'View_Report_Details']);
+// Route::get('EditReport/{id}',[ReportController::class ,'Edit_Report_Details']);
 
 Route::post('UpdateReport/{id}',[ReportController::class ,'update_report'])->name('UpdateReport');
+
 require __DIR__.'/auth.php';

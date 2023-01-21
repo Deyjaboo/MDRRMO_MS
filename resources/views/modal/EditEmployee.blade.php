@@ -63,20 +63,22 @@
             $string = $data->confirm_pass;
             $password = substr($string, 3);
             ?>
+
+
+
             <div class="form_item">
                 <b><label>Password<span class="text-danger"></span></label></b>
-
+               
                 <!-- <input type="password"  name="password" id="password" class="form-control" placeholder="password" value="{{$password}}" required> -->
                 <input  class="form-control" type="password" name="password" value="{{$password}}" id="password" required>
                 <br>
-                <label><input type="checkbox" onclick="myFunction()"> Show Password<span class="text-danger"></span></label>
-            </div>
+                <!-- <label><input type="checkbox" id="checkbox" onclick="checkFluency()"> Show Password<span class="text-danger"></span></label> -->
+              </div>
         </div>
 
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-primary">Edit</button>
-        <!-- <a class="btn btn-primary" href="export_data" onclick="myFunction()">Export</a> -->
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
         </form>
     </div>
@@ -87,12 +89,30 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>  <!-- gride line table-->
         <script src="js/datatables-simple-demo.js"></script>
-
-
-
-
 <script>
+    
     function myFunction() {
         $('#exportconfirm').modal('hide');
     }
+
+    function checkFluency()
+    {
+      var checkbox = document.getElementById('checkbox');
+      if (checkbox.checked != true)
+      {
+        var element = document.getElementById("verify1");
+        element.style.display = "none";
+
+        var element = document.getElementById("verify2");
+        element.style.display = "block";
+      }else{
+        var element = document.getElementById("verify1");
+        element.style.display = "block";
+
+        var element = document.getElementById("verify2");
+        element.style.display = "none";
+      }
+    }
+  
+
 </script>

@@ -64,31 +64,31 @@
                     <select id="TypeOfIncident" name="TypeOfIncident" class="form-control" required>
                         @if($data->TypeOfIncident == 'Medical Emergency')
                         <option value ="Medical Emergency" selected>Medical Emergency</option>
-                        <option value ="Covid">Covid-19</option>
+                        <option value ="Covid-19">Covid-19</option>
                         <option value ="Dengue">Dengue</option>
                         <option value ="Civil Disturbance">Civil Disturbance</option>
                         <option value ="Vehicular/Pedestrian Accident">Vehicular/Pedestrian Accident</option>
                         @elseif($data->TypeOfIncident == 'Covid-19')
                         <option value ="Medical Emergency" >Medical Emergency</option>
-                        <option value ="Covid" selected>Covid-19</option>
+                        <option value ="Covid-19" selected>Covid-19</option>
                         <option value ="Dengue">Dengue</option>
                         <option value ="Civil Disturbance">Civil Disturbance</option>
                         <option value ="Vehicular/Pedestrian Accident">Vehicular/Pedestrian Accident</option>
                         @elseif($data->TypeOfIncident == 'Dengue')
                         <option value ="Medical Emergency" >Medical Emergency</option>
-                        <option value ="Covid" >Covid-19</option>
+                        <option value ="Covid-19" >Covid-19</option>
                         <option value ="Dengue" selected>Dengue</option>
                         <option value ="Civil Disturbance">Civil Disturbance</option>
                         <option value ="Vehicular/Pedestrian Accident">Vehicular/Pedestrian Accident</option>
                         @elseif($data->TypeOfIncident == 'Civil Disturbance')
                         <option value ="Medical Emergency" >Medical Emergency</option>
-                        <option value ="Covid">Covid-19</option>
+                        <option value ="Covid-19">Covid-19</option>
                         <option value ="Dengue">Dengue</option>
                         <option value ="Civil Disturbance" selected>Civil Disturbance</option>
                         <option value ="Vehicular/Pedestrian Accident">Vehicular/Pedestrian Accident</option>
                         @else
                         <option value ="Medical Emergency">Medical Emergency</option>
-                        <option value ="Covid">Covid-19</option>
+                        <option value ="Covid-19">Covid-19</option>
                         <option value ="Dengue">Dengue</option>
                         <option value ="Civil Disturbance">Civil Disturbance</option>
                         <option value ="Vehicular/Pedestrian Accident" selected>Vehicular/Pedestrian Accident</option>
@@ -244,33 +244,33 @@
                 <!-- <p name="DateRecorded" id="DateRecorded">{{$data->Date_Recorded}}</p> -->
                 <input type="date"  name="Date_Recorded" id="Date_Recorded" class="form-control" placeholder="Date Recorded" value="{{$data->Date_Recorded}}" required>
                 </div>
-
+            
                 <div class="form_item">
                 <label>Status<span class="text-danger"></span></label>
                 <select id="Status" name="Status" class="form-control" required>
                     @if($data->Status == 'New')
                     <option value="New" selected>New</option>
+                    <option value ="Editing">Editing</option>
+                    <option value ="Reviewed">Reviewed</option>
+                    @elseif($data->Status == 'Editing')
+                    <option value="New">New</option>
+                    <option value ="Editing" selected>Editing</option>
                     <option value ="Reviewed">Reviewed</option>
                     @else
-                    <option value="New">New</option>
+                    <<option value="New" >New</option>
+                    <option value ="Editing">Editing</option>
                     <option value ="Reviewed" selected>Reviewed</option>
                     @endif
                 </select>
                 </div>
                 </div>
                 <div class="form_wrap fullname">
-                @if(Auth::user()->role == "admin")
+             
                 <div class="form_item">
                 <b> <label>Remark<span class="text-danger"></span></label></b>
                 <textarea class="form-control"  name="Remark" id="Remark" cols="10" rows="5">{{$data->Remark}}</textarea>
                 </div>
-
-                @else
-                <div class="form_item">
-                <b> <label>Remark<span class="text-danger"></span></label></b>
-                <textarea class="form-control"  name="Remark" id="Remark" cols="10" rows="5" disabled>{{$data->Remark}}</textarea>
-                </div>
-                @endif
+           
                 </div>
 
                 <!-- <div class="form_wrap fullname">

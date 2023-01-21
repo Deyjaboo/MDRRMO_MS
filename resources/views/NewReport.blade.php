@@ -22,7 +22,10 @@
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
  <!-- Modal-->
     <!-- Custom fonts for this template-->
-
+ <!-- table-->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" type="text/css">
+ <!-- table-->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
    
     <link href="{{('css/styles.css') }}" rel="stylesheet" type="text/css" >
@@ -99,7 +102,21 @@ ul li {
     margin-left: 5px;
 }
 }
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
 
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
 </style>
 
 <body id="page-top">
@@ -245,95 +262,105 @@ ul li {
                     </ul>
 
                 </nav>
-                <!-- End of Topbar -->
+                <div id="content-wrapper" class="d-flex flex-column">
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
+<!-- Main Content -->
+<div id="content">
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
 
-                    <!-- Page Heading
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                    </div> -->
+        <!-- Content Row -->
+        <div class="row">
+<style>
+.column {
+float: left;
+padding-left: 50px;
+width: 50%;
+/* padding: 10px; */
+}
 
-          
-                    <!-- Content Row -->
-                    <div class="row">
-
-                        <!--  Employee -->
-                        <div class="col-xl-4 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <a href="dashboard">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                            All Reports</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$allreport}}</div>
-                                        </div>
+/* Clear floats after the columns */
+.row:after {
+display: table;
+clear: both;
+}
+</style>
+            <!--  Employee -->
+            <div class="col-xl-4 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                            <a href="dashboard">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">All Reports</div>
+                                <div class="row">
+                                    <div class="column">
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$allreport}}</div>
+                                    </div>
+                                    <div class="column">
                                         <div class="col-auto">
-                                        <!-- <i class=" fas fa-solid fa-users fa-2x text-gray-300"></i> -->
-                                        <i class='bx bxs-folder fa-2x text-gray-300'></i>
-                                        </a>
+                                            <i class='bx bxs-folder fa-2x text-gray-300'></i>
                                         </div>
                                     </div>
                                 </div>
+                            </a>
                             </div>
-                        </div>
 
-                        <!-- New Reports -->
-                        <div class="col-xl-4 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <a href="NewReport">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            New Reports</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Reports -->
+            <div class="col-xl-4 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                <a href="NewReport">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">New Reports</div>
+                                    <div class="row">
+                                        <div class="column">
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{$newreport}}</div>
                                         </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-file fa-2x text-gray-300"></i>
-                                            </a>
+                                        <div class="column">
+                                            <div class="col-auto"><i class="fas fa-file fa-2x text-gray-300"></i></div>
                                         </div>
                                     </div>
+                                </a>
                                 </div>
-                            </div>
                         </div>
-
-                        <!-- Reviewed Reports -->
-                        <div class="col-xl-4 col-md-6 mb-4">
-                            <div class="card border-left-dark shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <a href="ReviewedReport">
-                                            <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Reviewed Reports
-                                            </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$reviewedreport}}</div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                           </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
-                    <!-- <div  class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="float: right;"  id="button-modal"> 
-                          <i class="fas fa-download fa-sm text-white-50"></i> Add Employee
-                    </div> -->
+                </div>
+            </div>
 
-        
-                    
+            <!-- Reviewed Reports -->
+            <div class="col-xl-4 col-md-6 mb-4">
+                <div class="card border-left-dark shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                           
+                        <div class="col mr-2">
+                            <a href="ReviewedReport">
+                                <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Reviewed Reports</div>
+                                    <div class="row">
+                                        <div class="column">
+                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$reviewedreport}}</div>
+                                        </div>
+                                        <div class="column">
+                                            <div class="col-auto"><i class="fas fa-clipboard-list fa-2x text-gray-300"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
                     <h2>MDRRMO - New Report</h2>
 
                     <div class="wrapper">
@@ -353,8 +380,9 @@ ul li {
                 {{ session()->get('message') }}
             </div>
         @endif
-        <div class="card-body">
-        <table id="datatablesSimple">
+        <div style="overflow-x:auto;">
+        <table id="example" class="display"  width="100%">
+
                                     <thead>
                                         <center><h5>MDRRMO-Reports</h5></center>
                                  
@@ -368,17 +396,7 @@ ul li {
                                             <th  style="width:350%">Edit/View_Details</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Picture</th>
-                                            <th>Incident Track No.</th>
-                                            <th>Date of Incident</th>
-                                            <th>Type of Incident</th>
-                                            <th>Report Prepared by</th>
-                                            <th>Status</th>
-                                            <th  style="width:350%">Edit/View_Details</th>
-                                        </tr>
-                                    </tfoot>
+                                   
                                     <tbody>
                                     @foreach($data as $data)
                                         <tr> <td>
@@ -435,10 +453,18 @@ ul li {
 
 
 
-    <script src="js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>  <!-- gride line table-->
-        <script src="js/datatables-simple-demo.js"></script>
+   <!-- table -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+<!-- table -->
 </body>
-
+<script>
+  //table script pagination
+$(document).ready(function () {
+    $('#example').DataTable({
+        pagingType: 'full_numbers',
+    });
+});
+</script>
 </html>

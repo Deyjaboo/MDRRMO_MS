@@ -53,7 +53,7 @@
   margin-bottom: 5px;
 }
 
-.form_item input[type="text"],input[type="date"],input[type="time"],
+.form_item input[type="text"],input[type="date"],input[type="time"],input[type="number"],
 .form_item select{
   width: 100%;
   padding: 10px;
@@ -69,30 +69,32 @@
     width: 90%;
     padding-left:20px
 }
-.btn button[type="submit"]{
-  background: #1598d4;
-  border: 1px solid #1598d4;
-  padding: 10px;
-  max-width: 100%;
-  width:500px ;
-  font-size: 16px;
-  letter-spacing: 1px;
-  border-radius: 3px;
-  cursor: pointer;
-  color: #fff;
-}
+
 
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
 
-  .btn button[type="submit"]{
-    width: 500px;
+
+.form-input label {
+  display:block;
+  width:45%;
+  height:45px;
+  margin-left: 25%;
+  line-height:50px;
+  text-align:center;
+  background:#1172c2;
+  color:#fff;
+  font-size:12px;
+  max-width: 100%;  
+  border-radius:5px;
+  cursor:pointer;
 }
+
 }
 
 
 .form-input {
-  width:350px;
+  width:100%;
   padding:20px;
   background:#fff;
   box-shadow: -3px -3px 6px rgba(94, 100, 121, 0.200),
@@ -126,22 +128,26 @@
 
   margin-bottom:30px;
 }
-
-.button {
+.button{
   background-color: #1172c2; 
   border: none;
   color: white;
-  padding: 10px 35px;
+  padding: 10px;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+/* .button {
+  background-color: #1172c2; 
+  border: none;
+  color: white;
+  padding: 10px 30px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 16px;
   border-radius: 3px;
-  margin-top: 10px;
   font-family:"Open Sans",sans-serif;
- 
-  
-}
+} */
 
 #right {
         float: right;
@@ -154,6 +160,38 @@
    
 
  }
+
+ .column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+
+  
+}
+.textarea{
+    width: 100%;
+  
+  }
+
+  label{
+ 
+    font-weight: 600;
+  }
 </style>
 <body style="background-color: #e6e6ff;">
 <div class="wrapper">
@@ -163,23 +201,6 @@
 
         <form name="form" action="report_pass" method="post" enctype="multipart/form-data">
        {{ csrf_field() }}
-
-
-
-    <div class="form_wrap fullname">
-
-    <div class="form_item">
-        <label>Date of Incident</label>
-        <input type="date" id="DateIncident" name="DateIncident" required> 
-    </div>
-
-    <!-- <div class="form_item">
-        <label>Incident Tracking Number</label>
-        <input type="text" id="IncidentTrackNum" name="IncidentTrackNum" required>
-    </div> -->
-
-
-    </div>
 
             <div class="form_wrap fullname">
 
@@ -202,7 +223,7 @@
 
     <div class="form_item">
         <label>Age</label>
-        <input type="text" id="Age" name="Age" required> 
+        <input type="number" id="Age" name="Age" required> 
     </div>
 
 
@@ -229,7 +250,7 @@
 
     <div class="form_item">
         <label>Persons Involved</label>
-        <input type="text" id="PersonInvolved" name="PersonInvolved" required>
+        <input type="number" id="PersonInvolved" name="PersonInvolved" required>
     </div>
 
     </div>
@@ -273,11 +294,18 @@
         </div>
         </div>
 
+        <div class="form_wrap">
+        <div class="form_item">
+            <label>Photo Taken By:</label>
+            <input type="text" id="PhotoBy" name="PhotoBy" required>
+        </div>
+        </div>
+
         <div class="form_wrap fullname">
 
         <div class="form_item">
-            <label>Photo Taken By:</label>
-            <input type="text" id="PhotoBy" name="PhotoBy" required> 
+        <label>Date of Incident</label>
+        <input type="date" id="DateIncident" name="DateIncident" required> 
         </div>
 
         <div class="form_item">
@@ -306,7 +334,7 @@
 
             <div class="form_item">
             <label>Informant Contact Details</label>
-                <input type="text" id="InformantContact" name="InformantContact" required>
+                <input type="number" id="InformantContact" name="InformantContact" required>
             </div>
 
             <div class="form_item">
@@ -353,7 +381,7 @@
             </div>
             </div> -->
 
-            <div class="form_wrap fullname">
+            <!-- <div class="form_wrap fullname">
 
             <div class="form_item">
             <label>Incident Description/ Action Taken</label>
@@ -368,10 +396,32 @@
     <input type="file" name="picture" id="file-ip-1" accept="image/png, image/gif, image/jpeg" onchange="showPreview(event);" required >
     
            </div>
+            </div> -->
+
+            <div class="row">
+  <div class="column">
+  <div class="form_item">
+            <label>Incident Description/ Action Taken</label>
+              <textarea cols="30" rows="10" id="IncidentDescription" name="IncidentDescription" required></textarea>
             </div>
+  </div>
+  <div class="column" >
+  
+  <div class="form-input">
+    
+    <div class="preview">
+     <center><img id="file-ip-1-preview"></center> 
+    </div>
+    <label for="file-ip-1">Upload Image</label>
+    <input type="file" name="picture" id="file-ip-1" accept="image/png, image/gif, image/jpeg" onchange="showPreview(event);" required >
+    
+           </div>
+  </div>
+</div>
+
 
            <br>
-
+            <br>
            <div class="form_item">
            <div  id="right">
            <button type="submit" class="button">Submit</button>
