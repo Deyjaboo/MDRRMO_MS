@@ -402,7 +402,7 @@
   <div class="column">
   <div class="form_item">
             <label>Incident Description/ Action Taken</label>
-              <textarea cols="30" rows="10" id="IncidentDescription" name="IncidentDescription" required></textarea>
+              <textarea cols="40" rows="10" id="IncidentDescription" name="IncidentDescription" required></textarea>
             </div>
   </div>
   <div class="column" >
